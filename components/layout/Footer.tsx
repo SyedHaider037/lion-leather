@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { NewsletterForm } from "@/components/layout/NewsletterForm";
 import { Container } from "@/components/ui/Container";
 
 const WHATSAPP_URL = "https://wa.me/923000000000";
@@ -107,30 +108,7 @@ export function Footer() {
           ))}
         </div>
 
-        <form className="mt-16 max-w-md" aria-label="Newsletter">
-          <label
-            htmlFor="newsletter-email"
-            className="text-eyebrow uppercase text-cream/60"
-          >
-            Newsletter
-          </label>
-          <div className="mt-4 flex items-center gap-4 border-b border-cream/30 transition-colors duration-500 ease-luxe focus-within:border-gold">
-            <input
-              id="newsletter-email"
-              type="email"
-              name="email"
-              placeholder="Your email address"
-              autoComplete="email"
-              className="w-full bg-transparent py-3 text-body font-light text-cream placeholder:text-cream/50 focus:outline-none"
-            />
-            <button
-              type="submit"
-              className="shrink-0 text-eyebrow uppercase text-cream transition-colors duration-500 ease-luxe hover:text-tan"
-            >
-              Subscribe
-            </button>
-          </div>
-        </form>
+        <NewsletterForm />
 
         <div className="mt-16">
           <p className="text-caption font-light text-cream/60">

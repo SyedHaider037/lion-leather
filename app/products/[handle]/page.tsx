@@ -89,6 +89,8 @@ function ProductNotFound() {
 const CARE_COPY =
   "Wipe gently with a soft, dry cloth after wearing. Condition the leather every few months, keep away from direct heat, and store with cedar trees or in the dust bag provided. Leather deepens in character with time — let it.";
 
+const WHATSAPP_URL = "https://wa.me/923000000000";
+
 export default async function ProductPage({
   params,
 }: {
@@ -279,12 +281,20 @@ export default async function ProductPage({
             </SubmitButton>
           </form>
 
-          <p className="mt-6 text-center text-caption font-light text-stone">
-            For weddings, the office, and every occasion in between.
-          </p>
-          <p className="mt-2 text-center text-caption text-stone">
-            Secure &amp; Seamless Checkout
-          </p>
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-caption font-light text-stone">
+            <span>Ships from Lahore, Pakistan</span>
+            <span aria-hidden className="text-gold/50">·</span>
+            <span>Secure checkout via Shopify</span>
+            <span aria-hidden className="text-gold/50">·</span>
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="transition-colors duration-500 ease-luxe hover:text-tan"
+            >
+              Questions? WhatsApp us
+            </a>
+          </div>
 
           {/* Details / care accordion */}
           <div className="mt-14 border-t border-gold/30">
