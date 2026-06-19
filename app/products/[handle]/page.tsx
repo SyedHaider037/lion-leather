@@ -1,5 +1,7 @@
+import Link from "next/link";
 import { redirect } from "next/navigation";
 
+import { MobileAddToCartBar } from "@/components/product/MobileAddToCartBar";
 import { ProductGallery } from "@/components/product/ProductGallery";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Heading } from "@/components/ui/Heading";
@@ -228,7 +230,7 @@ export default async function ProductPage({
             </ul>
           ) : null}
 
-          <form action={addToCart} className="mt-12">
+          <form action={addToCart} id="pdp-add-form" className="mt-12">
             {hasVariantChoices ? (
               <fieldset className="mb-10">
                 <legend className="text-eyebrow uppercase text-ink">
@@ -258,10 +260,18 @@ export default async function ProductPage({
                     </label>
                   ))}
                 </div>
+
+                <Link
+                  href="/sizing-guide"
+                  className="mt-5 inline-block text-eyebrow uppercase text-stone transition-colors duration-500 ease-luxe hover:text-tan"
+                >
+                  Size Guide →
+                </Link>
               </fieldset>
             ) : null}
 
             <SubmitButton
+              id="pdp-add-button"
               className="w-full justify-center"
               pendingText="Adding…"
             >
@@ -312,6 +322,12 @@ export default async function ProductPage({
           </div>
         </div>
       </div>
+
+      <MobileAddToCartBar
+        productName={product.title}
+        formId="pdp-add-form"
+        anchorId="pdp-add-button"
+      />
     </Section>
   );
 }
