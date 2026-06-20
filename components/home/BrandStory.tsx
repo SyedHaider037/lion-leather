@@ -24,7 +24,7 @@ export function BrandStory({ image }: { image: HeroImage }) {
 
           <div className="max-w-xl">
             <p className="text-eyebrow uppercase text-cream/60">The House</p>
-            <p className="mt-8 font-serif text-title font-light text-cream">
+            <p className="mt-8 font-serif text-title font-medium text-cream">
               Leather that outlasts its occasions.
             </p>
             <div className="mt-8 space-y-6 text-body font-light text-cream/70">

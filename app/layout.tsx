@@ -1,14 +1,17 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Inter } from "next/font/google";
+import { Fraunces, Inter } from "next/font/google";
 
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 
 import "./globals.css";
 
-const display = Cormorant_Garamond({
+// Variable font: keep the optical-size axis so large display text engages a
+// higher optical size (via font-optical-sizing: auto). Weight stays variable
+// (450–500 applied at the component level).
+const display = Fraunces({
   subsets: ["latin"],
-  weight: ["300", "400", "500"],
+  axes: ["opsz"],
   style: ["normal", "italic"],
   variable: "--font-display",
   display: "swap",

@@ -13,7 +13,7 @@ export function Heading({
   tone?: Tone;
   className?: string;
 }) {
-  const base = "font-serif font-light";
+  const base = "font-serif font-medium";
   const toneClass =
     tone === "display"
       ? "text-display"

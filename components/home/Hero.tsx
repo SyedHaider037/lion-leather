@@ -21,7 +21,7 @@ export function Hero({ image }: { image: HeroImage }) {
               Lion Leather
             </Eyebrow>
 
-            <h1 className="mt-10 font-serif text-display font-light leading-[1.04] text-ink lg:mt-12 lg:text-[clamp(5rem,8vw,9rem)]">
+            <h1 className="mt-10 font-serif text-display font-medium leading-[1.04] text-ink lg:mt-12 lg:text-[clamp(5rem,8vw,9rem)]">
               <span className="block overflow-hidden">
                 <span className="block animate-hero-line [animation-delay:150ms] motion-reduce:animate-none">
                   Crafted for

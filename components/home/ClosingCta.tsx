@@ -8,7 +8,7 @@ export function ClosingCta() {
     <Section tone="ink" className="pb-24 lg:pb-40">
       <Reveal className="mx-auto max-w-lg text-center">
         <Divider />
-        <p className="mt-10 font-serif text-title font-light text-cream">
+        <p className="mt-10 font-serif text-title font-medium text-cream">
           Begin with a single pair.
         </p>
         <div className="mt-10">
