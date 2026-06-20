@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/Button";
 const WHATSAPP_URL = "https://wa.me/923000000000";
 
 const inputClass =
-  "w-full border-b border-ink/30 bg-transparent py-3 text-body font-light text-ink placeholder:text-stone/60 transition-colors duration-500 ease-luxe focus:border-tan focus:outline-none";
+  "w-full border border-cream/15 bg-surface px-4 py-3 text-body font-light text-cream placeholder:text-stone transition-colors duration-500 ease-luxe focus:border-camel focus:outline-none";
 
 const whatsappLinkClass =
   "text-ink underline decoration-gold/50 underline-offset-4 transition-colors duration-500 ease-luxe hover:text-tan";

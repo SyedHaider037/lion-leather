@@ -2,12 +2,13 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import {
   cartRemoveLineAction,
   cartUpdateLineAction,
 } from "@/lib/cart/actions";
+import { useFocusTrap } from "@/lib/hooks/useFocusTrap";
 import type { Cart } from "@/lib/shopify/queries/cart";
 import { cn } from "@/lib/utils/cn";
 import { formatMoney } from "@/lib/utils/money";
@@ -17,6 +18,9 @@ export function CartDrawer() {
   const [cart, setCart] = useState<Cart | null>(null);
   const [loading, setLoading] = useState(false);
   const [busy, setBusy] = useState(false);
+  const panelRef = useRef<HTMLDivElement>(null);
+
+  useFocusTrap(open, panelRef, () => setOpen(false));
 
   const refresh = useCallback(async () => {
     setLoading(true);
@@ -53,15 +57,6 @@ export function CartDrawer() {
     };
   }, [open]);
 
-  useEffect(() => {
-    if (!open) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpen(false);
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [open]);
-
   async function mutate(fn: () => Promise<Cart | null>) {
     setBusy(true);
     try {
@@ -92,6 +87,7 @@ export function CartDrawer() {
 
       {/* Panel */}
       <aside
+        ref={panelRef}
         role="dialog"
         aria-modal="true"
         aria-label="Your selection"

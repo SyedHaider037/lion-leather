@@ -25,7 +25,7 @@ export function NewsletterForm() {
       >
         Newsletter
       </label>
-      <div className="mt-4 flex items-center gap-4 border-b border-cream/30 transition-colors duration-500 ease-luxe focus-within:border-gold">
+      <div className="mt-4 flex items-center gap-4 border-b border-cream/30 transition-colors duration-500 ease-luxe focus-within:border-camel">
         <input
           id="newsletter-email"
           type="email"

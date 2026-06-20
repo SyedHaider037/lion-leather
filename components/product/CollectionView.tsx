@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 import { ProductGrid } from "@/components/product/ProductGrid";
+import { useFocusTrap } from "@/lib/hooks/useFocusTrap";
 import { cn } from "@/lib/utils/cn";
 import type { FilterableProduct } from "@/lib/shopify/queries/collections";
 
@@ -77,6 +78,9 @@ export function CollectionView({ products }: { products: FilterableProduct[] }) 
   const [price, setPrice] = useState<Set<string>>(new Set());
   const [sort, setSort] = useState<SortKey>("featured");
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const drawerRef = useRef<HTMLDivElement>(null);
+
+  useFocusTrap(drawerOpen, drawerRef, () => setDrawerOpen(false));
 
   const categories = useMemo(
     () => uniqueSorted(products.map((p) => p.productType)),
@@ -140,15 +144,6 @@ export function CollectionView({ products }: { products: FilterableProduct[] }) 
     return () => {
       document.body.style.overflow = "";
     };
-  }, [drawerOpen]);
-
-  useEffect(() => {
-    if (!drawerOpen) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setDrawerOpen(false);
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
   }, [drawerOpen]);
 
   const facets = (
@@ -275,6 +270,7 @@ export function CollectionView({ products }: { products: FilterableProduct[] }) 
           )}
         />
         <div
+          ref={drawerRef}
           role="dialog"
           aria-modal="true"
           aria-label="Filter"
