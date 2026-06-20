@@ -283,7 +283,7 @@ export function Header() {
             >
               Search
             </label>
-            <div className="mt-6 flex items-center gap-6 border-b border-ink/30 transition-colors duration-500 ease-luxe focus-within:border-tan">
+            <div className="mt-6 flex items-center gap-6 border-b border-camel/40 transition-colors duration-500 ease-luxe focus-within:border-camel">
               <input
                 id="header-search"
                 ref={searchInputRef}

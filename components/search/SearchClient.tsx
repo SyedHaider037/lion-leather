@@ -98,7 +98,7 @@ export function SearchClient({ initialQuery }: { initialQuery: string }) {
           value={value}
           onChange={(e) => setValue(e.target.value)}
           placeholder="Search the collection"
-          className="w-full max-w-xl border-b border-ink/30 bg-transparent py-3 font-serif text-2xl font-light text-ink placeholder:text-stone/60 transition-colors duration-500 ease-luxe focus:border-tan focus:outline-none"
+          className="w-full max-w-xl border-b border-camel/40 bg-transparent py-3 font-serif text-2xl font-light text-cream placeholder:text-stone/60 transition-colors duration-500 ease-luxe focus:border-camel focus:outline-none"
         />
       </label>
 
