@@ -117,14 +117,14 @@ export function Footer() {
           <p className="mt-3 text-caption font-light text-stone">
             <Link
               href="/privacy-policy"
-              className="transition-colors duration-500 ease-luxe hover:text-tan"
+              className="transition-colors duration-500 ease-luxe hover:text-camel"
             >
               Privacy Policy
             </Link>
             {" · "}
             <Link
               href="/terms-of-service"
-              className="transition-colors duration-500 ease-luxe hover:text-tan"
+              className="transition-colors duration-500 ease-luxe hover:text-camel"
             >
               Terms of Service
             </Link>

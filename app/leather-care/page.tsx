@@ -53,7 +53,7 @@ export default function LeatherCarePage() {
               key={note.label}
               className="grid gap-2 border-b border-gold/30 py-6 sm:grid-cols-[10rem_1fr] sm:gap-8"
             >
-              <dt className="text-eyebrow uppercase text-ink">{note.label}</dt>
+              <dt className="text-eyebrow uppercase text-cream">{note.label}</dt>
               <dd className="text-body font-light text-stone">{note.copy}</dd>
             </div>
           ))}

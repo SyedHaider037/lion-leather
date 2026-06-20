@@ -101,9 +101,9 @@ function NavLink({
     <Link
       href={href}
       className={cn(
-        "relative text-eyebrow uppercase text-ink transition-colors duration-500 ease-luxe",
-        "after:absolute after:-bottom-1 after:left-0 after:h-px after:w-full after:origin-right after:scale-x-0 after:bg-tan after:transition-transform after:duration-500 after:ease-luxe",
-        "hover:text-tan hover:after:origin-left hover:after:scale-x-100",
+        "relative text-eyebrow uppercase text-cream transition-colors duration-500 ease-luxe",
+        "after:absolute after:-bottom-1 after:left-0 after:h-px after:w-full after:origin-right after:scale-x-0 after:bg-camel after:transition-transform after:duration-500 after:ease-luxe",
+        "hover:text-camel hover:after:origin-left hover:after:scale-x-100",
         className,
       )}
     >
@@ -189,7 +189,7 @@ export function Header() {
             onClick={() => setMenuOpen((v) => !v)}
             aria-expanded={menuOpen}
             aria-label={menuOpen ? "Close menu" : "Open menu"}
-            className="-ml-2 flex h-10 w-10 items-center justify-center text-ink transition-colors duration-500 hover:text-tan md:hidden"
+            className="-ml-2 flex h-10 w-10 items-center justify-center text-cream transition-colors duration-500 hover:text-camel md:hidden"
           >
             {menuOpen ? (
               <svg
@@ -238,7 +238,7 @@ export function Header() {
             }}
             aria-label="Search"
             aria-expanded={searchOpen}
-            className="flex h-10 w-10 items-center justify-center text-ink transition-colors duration-500 hover:text-tan"
+            className="flex h-10 w-10 items-center justify-center text-cream transition-colors duration-500 hover:text-camel"
           >
             <SearchIcon />
           </button>
@@ -251,7 +251,7 @@ export function Header() {
               e.preventDefault();
               window.dispatchEvent(new Event("cart:open"));
             }}
-            className="relative flex h-10 w-10 items-center justify-center text-ink transition-colors duration-500 hover:text-tan"
+            className="relative flex h-10 w-10 items-center justify-center text-cream transition-colors duration-500 hover:text-camel"
           >
             <BagIcon />
             <CartCount />
@@ -290,12 +290,12 @@ export function Header() {
                 type="search"
                 placeholder="What are you looking for?"
                 tabIndex={searchOpen ? 0 : -1}
-                className="w-full bg-transparent py-4 font-serif text-3xl font-light text-ink placeholder:text-stone/50 focus:outline-none sm:text-4xl [&::-webkit-search-cancel-button]:hidden"
+                className="w-full bg-transparent py-4 font-serif text-3xl font-light text-cream placeholder:text-stone/50 focus:outline-none sm:text-4xl [&::-webkit-search-cancel-button]:hidden"
               />
               <button
                 type="submit"
                 tabIndex={searchOpen ? 0 : -1}
-                className="shrink-0 text-eyebrow uppercase text-ink transition-colors duration-500 hover:text-tan"
+                className="shrink-0 text-eyebrow uppercase text-cream transition-colors duration-500 hover:text-camel"
               >
                 Search
               </button>
@@ -320,7 +320,7 @@ export function Header() {
             key={link.href}
             href={link.href}
             tabIndex={menuOpen ? 0 : -1}
-            className="font-serif text-3xl font-light text-ink transition-colors duration-500 hover:text-tan"
+            className="font-serif text-3xl font-light text-cream transition-colors duration-500 hover:text-camel"
           >
             {link.label}
           </Link>

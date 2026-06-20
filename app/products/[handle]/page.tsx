@@ -68,6 +68,19 @@ export async function generateMetadata({
   }
 }
 
+/**
+ * Shopify descriptions arrive with bullets glued to the prior word
+ * ("wear• Premium", "Features:- Slim"). Put each bullet on its own line
+ * without splitting hyphenated words like "full-grain".
+ */
+function formatDescription(raw: string): string {
+  return raw
+    .replace(/\s*•\s*/g, "\n• ")
+    .replace(/([^\s])-\s+(?=\S)/g, "$1\n- ")
+    .replace(/\n{2,}/g, "\n")
+    .trim();
+}
+
 function parseFeatures(raw: string | null | undefined): string[] {
   if (!raw) return [];
   return raw
@@ -155,9 +168,10 @@ export default async function ProductPage({
   }
 
   const price = formatMoney(firstVariant.price.amount, firstVariant.price.currencyCode);
+  const formattedDescription = formatDescription(product.description);
   const shortDescription =
     product.shortDescription?.value?.trim() ||
-    product.description.trim().split(/\n+/)[0] ||
+    formattedDescription.split(/\n+/)[0] ||
     "A refined essential crafted for formal occasions and timeless style.";
 
   const features = parseFeatures(product.features?.value);
@@ -170,7 +184,7 @@ export default async function ProductPage({
   const selectorLabel =
     product.options.length === 1 ? product.options[0].name : "Variant";
 
-  const detailsText = product.description.trim();
+  const detailsText = formattedDescription;
 
   async function addToCart(formData: FormData) {
     "use server";
@@ -259,7 +273,7 @@ export default async function ProductPage({
             {product.title}
           </Heading>
 
-          <p className="mt-6 text-body text-ink">{price}</p>
+          <p className="mt-6 text-body text-cream">{price}</p>
 
           <p className="mt-8 max-w-xl text-body font-light text-stone">
             {shortDescription}
@@ -270,7 +284,7 @@ export default async function ProductPage({
               {features.map((f) => (
                 <li
                   key={f}
-                  className="border-t border-gold/30 py-3 text-eyebrow uppercase text-ink last:border-b"
+                  className="border-t border-gold/30 py-3 text-eyebrow uppercase text-cream last:border-b"
                 >
                   {f}
                 </li>
@@ -281,7 +295,7 @@ export default async function ProductPage({
           <form action={addToCart} id="pdp-add-form" className="mt-12">
             {hasVariantChoices ? (
               <fieldset className="mb-10">
-                <legend className="text-eyebrow uppercase text-ink">
+                <legend className="text-eyebrow uppercase text-cream">
                   {selectorLabel}
                 </legend>
                 <div className="mt-4 flex flex-wrap gap-3">
@@ -293,7 +307,7 @@ export default async function ProductPage({
                         "has-[:focus-visible]:outline has-[:focus-visible]:outline-1 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-gold",
                         v.availableForSale
                           ? "cursor-pointer border-cream/40 text-cream hover:border-cream has-[:checked]:border-camel has-[:checked]:bg-camel has-[:checked]:text-espresso"
-                          : "cursor-not-allowed border-ink/15 text-stone/60 line-through",
+                          : "cursor-not-allowed border-cream/15 text-stone/60 line-through",
                       )}
                     >
                       <input
@@ -311,7 +325,7 @@ export default async function ProductPage({
 
                 <Link
                   href="/sizing-guide"
-                  className="mt-5 inline-block text-eyebrow uppercase text-stone transition-colors duration-500 ease-luxe hover:text-tan"
+                  className="mt-5 inline-block text-eyebrow uppercase text-stone transition-colors duration-500 ease-luxe hover:text-camel"
                 >
                   Size Guide →
                 </Link>
@@ -336,7 +350,7 @@ export default async function ProductPage({
               href={WHATSAPP_URL}
               target="_blank"
               rel="noreferrer noopener"
-              className="transition-colors duration-500 ease-luxe hover:text-tan"
+              className="transition-colors duration-500 ease-luxe hover:text-camel"
             >
               Questions? WhatsApp us
             </a>
@@ -370,7 +384,7 @@ export default async function ProductPage({
           <div className="mt-14 border-t border-gold/30">
             {detailsText ? (
               <details className="group border-b border-gold/30">
-                <summary className="flex cursor-pointer list-none items-center justify-between py-5 text-eyebrow uppercase text-ink [&::-webkit-details-marker]:hidden">
+                <summary className="flex cursor-pointer list-none items-center justify-between py-5 text-eyebrow uppercase text-cream [&::-webkit-details-marker]:hidden">
                   Details
                   <span
                     aria-hidden
@@ -386,7 +400,7 @@ export default async function ProductPage({
             ) : null}
 
             <details className="group border-b border-gold/30">
-              <summary className="flex cursor-pointer list-none items-center justify-between py-5 text-eyebrow uppercase text-ink [&::-webkit-details-marker]:hidden">
+              <summary className="flex cursor-pointer list-none items-center justify-between py-5 text-eyebrow uppercase text-cream [&::-webkit-details-marker]:hidden">
                 Care
                 <span
                   aria-hidden

@@ -10,7 +10,7 @@ const inputClass =
   "w-full border border-cream/15 bg-surface px-4 py-3 text-body font-light text-cream placeholder:text-stone transition-colors duration-500 ease-luxe focus:border-camel focus:outline-none";
 
 const whatsappLinkClass =
-  "text-ink underline decoration-gold/50 underline-offset-4 transition-colors duration-500 ease-luxe hover:text-tan";
+  "text-cream underline decoration-gold/50 underline-offset-4 transition-colors duration-500 ease-luxe hover:text-camel";
 
 function Field({
   label,
@@ -21,7 +21,7 @@ function Field({
 }) {
   return (
     <label className="grid gap-2">
-      <span className="text-eyebrow uppercase text-ink">{label}</span>
+      <span className="text-eyebrow uppercase text-cream">{label}</span>
       {children}
     </label>
   );

@@ -26,7 +26,7 @@ export default function AboutPage() {
             and details you notice over time. Every pair is made for long
             evenings, early mornings, and everything in between.
           </p>
-          <p className="text-ink">
+          <p className="text-cream">
             Crafted to elevate presence — without asking for attention.
           </p>
         </div>

@@ -22,12 +22,6 @@
   --color-gold: #c9a24b; /* hairlines/dividers (30–40% on dark) + LL monogram */
   --color-error: #c77a5e; /* error tone */
 
-  /* Transitional aliases mapped onto the palette above so existing utility
-     classes keep working site-wide; removed in the Phase 12 sweep. */
-  --color-ink: #f2ece1; /* legacy text/border token → cream (light) */
-  --color-tan: #c2925a; /* legacy accent token → camel */
-  --color-white: #211b14; /* legacy image-surface token → surface */
-
   /* Typography */
   --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-display), ui-serif, Georgia, serif;

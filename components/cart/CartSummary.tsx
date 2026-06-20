@@ -10,11 +10,11 @@ export function CartSummary({
 }) {
   return (
     <aside className="h-fit border border-gold/30 p-8">
-      <Eyebrow className="text-ink">Summary</Eyebrow>
+      <Eyebrow className="text-cream">Summary</Eyebrow>
 
       <div className="mt-6 flex items-center justify-between">
         <p className="text-caption text-stone">Subtotal</p>
-        <p className="text-caption text-ink">{subtotal}</p>
+        <p className="text-caption text-cream">{subtotal}</p>
       </div>
 
       <div className="mt-10">

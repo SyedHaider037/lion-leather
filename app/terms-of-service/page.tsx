@@ -62,7 +62,7 @@ export default function TermsOfServicePage() {
               key={section.label}
               className="grid gap-2 border-b border-gold/30 py-6 sm:grid-cols-[12rem_1fr] sm:gap-8"
             >
-              <dt className="text-eyebrow uppercase text-ink">
+              <dt className="text-eyebrow uppercase text-cream">
                 {section.label}
               </dt>
               <dd className="text-body font-light text-stone">

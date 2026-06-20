@@ -42,7 +42,7 @@ export function BrandStory({ image }: { image: HeroImage }) {
               <ButtonLink
                 variant="link"
                 href="/about"
-                className="text-cream hover:text-tan"
+                className="text-cream hover:text-camel"
               >
                 Discover the House
               </ButtonLink>

@@ -31,7 +31,7 @@ export default function TrackOrderPage() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noreferrer noopener"
-            className="text-ink underline decoration-gold/50 underline-offset-4 transition-colors duration-500 ease-luxe hover:text-tan"
+            className="text-cream underline decoration-gold/50 underline-offset-4 transition-colors duration-500 ease-luxe hover:text-camel"
           >
             +92 300 0000000 →
           </a>

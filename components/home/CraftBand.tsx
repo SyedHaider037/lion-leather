@@ -24,7 +24,7 @@ export function CraftBand() {
           {ITEMS.map((item) => (
             <div key={item.label}>
               <span aria-hidden className="mx-auto block h-px w-10 bg-gold" />
-              <p className="mt-6 text-eyebrow uppercase text-ink">
+              <p className="mt-6 text-eyebrow uppercase text-cream">
                 {item.label}
               </p>
               <p className="mx-auto mt-4 max-w-xs text-caption font-light text-stone">

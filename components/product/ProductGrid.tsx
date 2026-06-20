@@ -40,12 +40,12 @@ function ProductCardItem({
       </div>
 
       <div className="mt-6 text-center">
-        <p className="font-serif text-lg font-light text-ink">
+        <p className="font-serif text-lg font-light text-cream">
           <span className="relative inline-block">
             {product.title}
             <span
               aria-hidden
-              className="absolute -bottom-0.5 left-0 h-px w-full origin-left scale-x-0 bg-ink/40 transition-transform duration-500 ease-luxe group-hover:scale-x-100"
+              className="absolute -bottom-0.5 left-0 h-px w-full origin-left scale-x-0 bg-cream/40 transition-transform duration-500 ease-luxe group-hover:scale-x-100"
             />
           </span>
         </p>

@@ -32,7 +32,7 @@ export function Reviews() {
         {VALUES.map((value, i) => (
           <Reveal key={value.title} delay={i * 150}>
             <div className="text-center">
-              <h3 className="font-serif text-2xl font-medium text-ink">
+              <h3 className="font-serif text-2xl font-medium text-cream">
                 {value.title}
               </h3>
               <p className="mx-auto mt-4 max-w-xs text-body font-light text-stone">

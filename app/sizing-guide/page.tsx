@@ -42,7 +42,7 @@ export default function SizingGuidePage() {
                 <th
                   key={h}
                   scope="col"
-                  className="py-4 text-eyebrow font-normal uppercase text-ink"
+                  className="py-4 text-eyebrow font-normal uppercase text-cream"
                 >
                   {h}
                 </th>
