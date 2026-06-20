@@ -42,6 +42,12 @@ export const PRODUCT_BY_HANDLE_QUERY = `#graphql
       features: metafield(namespace: "custom", key: "features") {
         value
       }
+      dimensions: metafield(namespace: "custom", key: "dimensions") {
+        value
+      }
+      leatherType: metafield(namespace: "custom", key: "leather_type") {
+        value
+      }
       featuredImage {
         url
         altText
@@ -109,6 +115,8 @@ export type ProductByHandleQueryData = {
     description: string;
     shortDescription: null | { value: string };
     features: null | { value: string };
+    dimensions: null | { value: string };
+    leatherType: null | { value: string };
     featuredImage: ProductCard["featuredImage"];
     images: { nodes: NonNullable<ProductCard["featuredImage"]>[] };
     options: { id: string; name: string; values: string[] }[];

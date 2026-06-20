@@ -194,7 +194,7 @@ export default async function ProductPage({
   };
 
   return (
-    <Section className="bg-white pt-14 sm:pt-20">
+    <Section className="pt-14 sm:pt-20">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -202,12 +202,12 @@ export default async function ProductPage({
         }}
       />
       <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
-        {/* Sticky gallery */}
-        <div className="lg:sticky lg:top-28 lg:self-start">
+        {/* Gallery column scrolls; the info column is sticky */}
+        <div>
           <ProductGallery images={images} title={product.title} />
         </div>
 
-        <div className="lg:pt-2">
+        <div className="lg:sticky lg:top-28 lg:self-start lg:pt-2">
           <Eyebrow>Lion Leather</Eyebrow>
           <Heading as="h1" tone="title" className="mt-6">
             {product.title}
@@ -295,6 +295,30 @@ export default async function ProductPage({
               Questions? WhatsApp us
             </a>
           </div>
+
+          {/* Spec list (metafields) */}
+          {product.leatherType?.value || product.dimensions?.value ? (
+            <dl className="mt-12 border-t border-gold/30">
+              {product.leatherType?.value ? (
+                <div className="flex items-baseline justify-between gap-6 border-b border-gold/30 py-3">
+                  <dt className="text-eyebrow uppercase text-stone">Leather</dt>
+                  <dd className="text-caption text-cream">
+                    {product.leatherType.value}
+                  </dd>
+                </div>
+              ) : null}
+              {product.dimensions?.value ? (
+                <div className="flex items-baseline justify-between gap-6 border-b border-gold/30 py-3">
+                  <dt className="text-eyebrow uppercase text-stone">
+                    Dimensions
+                  </dt>
+                  <dd className="text-caption text-cream">
+                    {product.dimensions.value}
+                  </dd>
+                </div>
+              ) : null}
+            </dl>
+          ) : null}
 
           {/* Details / care accordion */}
           <div className="mt-14 border-t border-gold/30">
