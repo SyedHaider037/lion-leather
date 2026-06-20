@@ -245,6 +245,12 @@ export function Header() {
           <Link
             href="/cart"
             aria-label="Your Selection"
+            onClick={(e) => {
+              // Progressive enhancement: open the drawer with JS; the /cart
+              // page remains the no-JS fallback.
+              e.preventDefault();
+              window.dispatchEvent(new Event("cart:open"));
+            }}
             className="relative flex h-10 w-10 items-center justify-center text-ink transition-colors duration-500 hover:text-tan"
           >
             <BagIcon />

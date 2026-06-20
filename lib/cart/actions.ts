@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
+import { getCartIdFromCookie } from "@/lib/cart/session";
 import { storefrontRequest } from "@/lib/shopify/client";
 import {
   CART_CREATE_MUTATION,
@@ -116,6 +117,30 @@ export async function removeCartLines(params: {
   assertNoUserErrors(data.cartLinesRemove.userErrors, "Remove from cart failed");
   if (!data.cartLinesRemove.cart) throw new Error("Remove returned no cart");
   return data.cartLinesRemove.cart;
+}
+
+/**
+ * Drawer-callable actions: read the cart id from the cookie, mutate, and
+ * return the fresh cart so the client drawer can re-render without a reload.
+ */
+export async function cartUpdateLineAction(
+  lineId: string,
+  quantity: number,
+): Promise<Cart | null> {
+  const cartId = await getCartIdFromCookie();
+  if (!cartId || !lineId) return null;
+  if (quantity <= 0) {
+    return removeCartLines({ cartId, lineIds: [lineId] });
+  }
+  return updateCartLines({ cartId, lines: [{ id: lineId, quantity }] });
+}
+
+export async function cartRemoveLineAction(
+  lineId: string,
+): Promise<Cart | null> {
+  const cartId = await getCartIdFromCookie();
+  if (!cartId || !lineId) return null;
+  return removeCartLines({ cartId, lineIds: [lineId] });
 }
 
 export async function updateCartItemQuantity(formData: FormData) {
