@@ -3,16 +3,21 @@ import { redirect } from "next/navigation";
 
 import { MobileAddToCartBar } from "@/components/product/MobileAddToCartBar";
 import { ProductGallery } from "@/components/product/ProductGallery";
+import { ProductGrid } from "@/components/product/ProductGrid";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Heading } from "@/components/ui/Heading";
 import { Section } from "@/components/ui/Section";
+import { SectionTitle } from "@/components/ui/SectionTitle";
 import { SubmitButton } from "@/components/ui/SubmitButton";
 import { addLinesOrCreateCart } from "@/lib/cart/actions";
 import { getCartIdFromCookie, setCartIdCookie } from "@/lib/cart/session";
 import { storefrontRequest } from "@/lib/shopify/client";
 import {
   PRODUCT_BY_HANDLE_QUERY,
+  PRODUCT_RECOMMENDATIONS_QUERY,
   type ProductByHandleQueryData,
+  type ProductCard,
+  type ProductRecommendationsData,
 } from "@/lib/shopify/queries/products";
 import { cn } from "@/lib/utils/cn";
 import { formatMoney } from "@/lib/utils/money";
@@ -134,6 +139,21 @@ export default async function ProductPage({
     return <ProductNotFound />;
   }
 
+  const category = product.collections.nodes[0] ?? null;
+
+  let related: ProductCard[] = [];
+  try {
+    const rec = await storefrontRequest<ProductRecommendationsData>(
+      PRODUCT_RECOMMENDATIONS_QUERY,
+      { productId: product.id },
+    );
+    related = (rec.productRecommendations ?? [])
+      .filter((p) => p.handle !== product?.handle)
+      .slice(0, 4);
+  } catch (err) {
+    console.error("[PDP] recommendations error", err);
+  }
+
   const price = formatMoney(firstVariant.price.amount, firstVariant.price.currencyCode);
   const shortDescription =
     product.shortDescription?.value?.trim() ||
@@ -201,6 +221,32 @@ export default async function ProductPage({
           __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
         }}
       />
+      {/* Breadcrumbs */}
+      <nav aria-label="Breadcrumb" className="mb-8 text-eyebrow uppercase text-stone">
+        <ol className="flex flex-wrap items-center gap-2">
+          <li>
+            <Link href="/" className="transition-colors duration-500 ease-luxe hover:text-camel">
+              Home
+            </Link>
+          </li>
+          {category ? (
+            <>
+              <li aria-hidden>/</li>
+              <li>
+                <Link
+                  href={`/collections/${category.handle}`}
+                  className="transition-colors duration-500 ease-luxe hover:text-camel"
+                >
+                  {category.title}
+                </Link>
+              </li>
+            </>
+          ) : null}
+          <li aria-hidden>/</li>
+          <li className="text-cream">{product.title}</li>
+        </ol>
+      </nav>
+
       <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
         {/* Gallery column scrolls; the info column is sticky */}
         <div>
@@ -356,6 +402,19 @@ export default async function ProductPage({
           </div>
         </div>
       </div>
+
+      {related.length ? (
+        <div className="mt-24 border-t border-gold/30 pt-16">
+          <SectionTitle
+            align="center"
+            eyebrow="More to explore"
+            title="You may also like"
+          />
+          <div className="mt-12">
+            <ProductGrid products={related} columns={4} centerWhenSparse={false} />
+          </div>
+        </div>
+      ) : null}
 
       <MobileAddToCartBar
         productName={product.title}

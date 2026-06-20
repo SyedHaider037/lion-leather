@@ -36,6 +36,12 @@ export const PRODUCT_BY_HANDLE_QUERY = `#graphql
       handle
       title
       description
+      collections(first: 1) {
+        nodes {
+          handle
+          title
+        }
+      }
       shortDescription: metafield(namespace: "custom", key: "short_description") {
         value
       }
@@ -107,12 +113,26 @@ export type ProductsQueryData = {
   products: { nodes: ProductCard[] };
 };
 
+export const PRODUCT_RECOMMENDATIONS_QUERY = `#graphql
+  ${PRODUCT_CARD_FRAGMENT}
+  query ProductRecommendations($productId: ID!) {
+    productRecommendations(productId: $productId) {
+      ...ProductCard
+    }
+  }
+` as const;
+
+export type ProductRecommendationsData = {
+  productRecommendations: ProductCard[] | null;
+};
+
 export type ProductByHandleQueryData = {
   product: null | {
     id: string;
     handle: string;
     title: string;
     description: string;
+    collections: { nodes: { handle: string; title: string }[] };
     shortDescription: null | { value: string };
     features: null | { value: string };
     dimensions: null | { value: string };
