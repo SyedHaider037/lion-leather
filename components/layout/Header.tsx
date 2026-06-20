@@ -222,7 +222,7 @@ export function Header() {
         {/* Center: wordmark */}
         <Link
           href="/"
-          className="whitespace-nowrap font-serif text-lg font-light uppercase tracking-[0.3em] text-ink md:text-xl"
+          className="whitespace-nowrap font-serif text-lg font-light uppercase tracking-[0.3em] text-cream md:text-xl"
         >
           Lion Leather
         </Link>

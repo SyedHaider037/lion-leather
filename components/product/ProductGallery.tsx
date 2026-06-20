@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
+import { Reveal } from "@/components/ui/Reveal";
 import { cn } from "@/lib/utils/cn";
 
 type Img = {
@@ -142,7 +143,9 @@ export function ProductGallery({ images, title }: { images: Img[]; title: string
       {/* Desktop: large stacked images, one per row, this column scrolls */}
       <div className="hidden gap-4 lg:grid">
         {normalized.map((img, i) => (
-          <ZoomImage key={img.url} img={img} title={title} index={i} onOpen={openAt} />
+          <Reveal key={img.url} variant="scale" delay={i * 80}>
+            <ZoomImage img={img} title={title} index={i} onOpen={openAt} />
+          </Reveal>
         ))}
       </div>
 

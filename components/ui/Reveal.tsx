@@ -12,10 +12,13 @@ export function Reveal({
   children,
   className,
   delay = 0,
+  variant = "rise",
 }: {
   children: React.ReactNode;
   className?: string;
   delay?: number;
+  /** "rise" = fade + translate up; "scale" = fade + slight scale (for images). */
+  variant?: "rise" | "scale";
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
@@ -51,7 +54,9 @@ export function Reveal({
         // Hidden state only applies under html.js (set pre-paint in the root
         // layout), so content stays visible when JavaScript is unavailable.
         !visible &&
-          "[.js_&]:translate-y-6 [.js_&]:opacity-0 [.js_&]:motion-reduce:translate-y-0 [.js_&]:motion-reduce:opacity-100",
+          (variant === "scale"
+            ? "[.js_&]:scale-[0.98] [.js_&]:opacity-0 [.js_&]:motion-reduce:scale-100 [.js_&]:motion-reduce:opacity-100"
+            : "[.js_&]:translate-y-6 [.js_&]:opacity-0 [.js_&]:motion-reduce:translate-y-0 [.js_&]:motion-reduce:opacity-100"),
         className,
       )}
     >
