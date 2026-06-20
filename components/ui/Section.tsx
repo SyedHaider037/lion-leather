@@ -18,7 +18,7 @@ export function Section({
   return (
     <section
       className={cn(
-        "py-16 sm:py-20 lg:py-32",
+        "py-24 md:py-32 lg:py-40",
         tone === "ink" && "bg-surface text-cream",
         className,
       )}
