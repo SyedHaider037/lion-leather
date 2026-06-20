@@ -18,6 +18,11 @@ export const COLLECTION_BY_HANDLE_QUERY = `#graphql
       products(first: $first, after: $after, sortKey: $sortKey, reverse: $reverse) {
         nodes {
           ...ProductCard
+          productType
+          tags
+          leatherType: metafield(namespace: "custom", key: "leather_type") {
+            value
+          }
         }
         pageInfo {
           hasNextPage
@@ -28,6 +33,13 @@ export const COLLECTION_BY_HANDLE_QUERY = `#graphql
   }
 ` as const;
 
+/** ProductCard plus the fields the collection filter sidebar facets on. */
+export type FilterableProduct = ProductCard & {
+  productType: string;
+  tags: string[];
+  leatherType: { value: string } | null;
+};
+
 export type CollectionByHandleQueryData = {
   collection: null | {
     id: string;
@@ -35,7 +47,7 @@ export type CollectionByHandleQueryData = {
     title: string;
     description: string;
     products: {
-      nodes: ProductCard[];
+      nodes: FilterableProduct[];
       pageInfo: { hasNextPage: boolean; endCursor: string | null };
     };
   };

@@ -27,7 +27,7 @@ function ProductCardItem({
       href={`/products/${product.handle}`}
       className="group block transition-transform duration-[350ms] ease-luxe hover:-translate-y-1"
     >
-      <div className="relative aspect-[4/5] overflow-hidden bg-white transition-shadow duration-[350ms] ease-luxe group-hover:shadow-[0_12px_32px_rgba(20,17,13,0.12)]">
+      <div className="relative aspect-[4/5] overflow-hidden bg-surface transition-shadow duration-[350ms] ease-luxe group-hover:shadow-[0_18px_50px_-12px_rgba(194,146,90,0.45)]">
         {product.featuredImage ? (
           <Image
             src={product.featuredImage.url}
@@ -60,15 +60,18 @@ export function ProductGrid({
   title,
   eyebrow,
   columns = 4,
+  centerWhenSparse = true,
 }: {
   products: ProductCard[];
   title?: string;
   eyebrow?: string;
   columns?: 2 | 3 | 4;
+  centerWhenSparse?: boolean;
 }) {
   // With one or two products a full grid leaves an awkward gap, so center
-  // them at a constrained width that reads like a single grid cell.
-  const sparse = products.length < 3;
+  // them at a constrained width that reads like a single grid cell — unless
+  // the caller (e.g. filtered collection results) opts out.
+  const sparse = centerWhenSparse && products.length < 3;
 
   return (
     <div>
