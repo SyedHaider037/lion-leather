@@ -45,7 +45,7 @@ export function Hero({ image }: { image: HeroImage }) {
             </p>
 
             <div className="mt-14 animate-hero-fade [animation-delay:1300ms] motion-reduce:animate-none">
-              <ButtonLink href="/collections/footwear" variant="outline">
+              <ButtonLink href="/collections/footwear" variant="solid">
                 Explore Collection
               </ButtonLink>
             </div>

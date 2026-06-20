@@ -7,7 +7,7 @@ import type { HeroImage } from "./Hero";
 
 export function BrandStory({ image }: { image: HeroImage }) {
   return (
-    <Section tone="ink">
+    <Section tone="ink" className="border-t border-gold/30">
       <Reveal>
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
           {image ? (
