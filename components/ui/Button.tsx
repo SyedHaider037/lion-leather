@@ -9,12 +9,12 @@ const base =
 
 const variants: Record<Variant, string> = {
   solid:
-    "border border-ink bg-ink px-10 py-4 text-cream hover:border-tan hover:bg-tan",
+    "border border-camel bg-camel px-10 py-4 text-espresso hover:brightness-110",
   outline:
-    "border border-ink/40 bg-transparent px-10 py-4 text-ink hover:border-ink hover:bg-ink hover:text-cream",
+    "border border-cream/40 bg-transparent px-10 py-4 text-cream hover:border-camel hover:bg-camel hover:text-espresso",
   "outline-light":
-    "border border-cream/50 bg-transparent px-10 py-4 text-cream hover:border-cream hover:bg-cream hover:text-ink",
-  link: "relative px-0 py-1 text-ink after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-right after:scale-x-0 after:bg-tan after:transition-transform after:duration-500 after:ease-luxe hover:text-tan hover:after:origin-left hover:after:scale-x-100",
+    "border border-cream/40 bg-transparent px-10 py-4 text-cream hover:border-camel hover:bg-camel hover:text-espresso",
+  link: "relative px-0 py-1 text-cream after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-right after:scale-x-0 after:bg-camel after:transition-transform after:duration-500 after:ease-luxe hover:text-camel hover:after:origin-left hover:after:scale-x-100",
 };
 
 export function Button({

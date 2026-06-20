@@ -28,7 +28,7 @@ function CollectionCard({ collection }: { collection: CollectionListItem }) {
 
   return (
     <Link href={`/collections/${collection.handle}`} className="group block">
-      <div className="relative aspect-[4/5] overflow-hidden bg-cream">
+      <div className="relative aspect-[4/5] overflow-hidden bg-surface">
         {image ? (
           <Image
             src={image.url}

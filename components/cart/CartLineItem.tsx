@@ -37,7 +37,7 @@ export function CartLineItem({
   return (
     <div className="border-b border-gold/30 pb-6">
       <div className="flex gap-6">
-        <div className="relative h-28 w-24 shrink-0 overflow-hidden bg-cream">
+        <div className="relative h-28 w-24 shrink-0 overflow-hidden bg-surface">
           {img ? (
             <Image
               src={img.url}

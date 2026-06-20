@@ -246,7 +246,7 @@ export default async function ProductPage({
                         "border px-5 py-3 text-eyebrow uppercase transition-colors duration-500 ease-luxe",
                         "has-[:focus-visible]:outline has-[:focus-visible]:outline-1 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-gold",
                         v.availableForSale
-                          ? "cursor-pointer border-ink/40 text-ink hover:border-ink has-[:checked]:border-ink has-[:checked]:bg-ink has-[:checked]:text-cream"
+                          ? "cursor-pointer border-cream/40 text-cream hover:border-cream has-[:checked]:border-camel has-[:checked]:bg-camel has-[:checked]:text-espresso"
                           : "cursor-not-allowed border-ink/15 text-stone/60 line-through",
                       )}
                     >

@@ -47,7 +47,7 @@ export function MobileAddToCartBar({
         visible ? "translate-y-0" : "translate-y-full",
       )}
     >
-      <div className="flex items-center justify-between gap-4 border-t border-gold/30 bg-ink px-5 py-4 text-cream">
+      <div className="flex items-center justify-between gap-4 border-t border-gold/30 bg-surface px-5 py-4 text-cream">
         <p className="min-w-0 flex-1 truncate font-serif text-base font-light">
           {productName}
         </p>
@@ -55,7 +55,7 @@ export function MobileAddToCartBar({
           type="submit"
           form={formId}
           tabIndex={visible ? 0 : -1}
-          className="shrink-0 border border-cream bg-cream px-6 py-3 font-sans text-eyebrow uppercase tracking-[0.15em] text-ink transition-colors duration-500 ease-luxe hover:border-tan hover:bg-tan hover:text-cream"
+          className="shrink-0 border border-camel bg-camel px-6 py-3 font-sans text-eyebrow uppercase tracking-[0.15em] text-espresso transition-all duration-500 ease-luxe hover:brightness-110"
         >
           Add to Selection
         </button>

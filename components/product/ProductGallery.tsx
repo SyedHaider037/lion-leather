@@ -168,7 +168,7 @@ export function ProductGallery({ images, title }: { images: Img[]; title: string
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
         className={cn(
-          "fixed inset-0 z-[60] flex items-center justify-center bg-ink transition-opacity duration-500 ease-luxe motion-reduce:transition-none",
+          "fixed inset-0 z-[60] flex items-center justify-center bg-espresso transition-opacity duration-500 ease-luxe motion-reduce:transition-none",
           open ? "opacity-100" : "pointer-events-none opacity-0",
         )}
       >

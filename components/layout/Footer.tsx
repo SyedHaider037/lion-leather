@@ -74,7 +74,7 @@ function FooterLinkItem({ link }: { link: FooterLink }) {
 
 export function Footer() {
   return (
-    <footer className="bg-ink text-cream">
+    <footer className="bg-surface text-cream">
       <Container className="py-16 lg:py-24">
         {/* Signature motif: gold hairline with centered LL monogram */}
         <div className="flex items-center gap-6" role="separator">

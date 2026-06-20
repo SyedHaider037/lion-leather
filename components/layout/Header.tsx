@@ -80,7 +80,7 @@ function CartCount() {
 
   return (
     <span
-      className="absolute -right-1.5 -top-1 flex h-4 w-4 items-center justify-center rounded-full bg-ink text-[0.6rem] leading-none text-cream"
+      className="absolute -right-1.5 -top-1 flex h-4 w-4 items-center justify-center rounded-full bg-camel text-[0.6rem] leading-none text-espresso"
       aria-hidden
     >
       {count > 9 ? "9+" : count}
@@ -170,7 +170,7 @@ export function Header() {
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 border-b transition-colors duration-500 ease-luxe",
-        solid ? "border-gold/30 bg-cream" : "border-transparent bg-transparent",
+        solid ? "border-gold/30 bg-espresso" : "border-transparent bg-transparent",
       )}
     >
       <Container className="grid h-18 grid-cols-[1fr_auto_1fr] items-center gap-6">
@@ -256,7 +256,7 @@ export function Header() {
       {/* Full-screen search overlay — large serif input, hairline underline */}
       <div
         className={cn(
-          "fixed inset-0 top-18 z-40 flex flex-col bg-cream transition-opacity duration-700 ease-luxe",
+          "fixed inset-0 top-18 z-40 flex flex-col bg-espresso transition-opacity duration-700 ease-luxe",
           searchOpen ? "opacity-100" : "pointer-events-none opacity-0",
         )}
         aria-hidden={!searchOpen}
@@ -304,7 +304,7 @@ export function Header() {
       {/* Mobile full-screen overlay menu — slow fade */}
       <div
         className={cn(
-          "fixed inset-0 top-18 z-40 flex flex-col items-center justify-center gap-10 bg-cream transition-opacity duration-700 ease-luxe md:hidden",
+          "fixed inset-0 top-18 z-40 flex flex-col items-center justify-center gap-10 bg-espresso transition-opacity duration-700 ease-luxe md:hidden",
           menuOpen ? "opacity-100" : "pointer-events-none opacity-0",
         )}
         aria-hidden={!menuOpen}

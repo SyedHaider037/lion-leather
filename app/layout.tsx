@@ -57,7 +57,7 @@ export default function RootLayout({
       lang="en"
       className={`${display.variable} ${body.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-cream font-sans text-ink">
+      <body className="flex min-h-full flex-col bg-espresso font-sans text-cream">
         {/* Marks JS availability before first paint: scroll-reveal hiding is
             gated on html.js so content is never hidden when JS can't run. */}
         <script

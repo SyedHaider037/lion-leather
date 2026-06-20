@@ -12,7 +12,7 @@ export type HeroImage = { url: string; altText: string | null } | null;
  */
 export function Hero({ image }: { image: HeroImage }) {
   return (
-    <section className="relative -mt-18 w-full overflow-hidden bg-cream">
+    <section className="relative -mt-18 w-full overflow-hidden bg-espresso">
       <div className="grid min-h-svh lg:grid-cols-[11fr_9fr]">
         {/* Editorial text panel */}
         <div className="flex items-center px-6 pb-16 pt-32 md:px-[clamp(2.5rem,6vw,6rem)] lg:py-24">
