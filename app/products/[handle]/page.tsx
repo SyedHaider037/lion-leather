@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 
@@ -6,6 +7,7 @@ import { ProductGallery } from "@/components/product/ProductGallery";
 import { ProductGrid } from "@/components/product/ProductGrid";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Heading } from "@/components/ui/Heading";
+import { Reveal } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { SubmitButton } from "@/components/ui/SubmitButton";
@@ -153,6 +155,7 @@ export default async function ProductPage({
   }
 
   const category = product.collections.nodes[0] ?? null;
+  const macroImage = images[1] ?? images[0] ?? null;
 
   let related: ProductCard[] = [];
   try {
@@ -417,10 +420,27 @@ export default async function ProductPage({
         </div>
       </div>
 
+      {/* Materiality moment — a large macro frame with a one-line caption */}
+      {macroImage ? (
+        <Reveal variant="scale" className="mt-24">
+          <div className="relative aspect-[3/2] overflow-hidden rounded-[5px] bg-surface">
+            <Image
+              src={macroImage.url}
+              alt={macroImage.altText ?? `${product.title} — leather detail`}
+              fill
+              sizes="100vw"
+              className="object-cover"
+            />
+          </div>
+          <p className="mt-6 max-w-md font-serif text-h3 font-light italic text-taupe">
+            The grain deepens with wear — a patina that becomes yours alone.
+          </p>
+        </Reveal>
+      ) : null}
+
       {related.length ? (
         <div className="mt-24 border-t border-gold/30 pt-16">
           <SectionTitle
-            align="center"
             eyebrow="More to explore"
             title="You may also like"
           />
