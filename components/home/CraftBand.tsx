@@ -18,16 +18,16 @@ const ITEMS = [
 
 export function CraftBand() {
   return (
-    <Section className="border-b border-gold/30 py-20 sm:py-24 lg:py-28">
+    <Section tone="surface" rhythm="md">
       <Reveal>
         <div className="grid gap-14 text-center sm:grid-cols-3">
           {ITEMS.map((item) => (
             <div key={item.label}>
               <span aria-hidden className="mx-auto block h-px w-10 bg-gold" />
-              <p className="mt-6 text-eyebrow uppercase text-cream">
+              <p className="mt-6 text-eyebrow uppercase text-ink">
                 {item.label}
               </p>
-              <p className="mx-auto mt-4 max-w-xs text-caption font-light text-stone">
+              <p className="mx-auto mt-4 max-w-xs text-caption font-light text-taupe">
                 {item.copy}
               </p>
             </div>

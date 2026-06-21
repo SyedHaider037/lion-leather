@@ -1,15 +1,18 @@
-import { BrandStory } from "@/components/home/BrandStory";
+import { CategoryShowcase } from "@/components/home/CategoryShowcase";
 import { ClosingCta } from "@/components/home/ClosingCta";
 import { CraftBand } from "@/components/home/CraftBand";
-import { FeaturedCollections } from "@/components/home/FeaturedCollections";
+import { CraftTeaser } from "@/components/home/CraftTeaser";
+import { FeaturedProduct } from "@/components/home/FeaturedProduct";
 import { Hero } from "@/components/home/Hero";
-import { Reviews } from "@/components/home/Reviews";
 import { storefrontRequest } from "@/lib/shopify/client";
 import {
+  COLLECTION_BY_HANDLE_QUERY,
   COLLECTIONS_QUERY,
+  type CollectionByHandleQueryData,
   type CollectionsQueryData,
   type CollectionListItem,
 } from "@/lib/shopify/queries/collections";
+import type { ProductCard } from "@/lib/shopify/queries/products";
 
 const HIDDEN_HANDLES = new Set(["frontpage"]);
 
@@ -18,29 +21,42 @@ const imageOf = (c: CollectionListItem | undefined) =>
 
 export default async function Home() {
   let collections: CollectionListItem[] = [];
+  let featured: ProductCard | null = null;
+
   try {
-    const data = await storefrontRequest<CollectionsQueryData>(
-      COLLECTIONS_QUERY,
-      { first: 20 },
-    );
-    collections = data.collections.nodes.filter(
+    const [colData, footwear] = await Promise.all([
+      storefrontRequest<CollectionsQueryData>(COLLECTIONS_QUERY, { first: 20 }),
+      storefrontRequest<CollectionByHandleQueryData>(COLLECTION_BY_HANDLE_QUERY, {
+        handle: "footwear",
+        first: 1,
+        after: null,
+        sortKey: null,
+        reverse: null,
+      }).catch(() => null),
+    ]);
+    collections = colData.collections.nodes.filter(
       (c) => !HIDDEN_HANDLES.has(c.handle),
     );
+    featured = footwear?.collection?.products.nodes[0] ?? null;
   } catch (err) {
     console.error("[Home] Storefront error", err);
   }
 
   // Best available imagery stands in until real campaign shots exist.
-  const heroImage = imageOf(collections[0]) ?? imageOf(collections[1]) ?? null;
-  const storyImage = imageOf(collections[1]) ?? imageOf(collections[0]) ?? null;
+  const heroImage = featured?.featuredImage ?? imageOf(collections[0]) ?? null;
+  const craftImage =
+    imageOf(collections[1]) ??
+    imageOf(collections[0]) ??
+    featured?.featuredImage ??
+    null;
 
   return (
     <>
       <Hero image={heroImage} />
-      <FeaturedCollections collections={collections} />
-      <BrandStory image={storyImage} />
+      <FeaturedProduct product={featured} />
+      <CraftTeaser image={craftImage} />
+      <CategoryShowcase collections={collections} />
       <CraftBand />
-      <Reviews />
       <ClosingCta />
     </>
   );
