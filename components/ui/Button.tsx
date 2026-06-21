@@ -2,19 +2,17 @@ import Link from "next/link";
 
 import { cn } from "@/lib/utils/cn";
 
-type Variant = "solid" | "outline" | "outline-light" | "link";
+type Variant = "solid" | "outline" | "link";
 
 const base =
-  "inline-flex items-center justify-center font-sans text-eyebrow uppercase tracking-[0.15em] transition-all duration-500 ease-luxe disabled:pointer-events-none disabled:opacity-40";
+  "inline-flex items-center justify-center rounded-[5px] font-sans text-eyebrow uppercase tracking-[0.15em] transition-all duration-500 ease-luxe disabled:pointer-events-none disabled:opacity-40";
 
 const variants: Record<Variant, string> = {
   solid:
-    "border border-camel bg-camel px-10 py-4 text-espresso hover:brightness-110",
+    "border border-cognac bg-cognac px-10 py-4 text-paper hover:brightness-90",
   outline:
-    "border border-cream/40 bg-transparent px-10 py-4 text-cream hover:border-camel hover:bg-camel hover:text-espresso",
-  "outline-light":
-    "border border-cream/40 bg-transparent px-10 py-4 text-cream hover:border-camel hover:bg-camel hover:text-espresso",
-  link: "relative px-0 py-1 text-cream after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-right after:scale-x-0 after:bg-camel after:transition-transform after:duration-500 after:ease-luxe hover:text-camel hover:after:origin-left hover:after:scale-x-100",
+    "border border-ink/30 bg-transparent px-10 py-4 text-ink hover:border-cognac hover:bg-cognac hover:text-paper",
+  link: "relative rounded-none px-0 py-1 text-ink after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-right after:scale-x-0 after:bg-cognac after:transition-transform after:duration-500 after:ease-luxe hover:text-cognac hover:after:origin-left hover:after:scale-x-100",
 };
 
 export function Button({

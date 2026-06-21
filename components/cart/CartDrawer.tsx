@@ -80,7 +80,7 @@ export function CartDrawer() {
       <div
         onClick={() => setOpen(false)}
         className={cn(
-          "absolute inset-0 bg-espresso/70 transition-opacity duration-500 ease-luxe",
+          "absolute inset-0 bg-ink/40 transition-opacity duration-500 ease-luxe",
           open ? "opacity-100" : "opacity-0",
         )}
       />

@@ -265,7 +265,7 @@ export function CollectionView({ products }: { products: FilterableProduct[] }) 
         <div
           onClick={() => setDrawerOpen(false)}
           className={cn(
-            "absolute inset-0 bg-espresso/70 transition-opacity duration-500 ease-luxe",
+            "absolute inset-0 bg-ink/40 transition-opacity duration-500 ease-luxe",
             drawerOpen ? "opacity-100" : "opacity-0",
           )}
         />

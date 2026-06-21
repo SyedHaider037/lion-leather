@@ -1,43 +1,63 @@
 @import "tailwindcss";
 
 /*
-  Lion Leather — luxury design system
-  Reference standard: Louis Vuitton / Dior / Chanel — whitespace, hairlines,
-  photography first, restraint everywhere.
+  Lion Leather — warm editorial design system
+  Reference standard: Polène / Bottega Veneta / Aēsop — restraint, materiality,
+  generous negative space, photography first, a single quiet accent.
 
-  These tokens are the single source of truth. No ad-hoc colors anywhere else:
-  ink, cream, tan, gold, stone, and a muted error tone only.
+  Seven tokens are the single source of truth. Legacy names (espresso/cream/
+  stone/camel) are transitional aliases mapped onto the palette below so existing
+  utility classes keep working; they are removed in the Phase 7 sweep.
 */
 
 @theme {
   /* Disable Tailwind's default palette — the brand permits no other hues. */
   --color-*: initial;
 
-  /* Dark cinematic palette — single source of truth */
-  --color-espresso: #14110d; /* page background */
-  --color-surface: #211b14; /* cards, panels, image wrappers, inputs */
-  --color-cream: #f2ece1; /* primary text + highlights */
-  --color-stone: #a2937e; /* secondary / muted text (prices, captions) */
-  --color-camel: #c2925a; /* primary accent: buttons, active, hover underline */
-  --color-gold: #c9a24b; /* hairlines/dividers (30–40% on dark) + LL monogram */
-  --color-error: #c77a5e; /* error tone */
+  /* Warm, light palette — single source of truth */
+  --color-paper: #f4f0e8; /* page background */
+  --color-surface: #fbf8f2; /* cards, panels, image wrappers, inputs */
+  --color-ink: #2a231b; /* primary text */
+  --color-taupe: #756a5a; /* muted text — darkened from #8C8173 for AA (~4.7 on paper) */
+  --color-cognac: #985c31; /* sole accent — deepened from #A0673C for AA (~4.7) */
+  --color-gold: #c9a24b; /* hairlines only (~30%) + the LL monogram */
+  --color-error: #9c4a33; /* error tone (readable on light) */
+
+  /* Transitional aliases → removed in the Phase 7 sweep */
+  --color-espresso: #f4f0e8; /* legacy page-bg token → paper */
+  --color-cream: #2a231b; /* legacy text token → ink */
+  --color-stone: #756a5a; /* legacy muted token → taupe */
+  --color-camel: #985c31; /* legacy accent token → cognac */
 
   /* Typography */
   --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-display), ui-serif, Georgia, serif;
 
-  /* Type scale */
-  --text-display: clamp(3.5rem, 5vw + 1.75rem, 6rem);
-  --text-display--line-height: 1.05;
-  --text-title: clamp(2rem, 1.25vw + 1.6rem, 2.5rem);
-  --text-title--line-height: 1.2;
+  /* Modular type scale — dramatic contrast, tight leading on large display */
+  --text-display: clamp(3.25rem, 5vw + 1.5rem, 5.5rem);
+  --text-display--line-height: 1.02;
+  --text-display--letter-spacing: -0.01em;
+  --text-h1: clamp(2.5rem, 3vw + 1.5rem, 3.75rem);
+  --text-h1--line-height: 1.08;
+  --text-h1--letter-spacing: -0.01em;
+  --text-h2: clamp(1.75rem, 2vw + 1.1rem, 2.5rem);
+  --text-h2--line-height: 1.15;
+  --text-title: clamp(1.75rem, 2vw + 1.1rem, 2.5rem); /* legacy alias of h2 */
+  --text-title--line-height: 1.15;
+  --text-h3: clamp(1.25rem, 1vw + 1rem, 1.6rem);
+  --text-h3--line-height: 1.25;
   --text-eyebrow: 0.75rem;
   --text-eyebrow--line-height: 1.4;
   --text-eyebrow--letter-spacing: 0.18em;
+  --text-body-lg: 1.125rem;
+  --text-body-lg--line-height: 1.7;
   --text-body: 1rem;
   --text-body--line-height: 1.7;
   --text-caption: 0.8rem;
-  --text-caption--line-height: 1.55;
+  --text-caption--line-height: 1.5;
+
+  /* Subtle radius — materiality, never bubbly */
+  --radius-card: 5px;
 
   /* Motion — slow and deliberate, never bouncy */
   --ease-luxe: cubic-bezier(0.22, 1, 0.36, 1);
@@ -83,24 +103,24 @@
       opacity: 1;
     }
     50% {
-      opacity: 0.45;
+      opacity: 0.5;
     }
   }
 }
 
 @layer base {
   body {
-    background-color: var(--color-espresso);
-    color: var(--color-cream);
+    background-color: var(--color-paper);
+    color: var(--color-ink);
     font-family: var(--font-sans);
   }
 
   ::selection {
-    background: color-mix(in srgb, var(--color-gold) 30%, transparent);
+    background: color-mix(in srgb, var(--color-cognac) 22%, transparent);
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-camel);
+    outline: 2px solid var(--color-cognac);
     outline-offset: 2px;
   }
 }
