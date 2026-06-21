@@ -15,6 +15,10 @@ export const COLLECTION_BY_HANDLE_QUERY = `#graphql
       handle
       title
       description
+      image {
+        url
+        altText
+      }
       products(first: $first, after: $after, sortKey: $sortKey, reverse: $reverse) {
         nodes {
           ...ProductCard
@@ -46,6 +50,7 @@ export type CollectionByHandleQueryData = {
     handle: string;
     title: string;
     description: string;
+    image: { url: string; altText: string | null } | null;
     products: {
       nodes: FilterableProduct[];
       pageInfo: { hasNextPage: boolean; endCursor: string | null };

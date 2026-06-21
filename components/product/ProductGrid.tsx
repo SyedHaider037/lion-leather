@@ -23,33 +23,30 @@ function ProductCardItem({
   const price = formatMoney(money.amount, money.currencyCode);
 
   return (
-    <Link
-      href={`/products/${product.handle}`}
-      className="group block transition-transform duration-[350ms] ease-luxe hover:-translate-y-1"
-    >
-      <div className="relative aspect-[4/5] overflow-hidden bg-surface transition-shadow duration-[350ms] ease-luxe group-hover:shadow-[0_18px_50px_-12px_rgba(194,146,90,0.45)]">
+    <Link href={`/products/${product.handle}`} className="group block">
+      <div className="relative aspect-[4/5] overflow-hidden rounded-[5px] bg-surface">
         {product.featuredImage ? (
           <Image
             src={product.featuredImage.url}
             alt={product.featuredImage.altText ?? product.title}
             fill
             sizes={sizes}
-            className="object-cover transition-transform duration-700 ease-luxe group-hover:scale-[1.04]"
+            className="object-cover transition-transform duration-700 ease-luxe group-hover:scale-[1.03]"
           />
         ) : null}
       </div>
 
-      <div className="mt-6 text-center">
-        <p className="font-serif text-lg font-light text-cream">
+      <div className="mt-5">
+        <p className="font-serif text-lg font-medium text-ink">
           <span className="relative inline-block">
             {product.title}
             <span
               aria-hidden
-              className="absolute -bottom-0.5 left-0 h-px w-full origin-left scale-x-0 bg-cream/40 transition-transform duration-500 ease-luxe group-hover:scale-x-100"
+              className="absolute -bottom-0.5 left-0 h-px w-full origin-left scale-x-0 bg-cognac transition-transform duration-500 ease-luxe group-hover:scale-x-100"
             />
           </span>
         </p>
-        <p className="mt-2 text-caption text-stone">{price}</p>
+        <p className="mt-1.5 text-caption text-taupe">{price}</p>
       </div>
     </Link>
   );
