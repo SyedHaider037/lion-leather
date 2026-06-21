@@ -4,27 +4,21 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
+import { CategoryNav } from "@/components/layout/CategoryNav";
 import { Container } from "@/components/ui/Container";
 import { cn } from "@/lib/utils/cn";
 
-const NAV_LINKS = [
-  { href: "/collections/footwear", label: "Shoes" },
-  { href: "/collections/wallets", label: "Wallets" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
-];
+function MenuIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" aria-hidden>
+      <path d="M3.5 8h17M3.5 16h17" />
+    </svg>
+  );
+}
 
 function SearchIcon() {
   return (
-    <svg
-      width="19"
-      height="19"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.2"
-      aria-hidden
-    >
+    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" aria-hidden>
       <circle cx="11" cy="11" r="7" />
       <path d="m20 20-3.8-3.8" />
     </svg>
@@ -33,15 +27,7 @@ function SearchIcon() {
 
 function BagIcon() {
   return (
-    <svg
-      width="19"
-      height="19"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.2"
-      aria-hidden
-    >
+    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" aria-hidden>
       <path d="M5 8h14l-1.2 12.2a1.5 1.5 0 0 1-1.5 1.3H7.7a1.5 1.5 0 0 1-1.5-1.3L5 8Z" />
       <path d="M8.5 10V6.5a3.5 3.5 0 0 1 7 0V10" />
     </svg>
@@ -54,7 +40,6 @@ function CartCount() {
 
   useEffect(() => {
     let cancelled = false;
-
     const load = () => {
       fetch("/api/cart/count", { cache: "no-store" })
         .then((res) => (res.ok ? res.json() : null))
@@ -63,11 +48,8 @@ function CartCount() {
             setCount(json.count);
           }
         })
-        .catch(() => {
-          // Quietly keep the previous count.
-        });
+        .catch(() => {});
     };
-
     load();
     window.addEventListener("cart:updated", load);
     return () => {
@@ -77,38 +59,13 @@ function CartCount() {
   }, [pathname]);
 
   if (count <= 0) return null;
-
   return (
     <span
-      className="absolute -right-1.5 -top-1 flex h-4 w-4 items-center justify-center rounded-full bg-camel text-[0.6rem] leading-none text-espresso"
+      className="absolute -right-1.5 -top-1 flex h-4 w-4 items-center justify-center rounded-full bg-cognac text-[0.6rem] leading-none text-paper"
       aria-hidden
     >
       {count > 9 ? "9+" : count}
     </span>
-  );
-}
-
-function NavLink({
-  href,
-  children,
-  className,
-}: {
-  href: string;
-  children: React.ReactNode;
-  className?: string;
-}) {
-  return (
-    <Link
-      href={href}
-      className={cn(
-        "relative text-eyebrow uppercase text-cream transition-colors duration-500 ease-luxe",
-        "after:absolute after:-bottom-1 after:left-0 after:h-px after:w-full after:origin-right after:scale-x-0 after:bg-camel after:transition-transform after:duration-500 after:ease-luxe",
-        "hover:text-camel hover:after:origin-left hover:after:scale-x-100",
-        className,
-      )}
-    >
-      {children}
-    </Link>
   );
 }
 
@@ -118,6 +75,7 @@ export function Header() {
   const [searchOpen, setSearchOpen] = useState(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const searchButtonRef = useRef<HTMLButtonElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
   const pathname = usePathname();
   const router = useRouter();
 
@@ -128,8 +86,7 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close the overlays on navigation (state adjustment during render —
-  // the React-documented pattern for reacting to a prop/route change).
+  // Close overlays on navigation (state adjustment during render).
   const [lastPathname, setLastPathname] = useState(pathname);
   if (lastPathname !== pathname) {
     setLastPathname(pathname);
@@ -146,19 +103,18 @@ export function Header() {
     };
   }, [overlayOpen]);
 
+  // Search overlay: Esc closes and returns focus (menu handles its own trap).
   useEffect(() => {
-    if (!overlayOpen) return;
+    if (!searchOpen) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
-        setMenuOpen(false);
         setSearchOpen(false);
-        // Hand focus back so keyboard users aren't left on a hidden input.
         searchButtonRef.current?.focus();
       }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [overlayOpen]);
+  }, [searchOpen]);
 
   useEffect(() => {
     if (searchOpen) searchInputRef.current?.focus();
@@ -170,59 +126,32 @@ export function Header() {
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 border-b transition-colors duration-500 ease-luxe",
-        solid ? "border-gold/30 bg-espresso" : "border-transparent bg-transparent",
+        solid ? "border-taupe/30 bg-paper" : "border-transparent bg-transparent",
       )}
     >
       <Container className="grid h-18 grid-cols-[1fr_auto_1fr] items-center gap-6">
-        {/* Left: nav (desktop) / menu toggle (mobile) */}
+        {/* Left: menu trigger → category nav */}
         <div className="flex items-center">
-          <nav className="hidden items-center gap-8 md:flex" aria-label="Main">
-            {NAV_LINKS.map((link) => (
-              <NavLink key={link.href} href={link.href}>
-                {link.label}
-              </NavLink>
-            ))}
-          </nav>
-
           <button
+            ref={menuButtonRef}
             type="button"
-            onClick={() => setMenuOpen((v) => !v)}
+            onClick={() => {
+              setSearchOpen(false);
+              setMenuOpen(true);
+            }}
+            aria-label="Open menu"
             aria-expanded={menuOpen}
-            aria-label={menuOpen ? "Close menu" : "Open menu"}
-            className="-ml-2 flex h-10 w-10 items-center justify-center text-cream transition-colors duration-500 hover:text-camel md:hidden"
+            className="-ml-2 flex items-center gap-2 px-2 py-1 text-ink transition-colors duration-500 ease-luxe hover:text-cognac"
           >
-            {menuOpen ? (
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.2"
-                aria-hidden
-              >
-                <path d="M5 5l14 14M19 5L5 19" />
-              </svg>
-            ) : (
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.2"
-                aria-hidden
-              >
-                <path d="M3.5 9h17M3.5 15h17" />
-              </svg>
-            )}
+            <MenuIcon />
+            <span className="hidden text-eyebrow uppercase md:inline">Menu</span>
           </button>
         </div>
 
         {/* Center: wordmark */}
         <Link
           href="/"
-          className="whitespace-nowrap font-serif text-lg font-light uppercase tracking-[0.3em] text-cream md:text-xl"
+          className="whitespace-nowrap font-serif text-lg font-light uppercase tracking-[0.3em] text-ink md:text-xl"
         >
           Lion Leather
         </Link>
@@ -238,7 +167,7 @@ export function Header() {
             }}
             aria-label="Search"
             aria-expanded={searchOpen}
-            className="flex h-10 w-10 items-center justify-center text-cream transition-colors duration-500 hover:text-camel"
+            className="flex h-10 w-10 items-center justify-center text-ink transition-colors duration-500 hover:text-cognac"
           >
             <SearchIcon />
           </button>
@@ -246,12 +175,10 @@ export function Header() {
             href="/cart"
             aria-label="Your Selection"
             onClick={(e) => {
-              // Progressive enhancement: open the drawer with JS; the /cart
-              // page remains the no-JS fallback.
               e.preventDefault();
               window.dispatchEvent(new Event("cart:open"));
             }}
-            className="relative flex h-10 w-10 items-center justify-center text-cream transition-colors duration-500 hover:text-camel"
+            className="relative flex h-10 w-10 items-center justify-center text-ink transition-colors duration-500 hover:text-cognac"
           >
             <BagIcon />
             <CartCount />
@@ -259,10 +186,10 @@ export function Header() {
         </div>
       </Container>
 
-      {/* Full-screen search overlay — large serif input, hairline underline */}
+      {/* Full-screen search overlay */}
       <div
         className={cn(
-          "fixed inset-0 top-18 z-40 flex flex-col bg-espresso transition-opacity duration-700 ease-luxe",
+          "fixed inset-0 top-18 z-40 flex flex-col bg-paper transition-opacity duration-700 ease-luxe",
           searchOpen ? "opacity-100" : "pointer-events-none opacity-0",
         )}
         aria-hidden={!searchOpen}
@@ -277,59 +204,40 @@ export function Header() {
               router.push(q ? `/search?q=${encodeURIComponent(q)}` : "/search");
             }}
           >
-            <label
-              htmlFor="header-search"
-              className="text-eyebrow uppercase text-stone"
-            >
+            <label htmlFor="header-search" className="text-eyebrow uppercase text-taupe">
               Search
             </label>
-            <div className="mt-6 flex items-center gap-6 border-b border-camel/40 transition-colors duration-500 ease-luxe focus-within:border-camel">
+            <div className="mt-6 flex items-center gap-6 border-b border-cognac/40 transition-colors duration-500 ease-luxe focus-within:border-cognac">
               <input
                 id="header-search"
                 ref={searchInputRef}
                 type="search"
                 placeholder="What are you looking for?"
                 tabIndex={searchOpen ? 0 : -1}
-                className="w-full bg-transparent py-4 font-serif text-3xl font-light text-cream placeholder:text-stone/50 focus:outline-none sm:text-4xl [&::-webkit-search-cancel-button]:hidden"
+                className="w-full bg-transparent py-4 font-serif text-3xl font-light text-ink placeholder:text-taupe/60 focus:outline-none sm:text-4xl [&::-webkit-search-cancel-button]:hidden"
               />
               <button
                 type="submit"
                 tabIndex={searchOpen ? 0 : -1}
-                className="shrink-0 text-eyebrow uppercase text-cream transition-colors duration-500 hover:text-camel"
+                className="shrink-0 text-eyebrow uppercase text-ink transition-colors duration-500 hover:text-cognac"
               >
                 Search
               </button>
             </div>
-            <p className="mt-6 text-caption font-light text-stone">
+            <p className="mt-6 text-caption font-light text-taupe">
               Begin with a name, style, or material.
             </p>
           </form>
         </div>
       </div>
 
-      {/* Mobile full-screen overlay menu — slow fade */}
-      <div
-        className={cn(
-          "fixed inset-0 top-18 z-40 flex flex-col items-center justify-center gap-10 bg-espresso transition-opacity duration-700 ease-luxe md:hidden",
-          menuOpen ? "opacity-100" : "pointer-events-none opacity-0",
-        )}
-        aria-hidden={!menuOpen}
-      >
-        {NAV_LINKS.map((link) => (
-          <Link
-            key={link.href}
-            href={link.href}
-            tabIndex={menuOpen ? 0 : -1}
-            className="font-serif text-3xl font-light text-cream transition-colors duration-500 hover:text-camel"
-          >
-            {link.label}
-          </Link>
-        ))}
-        <span className="mt-4 h-px w-16 bg-gold/30" aria-hidden />
-        <span className="select-none font-serif text-sm tracking-[0.3em] text-gold">
-          LL
-        </span>
-      </div>
+      <CategoryNav
+        open={menuOpen}
+        onClose={() => {
+          setMenuOpen(false);
+          menuButtonRef.current?.focus();
+        }}
+      />
     </header>
   );
 }

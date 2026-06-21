@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { CollectionView } from "@/components/product/CollectionView";
 import { ButtonLink } from "@/components/ui/Button";
 import { Divider } from "@/components/ui/Divider";
@@ -111,6 +113,24 @@ export default async function CollectionPage({
 
   return (
     <Section className="pt-14 sm:pt-20">
+      <nav aria-label="Breadcrumb" className="mb-10 text-eyebrow uppercase text-taupe">
+        <ol className="flex flex-wrap items-center gap-2">
+          <li>
+            <Link href="/" className="transition-colors duration-500 ease-luxe hover:text-cognac">
+              Home
+            </Link>
+          </li>
+          <li aria-hidden>/</li>
+          <li>
+            <Link href="/collections" className="transition-colors duration-500 ease-luxe hover:text-cognac">
+              Collections
+            </Link>
+          </li>
+          <li aria-hidden>/</li>
+          <li className="text-ink">{collection.title}</li>
+        </ol>
+      </nav>
+
       {/* Editorial header */}
       <div className="text-center">
         <Eyebrow>Collection</Eyebrow>
