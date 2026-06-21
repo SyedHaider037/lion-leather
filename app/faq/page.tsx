@@ -19,7 +19,7 @@ export default function FaqPage() {
         <Heading as="h1" className="mt-6">
           Frequently asked.
         </Heading>
-        <p className="mt-12 text-body font-light text-stone">
+        <p className="mt-12 text-body font-light text-taupe">
           Everything you might want to know before, during, and after your
           order.
         </p>

@@ -19,19 +19,19 @@ export default function TrackOrderPage() {
         <Heading as="h1" className="mt-6">
           Track your order.
         </Heading>
-        <p className="mt-12 text-body font-light text-stone">
+        <p className="mt-12 text-body font-light text-taupe">
           Enter your order number and we’ll pick it up from there.
         </p>
 
         <TrackOrderForm />
 
-        <p className="mt-12 border-t border-gold/30 pt-8 text-body font-light text-stone">
+        <p className="mt-12 border-t border-gold/30 pt-8 text-body font-light text-taupe">
           For real-time updates, contact us on WhatsApp at{" "}
           <a
             href={WHATSAPP_URL}
             target="_blank"
             rel="noreferrer noopener"
-            className="text-cream underline decoration-gold/50 underline-offset-4 transition-colors duration-500 ease-luxe hover:text-camel"
+            className="text-ink underline decoration-gold/50 underline-offset-4 transition-colors duration-500 ease-luxe hover:text-cognac"
           >
             +92 300 0000000 →
           </a>

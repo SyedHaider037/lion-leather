@@ -23,12 +23,6 @@
   --color-gold: #c9a24b; /* hairlines only (~30%) + the LL monogram */
   --color-error: #9c4a33; /* error tone (readable on light) */
 
-  /* Transitional aliases → removed in the Phase 7 sweep */
-  --color-espresso: #f4f0e8; /* legacy page-bg token → paper */
-  --color-cream: #2a231b; /* legacy text token → ink */
-  --color-stone: #756a5a; /* legacy muted token → taupe */
-  --color-camel: #985c31; /* legacy accent token → cognac */
-
   /* Typography */
   --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-display), ui-serif, Georgia, serif;

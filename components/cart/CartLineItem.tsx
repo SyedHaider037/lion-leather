@@ -50,15 +50,15 @@ export function CartLineItem({
         </div>
 
         <div className="min-w-0 flex-1">
-          <p className="truncate font-serif text-lg font-light text-cream">
+          <p className="truncate font-serif text-lg font-light text-ink">
             {line.merchandise.product.title}
           </p>
-          <p className="mt-1 text-eyebrow uppercase text-stone">
+          <p className="mt-1 text-eyebrow uppercase text-taupe">
             {line.merchandise.title}
           </p>
 
           <div className="mt-4 flex flex-wrap items-center justify-between gap-4">
-            <p className="text-caption text-stone">{price}</p>
+            <p className="text-caption text-taupe">{price}</p>
 
             <div className="flex items-center gap-1">
               <form action={onUpdateQuantity}>
@@ -79,7 +79,7 @@ export function CartLineItem({
                 </SubmitButton>
               </form>
 
-              <div className="min-w-8 text-center text-caption text-cream">
+              <div className="min-w-8 text-center text-caption text-ink">
                 {line.quantity}
               </div>
 

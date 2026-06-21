@@ -40,12 +40,12 @@ function CollectionCard({ collection }: { collection: CollectionListItem }) {
         ) : null}
       </div>
       <div className="mt-6 text-center">
-        <h2 className="font-serif text-2xl font-light text-cream">
+        <h2 className="font-serif text-2xl font-light text-ink">
           <span className="relative inline-block">
             {collection.title}
             <span
               aria-hidden
-              className="absolute -bottom-0.5 left-0 h-px w-full origin-left scale-x-0 bg-cream/40 transition-transform duration-500 ease-luxe group-hover:scale-x-100"
+              className="absolute -bottom-0.5 left-0 h-px w-full origin-left scale-x-0 bg-ink/40 transition-transform duration-500 ease-luxe group-hover:scale-x-100"
             />
           </span>
         </h2>
@@ -85,7 +85,7 @@ export default async function CollectionsIndexPage() {
           ))}
         </div>
       ) : (
-        <p className="mt-16 text-center text-body font-light text-stone">
+        <p className="mt-16 text-center text-body font-light text-taupe">
           New collections are arriving soon.
         </p>
       )}

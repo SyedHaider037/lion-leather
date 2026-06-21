@@ -21,11 +21,11 @@ export function NewsletterForm() {
     <form action={formAction} className="mt-16 max-w-md" aria-label="Newsletter">
       <label
         htmlFor="newsletter-email"
-        className="text-eyebrow uppercase text-cream/60"
+        className="text-eyebrow uppercase text-ink/60"
       >
         Newsletter
       </label>
-      <div className="mt-4 flex items-center gap-4 border-b border-cream/30 transition-colors duration-500 ease-luxe focus-within:border-camel">
+      <div className="mt-4 flex items-center gap-4 border-b border-ink/30 transition-colors duration-500 ease-luxe focus-within:border-cognac">
         <input
           id="newsletter-email"
           type="email"
@@ -34,12 +34,12 @@ export function NewsletterForm() {
           placeholder="Your email address"
           autoComplete="email"
           disabled={pending || done}
-          className="w-full bg-transparent py-3 text-body font-light text-cream placeholder:text-cream/50 focus:outline-none disabled:opacity-60"
+          className="w-full bg-transparent py-3 text-body font-light text-ink placeholder:text-ink/50 focus:outline-none disabled:opacity-60"
         />
         <button
           type="submit"
           disabled={pending || done}
-          className="shrink-0 text-eyebrow uppercase tracking-[0.15em] text-cream transition-colors duration-500 ease-luxe hover:text-camel disabled:opacity-50"
+          className="shrink-0 text-eyebrow uppercase tracking-[0.15em] text-ink transition-colors duration-500 ease-luxe hover:text-cognac disabled:opacity-50"
         >
           {pending ? "…" : "Subscribe"}
         </button>
@@ -47,7 +47,7 @@ export function NewsletterForm() {
       {state.message ? (
         <p
           aria-live="polite"
-          className="mt-3 text-caption font-light text-cream/70"
+          className="mt-3 text-caption font-light text-ink/70"
         >
           {state.message}
         </p>

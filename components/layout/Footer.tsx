@@ -50,7 +50,7 @@ const COLUMNS: { heading: string; links: FooterLink[] }[] = [
 ];
 
 const linkClass =
-  "text-caption font-light text-stone transition-colors duration-500 ease-luxe hover:text-camel";
+  "text-caption font-light text-taupe transition-colors duration-500 ease-luxe hover:text-cognac";
 
 function FooterLinkItem({ link }: { link: FooterLink }) {
   if (link.external) {
@@ -74,7 +74,7 @@ function FooterLinkItem({ link }: { link: FooterLink }) {
 
 export function Footer() {
   return (
-    <footer className="border-t border-gold/30 bg-surface text-cream">
+    <footer className="border-t border-gold/30 bg-surface text-ink">
       <Container className="py-16 lg:py-24">
         {/* Signature motif: gold hairline with centered LL monogram */}
         <div className="flex items-center gap-6" role="separator">
@@ -91,7 +91,7 @@ export function Footer() {
         <div className="mt-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
           {COLUMNS.map((col) => (
             <div key={col.heading}>
-              <p className="text-eyebrow uppercase text-cream/80">{col.heading}</p>
+              <p className="text-eyebrow uppercase text-ink/80">{col.heading}</p>
               <ul className="mt-6 space-y-3">
                 {col.links.map((link) => (
                   <li key={link.label}>
@@ -99,7 +99,7 @@ export function Footer() {
                   </li>
                 ))}
                 {col.heading === "Contact" ? (
-                  <li className="pt-2 text-caption font-light text-stone">
+                  <li className="pt-2 text-caption font-light text-taupe">
                     Lahore, Pakistan
                   </li>
                 ) : null}
@@ -111,20 +111,20 @@ export function Footer() {
         <NewsletterForm />
 
         <div className="mt-16">
-          <p className="text-caption font-light text-stone">
+          <p className="text-caption font-light text-taupe">
             © {new Date().getFullYear()} Lion Leather. All rights reserved.
           </p>
-          <p className="mt-3 text-caption font-light text-stone">
+          <p className="mt-3 text-caption font-light text-taupe">
             <Link
               href="/privacy-policy"
-              className="transition-colors duration-500 ease-luxe hover:text-camel"
+              className="transition-colors duration-500 ease-luxe hover:text-cognac"
             >
               Privacy Policy
             </Link>
             {" · "}
             <Link
               href="/terms-of-service"
-              className="transition-colors duration-500 ease-luxe hover:text-camel"
+              className="transition-colors duration-500 ease-luxe hover:text-cognac"
             >
               Terms of Service
             </Link>

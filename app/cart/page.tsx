@@ -93,7 +93,7 @@ export default async function CartPage({
           <Heading as="h1" tone="title" className="mt-10">
             Your collection awaits.
           </Heading>
-          <p className="mt-6 text-body font-light text-stone">
+          <p className="mt-6 text-body font-light text-taupe">
             Carefully chosen pieces belong here — ready when you are.
           </p>
           <div className="mt-10">
@@ -108,7 +108,7 @@ export default async function CartPage({
           <Heading as="h1" className="mt-6">
             Your Selection
           </Heading>
-          <p className="mt-6 max-w-xl text-body font-light text-stone">
+          <p className="mt-6 max-w-xl text-body font-light text-taupe">
             Carefully chosen pieces, ready to be yours.
           </p>
 
@@ -120,7 +120,7 @@ export default async function CartPage({
             </div>
           ) : stockLimited ? (
             <div className="mt-10 border-t border-gold/30 pt-4">
-              <p className="text-caption text-stone">
+              <p className="text-caption text-taupe">
                 That’s all we currently have of this piece.
               </p>
             </div>

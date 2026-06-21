@@ -18,7 +18,7 @@ export function TrackOrderForm() {
 
   return (
     <form className="mt-10" onSubmit={handleSubmit}>
-      <label htmlFor="order" className="text-eyebrow uppercase text-cream">
+      <label htmlFor="order" className="text-eyebrow uppercase text-ink">
         Order number
       </label>
       <div className="mt-4 flex flex-col gap-6 sm:flex-row sm:items-center sm:gap-8">
@@ -28,7 +28,7 @@ export function TrackOrderForm() {
           value={order}
           onChange={(e) => setOrder(e.target.value)}
           placeholder="e.g. #1024"
-          className="w-full border-b border-cream/30 bg-transparent py-3 text-body font-light text-cream placeholder:text-stone/60 transition-colors duration-500 ease-luxe focus:border-camel focus:outline-none"
+          className="w-full border-b border-ink/30 bg-transparent py-3 text-body font-light text-ink placeholder:text-taupe/60 transition-colors duration-500 ease-luxe focus:border-cognac focus:outline-none"
         />
         <Button type="submit" className="sm:shrink-0">
           Track

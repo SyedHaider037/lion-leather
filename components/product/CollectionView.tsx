@@ -51,16 +51,16 @@ function FacetGroup({
   if (!options.length) return null;
   return (
     <div className="border-t border-gold/30 py-6">
-      <p className="text-eyebrow uppercase text-stone">{heading}</p>
+      <p className="text-eyebrow uppercase text-taupe">{heading}</p>
       <ul className="mt-4 space-y-3">
         {options.map((o) => (
           <li key={o.value}>
-            <label className="flex cursor-pointer items-center gap-3 text-caption font-light text-cream">
+            <label className="flex cursor-pointer items-center gap-3 text-caption font-light text-ink">
               <input
                 type="checkbox"
                 checked={selected.has(o.value)}
                 onChange={() => onToggle(o.value)}
-                className="h-4 w-4 shrink-0 appearance-none border border-cream/40 bg-transparent transition-colors duration-300 ease-luxe checked:border-camel checked:bg-camel focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-camel"
+                className="h-4 w-4 shrink-0 appearance-none border border-ink/40 bg-transparent transition-colors duration-300 ease-luxe checked:border-cognac checked:bg-cognac focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cognac"
               />
               {o.label}
             </label>
@@ -181,7 +181,7 @@ export function CollectionView({ products }: { products: FilterableProduct[] }) 
       {hasFacets ? (
         <aside className="hidden lg:block">
           <div className="sticky top-28 max-h-[calc(100vh-9rem)] overflow-y-auto pr-2">
-            <p className="text-eyebrow uppercase text-cream">Filter</p>
+            <p className="text-eyebrow uppercase text-ink">Filter</p>
             {facets}
           </div>
         </aside>
@@ -194,7 +194,7 @@ export function CollectionView({ products }: { products: FilterableProduct[] }) 
             <button
               type="button"
               onClick={() => setDrawerOpen(true)}
-              className="text-eyebrow uppercase text-cream transition-colors duration-500 ease-luxe hover:text-camel lg:hidden"
+              className="text-eyebrow uppercase text-ink transition-colors duration-500 ease-luxe hover:text-cognac lg:hidden"
             >
               Filter{pills.length ? ` (${pills.length})` : ""}
             </button>
@@ -202,15 +202,15 @@ export function CollectionView({ products }: { products: FilterableProduct[] }) 
             <span className="lg:hidden" />
           )}
 
-          <label className="ml-auto flex items-center gap-3 text-eyebrow uppercase text-stone">
+          <label className="ml-auto flex items-center gap-3 text-eyebrow uppercase text-taupe">
             <span className="hidden sm:inline">Sort</span>
             <select
               value={sort}
               onChange={(e) => setSort(e.target.value as SortKey)}
-              className="border-b border-cream/30 bg-transparent py-1 text-eyebrow uppercase text-cream transition-colors duration-500 ease-luxe focus-visible:border-camel focus-visible:outline-none"
+              className="border-b border-ink/30 bg-transparent py-1 text-eyebrow uppercase text-ink transition-colors duration-500 ease-luxe focus-visible:border-cognac focus-visible:outline-none"
             >
               {SORTS.map((s) => (
-                <option key={s.key} value={s.key} className="bg-espresso text-cream">
+                <option key={s.key} value={s.key} className="bg-paper text-ink">
                   {s.label}
                 </option>
               ))}
@@ -226,7 +226,7 @@ export function CollectionView({ products }: { products: FilterableProduct[] }) 
                 key={p.v}
                 type="button"
                 onClick={p.onClear}
-                className="inline-flex items-center gap-2 border border-camel bg-camel/15 px-3 py-1 text-caption text-cream transition-colors duration-300 ease-luxe hover:bg-camel hover:text-espresso"
+                className="inline-flex items-center gap-2 border border-cognac bg-cognac/15 px-3 py-1 text-caption text-ink transition-colors duration-300 ease-luxe hover:bg-cognac hover:text-paper"
               >
                 {p.label}
                 <span aria-hidden>×</span>
@@ -236,7 +236,7 @@ export function CollectionView({ products }: { products: FilterableProduct[] }) 
             <button
               type="button"
               onClick={clearAll}
-              className="ml-1 text-caption text-stone underline-offset-4 transition-colors duration-300 ease-luxe hover:text-camel"
+              className="ml-1 text-caption text-taupe underline-offset-4 transition-colors duration-300 ease-luxe hover:text-cognac"
             >
               Clear all
             </button>
@@ -247,7 +247,7 @@ export function CollectionView({ products }: { products: FilterableProduct[] }) 
           {filtered.length ? (
             <ProductGrid products={filtered} columns={4} centerWhenSparse={false} />
           ) : (
-            <p className="py-16 text-center text-body font-light text-stone">
+            <p className="py-16 text-center text-body font-light text-taupe">
               No pieces match these filters.
             </p>
           )}
@@ -280,12 +280,12 @@ export function CollectionView({ products }: { products: FilterableProduct[] }) 
           )}
         >
           <div className="flex items-center justify-between border-b border-gold/30 px-6 py-5">
-            <p className="text-eyebrow uppercase text-cream">Filter</p>
+            <p className="text-eyebrow uppercase text-ink">Filter</p>
             <button
               type="button"
               onClick={() => setDrawerOpen(false)}
               aria-label="Close filters"
-              className="text-cream transition-colors duration-500 hover:text-camel"
+              className="text-ink transition-colors duration-500 hover:text-cognac"
             >
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" aria-hidden>
                 <path d="M5 5l14 14M19 5L5 19" />
@@ -297,7 +297,7 @@ export function CollectionView({ products }: { products: FilterableProduct[] }) 
             <button
               type="button"
               onClick={() => setDrawerOpen(false)}
-              className="w-full border border-camel bg-camel py-3 text-eyebrow uppercase tracking-[0.15em] text-espresso transition-all duration-500 ease-luxe hover:brightness-110"
+              className="w-full border border-cognac bg-cognac py-3 text-eyebrow uppercase tracking-[0.15em] text-paper transition-all duration-500 ease-luxe hover:brightness-110"
             >
               Show {filtered.length} {filtered.length === 1 ? "piece" : "pieces"}
             </button>

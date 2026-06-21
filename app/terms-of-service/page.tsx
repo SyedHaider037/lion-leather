@@ -47,11 +47,11 @@ export default function TermsOfServicePage() {
         <Heading as="h1" className="mt-6">
           Terms of service.
         </Heading>
-        <p className="mt-4 text-caption font-light text-stone">
+        <p className="mt-4 text-caption font-light text-taupe">
           Last updated June 2026.
         </p>
 
-        <p className="mt-12 text-body font-light text-stone">
+        <p className="mt-12 text-body font-light text-taupe">
           These terms set out the basis on which we sell to you. By placing an
           order, you agree to them.
         </p>
@@ -62,10 +62,10 @@ export default function TermsOfServicePage() {
               key={section.label}
               className="grid gap-2 border-b border-gold/30 py-6 sm:grid-cols-[12rem_1fr] sm:gap-8"
             >
-              <dt className="text-eyebrow uppercase text-cream">
+              <dt className="text-eyebrow uppercase text-ink">
                 {section.label}
               </dt>
-              <dd className="text-body font-light text-stone">
+              <dd className="text-body font-light text-taupe">
                 {section.body}
               </dd>
             </div>

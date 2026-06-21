@@ -7,10 +7,10 @@ import { Button } from "@/components/ui/Button";
 const WHATSAPP_URL = "https://wa.me/923000000000";
 
 const inputClass =
-  "w-full border border-cream/15 bg-surface px-4 py-3 text-body font-light text-cream placeholder:text-stone transition-colors duration-500 ease-luxe focus:border-camel focus:outline-none";
+  "w-full border border-ink/15 bg-surface px-4 py-3 text-body font-light text-ink placeholder:text-taupe transition-colors duration-500 ease-luxe focus:border-cognac focus:outline-none";
 
 const whatsappLinkClass =
-  "text-cream underline decoration-gold/50 underline-offset-4 transition-colors duration-500 ease-luxe hover:text-camel";
+  "text-ink underline decoration-gold/50 underline-offset-4 transition-colors duration-500 ease-luxe hover:text-cognac";
 
 function Field({
   label,
@@ -21,7 +21,7 @@ function Field({
 }) {
   return (
     <label className="grid gap-2">
-      <span className="text-eyebrow uppercase text-cream">{label}</span>
+      <span className="text-eyebrow uppercase text-ink">{label}</span>
       {children}
     </label>
   );
@@ -35,7 +35,7 @@ export function ContactForm() {
   if (submitted) {
     return (
       <div className="mt-14 border-t border-gold/30 pt-10">
-        <p className="text-body font-light text-stone">
+        <p className="text-body font-light text-taupe">
           Thanks for reaching out. For now, please WhatsApp us directly for a
           faster response.
         </p>
@@ -91,13 +91,13 @@ export function ContactForm() {
 
         <div className="pt-2">
           <Button type="submit">Send Message</Button>
-          <p className="mt-4 text-caption text-stone">
+          <p className="mt-4 text-caption text-taupe">
             Your details are used only to reply.
           </p>
         </div>
       </form>
 
-      <p className="mt-12 border-t border-gold/30 pt-8 text-body font-light text-stone">
+      <p className="mt-12 border-t border-gold/30 pt-8 text-body font-light text-taupe">
         Prefer WhatsApp? Message us on{" "}
         <a
           href={WHATSAPP_URL}

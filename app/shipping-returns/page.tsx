@@ -38,7 +38,7 @@ export default function ShippingReturnsPage() {
           Shipping &amp; returns.
         </Heading>
 
-        <p className="mt-12 text-body font-light text-stone">
+        <p className="mt-12 text-body font-light text-taupe">
           Every order is wrapped by hand and sent with care. Should anything
           need attention once it reaches you, we are here to make it right.
         </p>
@@ -49,21 +49,21 @@ export default function ShippingReturnsPage() {
               key={section.label}
               className="grid gap-2 border-b border-gold/30 py-6 sm:grid-cols-[10rem_1fr] sm:gap-8"
             >
-              <dt className="text-eyebrow uppercase text-cream">
+              <dt className="text-eyebrow uppercase text-ink">
                 {section.label}
               </dt>
-              <dd className="text-body font-light text-stone">
+              <dd className="text-body font-light text-taupe">
                 {section.body}
               </dd>
             </div>
           ))}
         </dl>
 
-        <p className="mt-10 text-body font-light text-stone">
+        <p className="mt-10 text-body font-light text-taupe">
           Questions about an order?{" "}
           <Link
             href="/contact"
-            className="text-cream underline decoration-gold/50 underline-offset-4 transition-colors duration-500 ease-luxe hover:text-camel"
+            className="text-ink underline decoration-gold/50 underline-offset-4 transition-colors duration-500 ease-luxe hover:text-cognac"
           >
             Write to us
           </Link>

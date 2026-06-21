@@ -16,7 +16,7 @@ export default function ContactPage() {
         <Heading as="h1" className="mt-6">
           We’re here to help.
         </Heading>
-        <p className="mt-6 text-body font-light text-stone">
+        <p className="mt-6 text-body font-light text-taupe">
           For sizing, availability, or care, send a note. We’ll respond with
           calm clarity.
         </p>

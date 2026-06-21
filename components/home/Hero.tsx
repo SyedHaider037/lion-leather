@@ -12,7 +12,7 @@ export type HeroImage = { url: string; altText: string | null } | null;
  */
 export function Hero({ image }: { image: HeroImage }) {
   return (
-    <section className="relative -mt-18 w-full overflow-hidden bg-espresso">
+    <section className="relative -mt-18 w-full overflow-hidden bg-paper">
       <div className="grid min-h-svh lg:grid-cols-[11fr_9fr]">
         {/* Editorial text panel */}
         <div className="flex items-center px-6 pb-16 pt-32 md:px-[clamp(2.5rem,6vw,6rem)] lg:py-24">
@@ -21,7 +21,7 @@ export function Hero({ image }: { image: HeroImage }) {
               Lion Leather
             </Eyebrow>
 
-            <h1 className="mt-10 font-serif text-display font-medium leading-[1.04] text-cream lg:mt-12 lg:text-[clamp(5rem,8vw,9rem)]">
+            <h1 className="mt-10 font-serif text-display font-medium leading-[1.04] text-ink lg:mt-12 lg:text-[clamp(5rem,8vw,9rem)]">
               <span className="block overflow-hidden">
                 <span className="block animate-hero-line [animation-delay:150ms] motion-reduce:animate-none">
                   Crafted for
@@ -39,7 +39,7 @@ export function Hero({ image }: { image: HeroImage }) {
               </span>
             </h1>
 
-            <p className="mt-10 max-w-md animate-hero-fade text-body font-light text-stone [animation-delay:1100ms] motion-reduce:animate-none">
+            <p className="mt-10 max-w-md animate-hero-fade text-body font-light text-taupe [animation-delay:1100ms] motion-reduce:animate-none">
               Footwear and leather goods designed to elevate your everyday
               presence.
             </p>

@@ -9,7 +9,7 @@ export function ClosingCta() {
       <Reveal className="mx-auto max-w-2xl">
         <div className="border border-gold/30 px-8 py-16 text-center lg:px-16">
           <Divider className="mx-auto max-w-[12rem]" />
-          <p className="mt-10 font-serif text-title font-medium text-cream">
+          <p className="mt-10 font-serif text-title font-medium text-ink">
             Begin with a single pair.
           </p>
           <div className="mt-10">

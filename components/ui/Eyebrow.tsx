@@ -8,7 +8,7 @@ export function Eyebrow({
   className?: string;
 }) {
   return (
-    <p className={cn("font-sans text-eyebrow uppercase text-stone", className)}>
+    <p className={cn("font-sans text-eyebrow uppercase text-taupe", className)}>
       {children}
     </p>
   );

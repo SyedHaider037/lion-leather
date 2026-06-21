@@ -41,7 +41,7 @@ export default function LeatherCarePage() {
           Caring for your leather.
         </Heading>
 
-        <p className="mt-12 text-body font-light text-stone">
+        <p className="mt-12 text-body font-light text-taupe">
           Fine leather is a living material. Treated with a little patience, it
           softens, darkens, and takes on a character entirely its own — a record
           of where it has been worn. A few simple habits are all it asks.
@@ -53,8 +53,8 @@ export default function LeatherCarePage() {
               key={note.label}
               className="grid gap-2 border-b border-gold/30 py-6 sm:grid-cols-[10rem_1fr] sm:gap-8"
             >
-              <dt className="text-eyebrow uppercase text-cream">{note.label}</dt>
-              <dd className="text-body font-light text-stone">{note.copy}</dd>
+              <dt className="text-eyebrow uppercase text-ink">{note.label}</dt>
+              <dd className="text-body font-light text-taupe">{note.copy}</dd>
             </div>
           ))}
         </dl>

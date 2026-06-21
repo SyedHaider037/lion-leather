@@ -83,13 +83,13 @@ export function FaqAccordion() {
                 aria-expanded={isOpen}
                 aria-controls={panelId}
                 onClick={() => setOpenIndex(isOpen ? -1 : i)}
-                className="flex w-full items-center justify-between gap-6 py-6 text-left text-eyebrow uppercase text-cream"
+                className="flex w-full items-center justify-between gap-6 py-6 text-left text-eyebrow uppercase text-ink"
               >
                 {section.heading}
                 <span
                   aria-hidden
                   className={cn(
-                    "font-serif text-lg font-light text-stone transition-transform duration-500 ease-luxe",
+                    "font-serif text-lg font-light text-taupe transition-transform duration-500 ease-luxe",
                     isOpen && "rotate-45",
                   )}
                 >
@@ -113,10 +113,10 @@ export function FaqAccordion() {
                 <dl className="space-y-6 pb-8">
                   {section.items.map((item) => (
                     <div key={item.q}>
-                      <dt className="font-serif text-lg font-light text-cream">
+                      <dt className="font-serif text-lg font-light text-ink">
                         {item.q}
                       </dt>
-                      <dd className="mt-2 text-body font-light text-stone">
+                      <dd className="mt-2 text-body font-light text-taupe">
                         {item.a}
                       </dd>
                     </div>

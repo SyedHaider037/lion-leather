@@ -99,7 +99,7 @@ function ProductNotFound() {
       <Heading as="h1" className="mt-6">
         Product not found
       </Heading>
-      <p className="mt-6 max-w-xl text-body font-light text-stone">
+      <p className="mt-6 max-w-xl text-body font-light text-taupe">
         The piece you’re looking for isn’t available.
       </p>
     </Section>
@@ -239,10 +239,10 @@ export default async function ProductPage({
         }}
       />
       {/* Breadcrumbs */}
-      <nav aria-label="Breadcrumb" className="mb-8 text-eyebrow uppercase text-stone">
+      <nav aria-label="Breadcrumb" className="mb-8 text-eyebrow uppercase text-taupe">
         <ol className="flex flex-wrap items-center gap-2">
           <li>
-            <Link href="/" className="transition-colors duration-500 ease-luxe hover:text-camel">
+            <Link href="/" className="transition-colors duration-500 ease-luxe hover:text-cognac">
               Home
             </Link>
           </li>
@@ -252,7 +252,7 @@ export default async function ProductPage({
               <li>
                 <Link
                   href={`/collections/${category.handle}`}
-                  className="transition-colors duration-500 ease-luxe hover:text-camel"
+                  className="transition-colors duration-500 ease-luxe hover:text-cognac"
                 >
                   {category.title}
                 </Link>
@@ -260,7 +260,7 @@ export default async function ProductPage({
             </>
           ) : null}
           <li aria-hidden>/</li>
-          <li className="text-cream">{product.title}</li>
+          <li className="text-ink">{product.title}</li>
         </ol>
       </nav>
 
@@ -276,9 +276,9 @@ export default async function ProductPage({
             {product.title}
           </Heading>
 
-          <p className="mt-6 text-body text-cream">{price}</p>
+          <p className="mt-6 text-body text-ink">{price}</p>
 
-          <p className="mt-8 max-w-xl text-body font-light text-stone">
+          <p className="mt-8 max-w-xl text-body font-light text-taupe">
             {shortDescription}
           </p>
 
@@ -287,7 +287,7 @@ export default async function ProductPage({
               {features.map((f) => (
                 <li
                   key={f}
-                  className="border-t border-gold/30 py-3 text-eyebrow uppercase text-cream last:border-b"
+                  className="border-t border-gold/30 py-3 text-eyebrow uppercase text-ink last:border-b"
                 >
                   {f}
                 </li>
@@ -298,7 +298,7 @@ export default async function ProductPage({
           <form action={addToCart} id="pdp-add-form" className="mt-12">
             {hasVariantChoices ? (
               <fieldset className="mb-10">
-                <legend className="text-eyebrow uppercase text-cream">
+                <legend className="text-eyebrow uppercase text-ink">
                   {selectorLabel}
                 </legend>
                 <div className="mt-4 flex flex-wrap gap-3">
@@ -309,8 +309,8 @@ export default async function ProductPage({
                         "border px-5 py-3 text-eyebrow uppercase transition-colors duration-500 ease-luxe",
                         "has-[:focus-visible]:outline has-[:focus-visible]:outline-1 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-gold",
                         v.availableForSale
-                          ? "cursor-pointer border-cream/40 text-cream hover:border-cream has-[:checked]:border-camel has-[:checked]:bg-camel has-[:checked]:text-espresso"
-                          : "cursor-not-allowed border-cream/15 text-stone/60 line-through",
+                          ? "cursor-pointer border-ink/40 text-ink hover:border-ink has-[:checked]:border-cognac has-[:checked]:bg-cognac has-[:checked]:text-paper"
+                          : "cursor-not-allowed border-ink/15 text-taupe/60 line-through",
                       )}
                     >
                       <input
@@ -328,7 +328,7 @@ export default async function ProductPage({
 
                 <Link
                   href="/sizing-guide"
-                  className="mt-5 inline-block text-eyebrow uppercase text-stone transition-colors duration-500 ease-luxe hover:text-camel"
+                  className="mt-5 inline-block text-eyebrow uppercase text-taupe transition-colors duration-500 ease-luxe hover:text-cognac"
                 >
                   Size Guide →
                 </Link>
@@ -344,7 +344,7 @@ export default async function ProductPage({
             </SubmitButton>
           </form>
 
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-caption font-light text-stone">
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-caption font-light text-taupe">
             <span>Ships from Lahore, Pakistan</span>
             <span aria-hidden className="text-gold/50">·</span>
             <span>Secure checkout via Shopify</span>
@@ -353,7 +353,7 @@ export default async function ProductPage({
               href={WHATSAPP_URL}
               target="_blank"
               rel="noreferrer noopener"
-              className="transition-colors duration-500 ease-luxe hover:text-camel"
+              className="transition-colors duration-500 ease-luxe hover:text-cognac"
             >
               Questions? WhatsApp us
             </a>
@@ -364,18 +364,18 @@ export default async function ProductPage({
             <dl className="mt-12 border-t border-gold/30">
               {product.leatherType?.value ? (
                 <div className="flex items-baseline justify-between gap-6 border-b border-gold/30 py-3">
-                  <dt className="text-eyebrow uppercase text-stone">Leather</dt>
-                  <dd className="text-caption text-cream">
+                  <dt className="text-eyebrow uppercase text-taupe">Leather</dt>
+                  <dd className="text-caption text-ink">
                     {product.leatherType.value}
                   </dd>
                 </div>
               ) : null}
               {product.dimensions?.value ? (
                 <div className="flex items-baseline justify-between gap-6 border-b border-gold/30 py-3">
-                  <dt className="text-eyebrow uppercase text-stone">
+                  <dt className="text-eyebrow uppercase text-taupe">
                     Dimensions
                   </dt>
-                  <dd className="text-caption text-cream">
+                  <dd className="text-caption text-ink">
                     {product.dimensions.value}
                   </dd>
                 </div>
@@ -387,32 +387,32 @@ export default async function ProductPage({
           <div className="mt-14 border-t border-gold/30">
             {detailsText ? (
               <details className="group border-b border-gold/30">
-                <summary className="flex cursor-pointer list-none items-center justify-between py-5 text-eyebrow uppercase text-cream [&::-webkit-details-marker]:hidden">
+                <summary className="flex cursor-pointer list-none items-center justify-between py-5 text-eyebrow uppercase text-ink [&::-webkit-details-marker]:hidden">
                   Details
                   <span
                     aria-hidden
-                    className="font-serif text-lg font-light text-stone transition-transform duration-500 ease-luxe group-open:rotate-45"
+                    className="font-serif text-lg font-light text-taupe transition-transform duration-500 ease-luxe group-open:rotate-45"
                   >
                     +
                   </span>
                 </summary>
-                <p className="whitespace-pre-line pb-6 text-body font-light text-stone">
+                <p className="whitespace-pre-line pb-6 text-body font-light text-taupe">
                   {detailsText}
                 </p>
               </details>
             ) : null}
 
             <details className="group border-b border-gold/30">
-              <summary className="flex cursor-pointer list-none items-center justify-between py-5 text-eyebrow uppercase text-cream [&::-webkit-details-marker]:hidden">
+              <summary className="flex cursor-pointer list-none items-center justify-between py-5 text-eyebrow uppercase text-ink [&::-webkit-details-marker]:hidden">
                 Care
                 <span
                   aria-hidden
-                  className="font-serif text-lg font-light text-stone transition-transform duration-500 ease-luxe group-open:rotate-45"
+                  className="font-serif text-lg font-light text-taupe transition-transform duration-500 ease-luxe group-open:rotate-45"
                 >
                   +
                 </span>
               </summary>
-              <p className="pb-6 text-body font-light text-stone">
+              <p className="pb-6 text-body font-light text-taupe">
                 {CARE_COPY}
               </p>
             </details>

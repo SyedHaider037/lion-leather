@@ -28,7 +28,7 @@ export default function SizingGuidePage() {
           Finding your size.
         </Heading>
 
-        <p className="mt-12 text-body font-light text-stone">
+        <p className="mt-12 text-body font-light text-taupe">
           Our footwear is built on a true-to-size last. If you are between
           sizes, or favour a heavier sock, we suggest taking the larger of the
           two. To measure, stand on a sheet of paper and mark heel to longest
@@ -42,14 +42,14 @@ export default function SizingGuidePage() {
                 <th
                   key={h}
                   scope="col"
-                  className="py-4 text-eyebrow font-normal uppercase text-cream"
+                  className="py-4 text-eyebrow font-normal uppercase text-ink"
                 >
                   {h}
                 </th>
               ))}
             </tr>
           </thead>
-          <tbody className="text-body font-light text-stone">
+          <tbody className="text-body font-light text-taupe">
             {SIZES.map((row) => (
               <tr key={row.uk} className="border-b border-gold/30">
                 <td className="py-4">{row.uk}</td>
@@ -61,7 +61,7 @@ export default function SizingGuidePage() {
           </tbody>
         </table>
 
-        <p className="mt-10 text-caption font-light text-stone">
+        <p className="mt-10 text-caption font-light text-taupe">
           Conversions are approximate and offered as guidance. For help with a
           particular style, write to us and we will gladly advise.
         </p>
