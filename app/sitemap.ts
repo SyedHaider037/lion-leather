@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 
+import { getSiteUrl } from "@/lib/env";
 import { storefrontRequest } from "@/lib/shopify/client";
 import {
   COLLECTIONS_QUERY,
@@ -9,11 +10,6 @@ import {
   PRODUCTS_QUERY,
   type ProductsQueryData,
 } from "@/lib/shopify/queries/products";
-
-// Set NEXT_PUBLIC_SITE_URL to the production origin; falls back to the domain.
-const SITE_URL = (
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://lionleather.pk"
-).replace(/\/$/, "");
 
 const STATIC_PATHS = [
   "/",
@@ -33,6 +29,7 @@ const STATIC_PATHS = [
 export const revalidate = 3600;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const SITE_URL = getSiteUrl();
   const now = new Date();
 
   const entries: MetadataRoute.Sitemap = STATIC_PATHS.map((path) => ({

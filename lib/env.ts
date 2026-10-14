@@ -57,3 +57,25 @@ export function getPublicStoreDomain(): string {
     ) ?? getShopifyStoreDomain()
   );
 }
+
+const DEFAULT_SITE_URL = "https://lionleather.pk";
+
+const siteUrlSchema = z.string().url("NEXT_PUBLIC_SITE_URL must be a valid URL");
+
+let cachedSiteUrl: string | null = null;
+
+/**
+ * Public origin of the site (no trailing slash). Validated on its own so
+ * metadata, robots and sitemap don't need the Shopify variables.
+ */
+export function getSiteUrl(): string {
+  if (!cachedSiteUrl) {
+    const raw = process.env.NEXT_PUBLIC_SITE_URL || DEFAULT_SITE_URL;
+    const parsed = siteUrlSchema.safeParse(raw);
+    if (!parsed.success) {
+      throw new Error(`Invalid environment: ${parsed.error.issues[0].message}`);
+    }
+    cachedSiteUrl = parsed.data.replace(/\/$/, "");
+  }
+  return cachedSiteUrl;
+}

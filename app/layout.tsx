@@ -4,6 +4,7 @@ import { Fraunces, Inter } from "next/font/google";
 import { CartDrawer } from "@/components/cart/CartDrawer";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import { getSiteUrl } from "@/lib/env";
 
 import "./globals.css";
 
@@ -26,9 +27,7 @@ const body = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://lionleather.pk",
-  ),
+  metadataBase: new URL(getSiteUrl()),
   title: {
     default: "Lion Leather",
     template: "%s · Lion Leather",
