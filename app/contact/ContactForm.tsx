@@ -3,6 +3,7 @@
 import { useState } from "react";
 
 import { Button } from "@/components/ui/Button";
+import { SpamTrap } from "@/components/ui/SpamTrap";
 
 const WHATSAPP_URL = "https://wa.me/923000000000";
 
@@ -95,6 +96,7 @@ export function ContactForm() {
             Your details are used only to reply.
           </p>
         </div>
+        <SpamTrap />
       </form>
 
       <p className="mt-12 border-t border-gold/30 pt-8 text-body font-light text-taupe">

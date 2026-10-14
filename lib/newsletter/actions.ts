@@ -1,5 +1,6 @@
 "use server";
 
+import { checkSpam } from "@/lib/forms/spam";
 import { storefrontRequest } from "@/lib/shopify/client";
 
 const CUSTOMER_CREATE_MUTATION = `#graphql
@@ -45,6 +46,18 @@ export async function subscribeToNewsletter(
   _prev: SubscribeState,
   formData: FormData,
 ): Promise<SubscribeState> {
+  const spam = checkSpam(formData);
+  if (spam === "honeypot") {
+    // Look successful to a bot, but never create a customer.
+    return { status: "success", message: "You’re on the list." };
+  }
+  if (spam !== "ok") {
+    return {
+      status: "error",
+      message: "Please wait a moment and try again.",
+    };
+  }
+
   const email = String(formData.get("email") ?? "").trim();
 
   if (!EMAIL_RE.test(email)) {

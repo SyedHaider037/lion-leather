@@ -2,6 +2,7 @@
 
 import { useActionState } from "react";
 
+import { SpamTrap } from "@/components/ui/SpamTrap";
 import {
   subscribeToNewsletter,
   type SubscribeState,
@@ -19,6 +20,7 @@ export function NewsletterForm() {
 
   return (
     <form action={formAction} className="mt-16 max-w-md" aria-label="Newsletter">
+      <SpamTrap />
       <label
         htmlFor="newsletter-email"
         className="text-eyebrow uppercase text-ink/65"
