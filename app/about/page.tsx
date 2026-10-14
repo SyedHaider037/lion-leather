@@ -60,7 +60,7 @@ export default async function AboutPage() {
             </p>
           </div>
           <div className="mt-10">
-            <ButtonLink variant="link" href="/craft">
+            <ButtonLink variant="link" className="py-3.5! after:bottom-3.5!" href="/craft">
               Discover the craft
             </ButtonLink>
           </div>

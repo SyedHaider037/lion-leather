@@ -103,7 +103,7 @@ export function CartDrawer() {
             type="button"
             onClick={() => setOpen(false)}
             aria-label="Close"
-            className="text-ink transition-colors duration-500 hover:text-cognac"
+            className="-mr-3 flex h-11 w-11 items-center justify-center text-ink transition-colors duration-500 hover:text-cognac"
           >
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" aria-hidden>
               <path d="M5 5l14 14M19 5L5 19" />
@@ -155,15 +155,17 @@ export function CartDrawer() {
                         {line.merchandise.title}
                       </p>
                       <div className="mt-3 flex items-center justify-between gap-3">
-                        <div className="flex items-center gap-3 text-ink">
+                        <div className="flex items-center text-ink">
                           <button
                             type="button"
                             disabled={busy}
                             aria-label="Decrease quantity"
                             onClick={() => mutate(() => cartUpdateLineAction(line.id, line.quantity - 1))}
-                            className="h-7 w-7 border border-ink/30 transition-colors duration-300 hover:border-cognac hover:text-cognac disabled:opacity-40"
+                            className="group flex h-11 w-11 items-center justify-center transition-colors duration-300 hover:text-cognac disabled:opacity-40"
                           >
-                            −
+                            <span className="flex h-7 w-7 items-center justify-center border border-ink/30 transition-colors duration-300 group-hover:border-cognac">
+                              −
+                            </span>
                           </button>
                           <span className="min-w-6 text-center text-caption">{line.quantity}</span>
                           <button
@@ -171,9 +173,11 @@ export function CartDrawer() {
                             disabled={busy}
                             aria-label="Increase quantity"
                             onClick={() => mutate(() => cartUpdateLineAction(line.id, line.quantity + 1))}
-                            className="h-7 w-7 border border-ink/30 transition-colors duration-300 hover:border-cognac hover:text-cognac disabled:opacity-40"
+                            className="group flex h-11 w-11 items-center justify-center transition-colors duration-300 hover:text-cognac disabled:opacity-40"
                           >
-                            +
+                            <span className="flex h-7 w-7 items-center justify-center border border-ink/30 transition-colors duration-300 group-hover:border-cognac">
+                              +
+                            </span>
                           </button>
                         </div>
                         <p className="text-caption text-taupe">
@@ -184,7 +188,7 @@ export function CartDrawer() {
                         type="button"
                         disabled={busy}
                         onClick={() => mutate(() => cartRemoveLineAction(line.id))}
-                        className="mt-3 text-caption text-taupe underline-offset-4 transition-colors duration-300 hover:text-cognac disabled:opacity-40"
+                        className="inline-flex min-h-11 items-center text-caption text-taupe underline-offset-4 transition-colors duration-300 hover:text-cognac disabled:opacity-40"
                       >
                         Remove
                       </button>

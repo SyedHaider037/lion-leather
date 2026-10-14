@@ -141,7 +141,7 @@ export function Header() {
             }}
             aria-label="Open menu"
             aria-expanded={menuOpen}
-            className="-ml-2 flex items-center gap-2 px-2 py-1 text-ink transition-colors duration-500 ease-luxe hover:text-cognac"
+            className="-ml-2 flex min-h-11 min-w-11 items-center justify-center gap-2 px-2 py-1 text-ink transition-colors duration-500 ease-luxe hover:text-cognac"
           >
             <MenuIcon />
             <span className="hidden text-eyebrow uppercase md:inline">Menu</span>
@@ -151,7 +151,7 @@ export function Header() {
         {/* Center: wordmark */}
         <Link
           href="/"
-          className="whitespace-nowrap font-serif text-sm font-light uppercase tracking-[0.18em] text-ink min-[440px]:text-lg min-[440px]:tracking-[0.3em] md:text-xl"
+          className="inline-flex min-h-11 items-center whitespace-nowrap font-serif text-sm font-light uppercase tracking-[0.18em] text-ink min-[440px]:text-lg min-[440px]:tracking-[0.3em] md:text-xl"
         >
           Lion Leather
         </Link>
@@ -167,7 +167,7 @@ export function Header() {
             }}
             aria-label="Search"
             aria-expanded={searchOpen}
-            className="flex h-10 w-10 items-center justify-center text-ink transition-colors duration-500 hover:text-cognac"
+            className="flex h-11 w-11 items-center justify-center text-ink transition-colors duration-500 hover:text-cognac"
           >
             <SearchIcon />
           </button>
@@ -178,7 +178,7 @@ export function Header() {
               e.preventDefault();
               window.dispatchEvent(new Event("cart:open"));
             }}
-            className="relative flex h-10 w-10 items-center justify-center text-ink transition-colors duration-500 hover:text-cognac"
+            className="relative flex h-11 w-11 items-center justify-center text-ink transition-colors duration-500 hover:text-cognac"
           >
             <BagIcon />
             <CartCount />

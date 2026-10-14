@@ -41,7 +41,7 @@ export function CraftTeaser({ image }: { image: HeroImage }) {
               </p>
             </div>
             <div className="mt-8">
-              <ButtonLink variant="link" href="/craft">
+              <ButtonLink variant="link" className="py-3.5! after:bottom-3.5!" href="/craft">
                 Read the story
               </ButtonLink>
             </div>

@@ -51,7 +51,7 @@ const COLUMNS: { heading: string; links: FooterLink[] }[] = [
 ];
 
 const linkClass =
-  "text-caption font-light text-taupe transition-colors duration-500 ease-luxe hover:text-cognac";
+  "inline-flex min-h-11 min-w-11 items-center text-caption font-light text-taupe transition-colors duration-500 ease-luxe hover:text-cognac";
 
 function FooterLinkItem({ link }: { link: FooterLink }) {
   if (link.external) {
@@ -93,7 +93,7 @@ export function Footer() {
           {COLUMNS.map((col) => (
             <div key={col.heading}>
               <p className="text-eyebrow uppercase text-ink/80">{col.heading}</p>
-              <ul className="mt-6 space-y-3">
+              <ul className="mt-4">
                 {col.links.map((link) => (
                   <li key={link.label}>
                     <FooterLinkItem link={link} />
@@ -118,14 +118,14 @@ export function Footer() {
           <p className="mt-3 text-caption font-light text-taupe">
             <Link
               href="/privacy-policy"
-              className="transition-colors duration-500 ease-luxe hover:text-cognac"
+              className="inline-flex min-h-11 items-center transition-colors duration-500 ease-luxe hover:text-cognac"
             >
               Privacy Policy
             </Link>
             {" · "}
             <Link
               href="/terms-of-service"
-              className="transition-colors duration-500 ease-luxe hover:text-cognac"
+              className="inline-flex min-h-11 items-center transition-colors duration-500 ease-luxe hover:text-cognac"
             >
               Terms of Service
             </Link>
