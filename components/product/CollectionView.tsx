@@ -261,6 +261,7 @@ export function CollectionView({ products }: { products: FilterableProduct[] }) 
           drawerOpen ? "" : "pointer-events-none",
         )}
         aria-hidden={!drawerOpen}
+        inert={!drawerOpen}
       >
         <div
           onClick={() => setDrawerOpen(false)}

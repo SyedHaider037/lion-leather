@@ -75,6 +75,7 @@ export function CartDrawer() {
     <div
       className={cn("fixed inset-0 z-[70]", open ? "" : "pointer-events-none")}
       aria-hidden={!open}
+      inert={!open}
     >
       {/* Backdrop */}
       <div
