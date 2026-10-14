@@ -129,7 +129,7 @@ export function Header() {
         solid ? "border-taupe/30 bg-paper" : "border-transparent bg-transparent",
       )}
     >
-      <Container className="grid h-18 grid-cols-[1fr_auto_1fr] items-center gap-6">
+      <Container className="grid h-18 grid-cols-[1fr_auto_1fr] items-center gap-2 min-[440px]:gap-6">
         {/* Left: menu trigger → category nav */}
         <div className="flex items-center">
           <button
@@ -151,13 +151,13 @@ export function Header() {
         {/* Center: wordmark */}
         <Link
           href="/"
-          className="whitespace-nowrap font-serif text-lg font-light uppercase tracking-[0.3em] text-ink md:text-xl"
+          className="whitespace-nowrap font-serif text-sm font-light uppercase tracking-[0.18em] text-ink min-[440px]:text-lg min-[440px]:tracking-[0.3em] md:text-xl"
         >
           Lion Leather
         </Link>
 
         {/* Right: search + cart */}
-        <div className="flex items-center justify-end gap-5">
+        <div className="flex items-center justify-end gap-1 min-[440px]:gap-5">
           <button
             ref={searchButtonRef}
             type="button"
