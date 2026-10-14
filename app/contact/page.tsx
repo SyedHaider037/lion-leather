@@ -6,6 +6,8 @@ import { ContactForm } from "./ContactForm";
 
 export const metadata = {
   title: "Contact",
+  description:
+    "Write to Lion Leather with a question about an order, a size or a piece.",
 };
 
 export default function ContactPage() {

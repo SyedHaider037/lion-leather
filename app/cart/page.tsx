@@ -21,6 +21,8 @@ import { formatMoney } from "@/lib/utils/money";
 
 export const metadata = {
   title: "Your Selection",
+  description: "Review the pieces in your selection before checkout.",
+  robots: { index: false, follow: false },
 };
 
 export const dynamic = "force-dynamic";

@@ -5,6 +5,7 @@ import { SearchClient } from "@/components/search/SearchClient";
 
 export const metadata = {
   title: "Search",
+  robots: { index: false, follow: true },
 };
 
 export default async function SearchPage({

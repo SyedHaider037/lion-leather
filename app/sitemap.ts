@@ -16,7 +16,6 @@ const STATIC_PATHS = [
   "/about",
   "/contact",
   "/collections",
-  "/search",
   "/leather-care",
   "/sizing-guide",
   "/size-guide/shoes",

@@ -28,6 +28,8 @@ const body = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
+  // "./" resolves to each page's own URL against metadataBase.
+  alternates: { canonical: "./" },
   title: {
     default: "Lion Leather",
     template: "%s · Lion Leather",
