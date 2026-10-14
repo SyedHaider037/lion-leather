@@ -58,6 +58,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      // The inline script below adds the "js" class before hydration, so the
+      // class list intentionally differs from the server HTML.
+      suppressHydrationWarning
       className={`${display.variable} ${body.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-paper font-sans text-ink">
