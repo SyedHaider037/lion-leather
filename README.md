@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Lion Leather
 
-## Getting Started
+A headless e-commerce storefront for premium leather footwear and accessories, built on Next.js and the Shopify Storefront API.
 
-First, run the development server:
+> **Work in progress.** "Lion Leather" is a working title and may change. The project is under active development, not production-ready, and not a finished product.
+
+## Stack
+
+- Next.js 16 (App Router) and React 19
+- TypeScript
+- Tailwind CSS 4
+- Shopify Storefront API (GraphQL), accessed server-side
+- zod for environment validation
+
+## Getting started
+
+Requires Node.js 20.9 or newer (a requirement of Next.js 16).
 
 ```bash
+npm install
+cp .env.example .env.local   # then fill in your own values
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The dev server runs on http://localhost:3000. You need a Shopify store with the Storefront API enabled and a Storefront API access token.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Names only; see `.env.example` for placeholders. Never commit `.env.local`.
 
-## Learn More
+| Variable | Required | Purpose |
+| --- | --- | --- |
+| `SHOPIFY_STORE_DOMAIN` | yes | Store hostname (`your-store.myshopify.com`), used for Storefront API calls. Server-only. |
+| `SHOPIFY_STOREFRONT_ACCESS_TOKEN` | yes | Storefront API public access token, sent from the server. |
+| `SHOPIFY_STOREFRONT_API_VERSION` | no | Storefront API version. Defaults to `2025-01`. |
+| `NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN` | no | Public store hostname for checkout links, if different from the server domain. |
+| `NEXT_PUBLIC_SITE_URL` | no | Public origin of the site, used for metadata, `robots.txt` and the sitemap. |
 
-To learn more about Next.js, take a look at the following resources:
+## Scripts
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `npm run dev`: start the development server
+- `npm run build`: production build
+- `npm run start`: serve the production build
+- `npm run lint`: run ESLint
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Project layout
 
-## Deploy on Vercel
+```
+app/          Routes (App Router): home, collections, products, cart, search,
+              content pages, API routes, robots and sitemap
+components/   UI by area: cart, home, layout, product, search, ui
+lib/          shopify/ (Storefront client, queries, fragments), cart/ (cookie
+              session and cart actions), newsletter/, utils/, hooks/, env.ts
+public/       Static assets
+docs/, brain/ Internal design notes (see Known limitations)
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## How it works
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Product and collection pages are fetched on the server from the Storefront API and revalidated every 60 seconds.
+- The cart is a Shopify cart. Its id is kept in an httpOnly cookie, and checkout happens on Shopify through the cart's `checkoutUrl`.
+- The newsletter form saves the email as a Shopify customer with marketing consent.
+
+## Known limitations
+
+- The contact form does not send anything yet; it only shows a confirmation message. Email delivery still needs a provider.
+- "Track order" opens a pre-filled WhatsApp message rather than looking up an order.
+- There are no automated tests.
+- Collection pages expect the Shopify collection handles `wallets`, `footwear` and `bags`; they show an empty state if a collection does not exist in the store.
+- Site copy, policies and brand details are placeholders pending real business content.
+
+## What comes next
+
+- Email delivery for the contact form
+- Automated tests and a CI workflow
+- Production site URL, analytics and final brand name
