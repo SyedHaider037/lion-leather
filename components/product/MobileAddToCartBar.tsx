@@ -14,10 +14,12 @@ export function MobileAddToCartBar({
   productName,
   formId,
   anchorId,
+  soldOut = false,
 }: {
   productName: string;
   formId: string;
   anchorId: string;
+  soldOut?: boolean;
 }) {
   const [visible, setVisible] = useState(false);
 
@@ -54,10 +56,11 @@ export function MobileAddToCartBar({
         <button
           type="submit"
           form={formId}
+          disabled={soldOut}
           tabIndex={visible ? 0 : -1}
-          className="shrink-0 border border-cognac bg-cognac px-6 py-3 font-sans text-eyebrow uppercase tracking-[0.15em] text-paper transition-all duration-500 ease-luxe hover:brightness-110"
+          className="shrink-0 border border-cognac bg-cognac px-6 py-3 font-sans text-eyebrow uppercase tracking-[0.15em] text-paper transition-all duration-500 ease-luxe hover:brightness-110 disabled:pointer-events-none disabled:opacity-40"
         >
-          Add to Selection
+          {soldOut ? "Sold out" : "Add to Selection"}
         </button>
       </div>
     </div>

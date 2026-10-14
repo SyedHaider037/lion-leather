@@ -2,14 +2,20 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 
+import {
+  AddToCartForm,
+  type AddToCartState,
+} from "@/components/product/AddToCartForm";
 import { MobileAddToCartBar } from "@/components/product/MobileAddToCartBar";
 import { ProductGallery } from "@/components/product/ProductGallery";
 import { ProductGrid } from "@/components/product/ProductGrid";
+import { SelectedVariant } from "@/components/product/SelectedVariant";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Heading } from "@/components/ui/Heading";
 import { Reveal } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
 import { SectionTitle } from "@/components/ui/SectionTitle";
+import { Button } from "@/components/ui/Button";
 import { SubmitButton } from "@/components/ui/SubmitButton";
 import { addLinesOrCreateCart } from "@/lib/cart/api";
 import { getCartIdFromCookie, setCartIdCookie } from "@/lib/cart/session";
@@ -160,6 +166,8 @@ export default async function ProductPage({
     return <ProductNotFound />;
   }
 
+  const soldOut = !variantNodes.some((v) => v.availableForSale);
+
   const category = product.collections.nodes[0] ?? null;
   const sizeGuideHref = getSizeGuideHref(
     product.collections.nodes.map((c) => c.handle),
@@ -198,7 +206,10 @@ export default async function ProductPage({
 
   const detailsText = formattedDescription;
 
-  async function addToCart(formData: FormData) {
+  async function addToCart(
+    _prev: AddToCartState,
+    formData: FormData,
+  ): Promise<AddToCartState> {
     "use server";
 
     // Honor the selected variant; fall back to the first variant
@@ -208,17 +219,26 @@ export default async function ProductPage({
       ? selected
       : (productVariantEdges[0]?.node?.id ?? firstVariant.id);
 
-    const existingCartId = await getCartIdFromCookie();
+    try {
+      const existingCartId = await getCartIdFromCookie();
 
-    // If the cookie's cart has expired or been deleted, this transparently
-    // starts a fresh cart with the same line instead of throwing.
-    const { cart, created } = await addLinesOrCreateCart({
-      cartId: existingCartId,
-      lines: [{ merchandiseId: variantId, quantity: 1 }],
-    });
+      // If the cookie's cart has expired or been deleted, this transparently
+      // starts a fresh cart with the same line instead of throwing.
+      const { cart, created } = await addLinesOrCreateCart({
+        cartId: existingCartId,
+        lines: [{ merchandiseId: variantId, quantity: 1 }],
+      });
 
-    if (created) await setCartIdCookie(cart.id);
+      if (created) await setCartIdCookie(cart.id);
+    } catch (err) {
+      console.error("[PDP] Add to cart failed", err);
+      return {
+        error:
+          "We couldn't add this to your selection. It may be sold out. Please try again.",
+      };
+    }
 
+    // Outside the try/catch: redirect() works by throwing.
     redirect("/cart");
   }
 
@@ -304,7 +324,7 @@ export default async function ProductPage({
             </ul>
           ) : null}
 
-          <form action={addToCart} id="pdp-add-form" className="mt-12">
+          <AddToCartForm action={addToCart} id="pdp-add-form">
             {hasVariantChoices ? (
               <fieldset className="mb-10">
                 <legend className="text-eyebrow uppercase text-ink">
@@ -331,9 +351,17 @@ export default async function ProductPage({
                         className="sr-only"
                       />
                       {v.title}
+                      {v.availableForSale ? null : (
+                        <span className="sr-only"> (sold out)</span>
+                      )}
                     </label>
                   ))}
                 </div>
+
+                <SelectedVariant
+                  label={selectorLabel}
+                  initial={firstVariant.title}
+                />
 
                 {sizeGuideHref ? (
                   <Link
@@ -346,14 +374,25 @@ export default async function ProductPage({
               </fieldset>
             ) : null}
 
-            <SubmitButton
-              id="pdp-add-button"
-              className="w-full justify-center"
-              pendingText="Adding…"
-            >
-              Add to Selection
-            </SubmitButton>
-          </form>
+            {soldOut ? (
+              <Button
+                id="pdp-add-button"
+                type="button"
+                disabled
+                className="w-full justify-center"
+              >
+                Sold out
+              </Button>
+            ) : (
+              <SubmitButton
+                id="pdp-add-button"
+                className="w-full justify-center"
+                pendingText="Adding…"
+              >
+                Add to Selection
+              </SubmitButton>
+            )}
+          </AddToCartForm>
 
           <div className="mt-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-caption font-light text-taupe">
             <span>Ships from Lahore, Pakistan</span>
@@ -465,6 +504,7 @@ export default async function ProductPage({
         productName={product.title}
         formId="pdp-add-form"
         anchorId="pdp-add-button"
+        soldOut={soldOut}
       />
     </Section>
   );
