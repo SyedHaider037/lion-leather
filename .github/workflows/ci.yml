@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    env:
+      # Placeholder values so the build can run; these are not real credentials.
+      SHOPIFY_STORE_DOMAIN: example.myshopify.com
+      NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN: example.myshopify.com
+      SHOPIFY_STOREFRONT_ACCESS_TOKEN: placeholder-token
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm run build
