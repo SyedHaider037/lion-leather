@@ -7,13 +7,11 @@ import { SubmitButton } from "@/components/ui/SubmitButton";
 import type { CartLine } from "@/lib/shopify/queries/cart";
 
 export function CartLineItem({
-  cartId,
   line,
   price,
   onUpdateQuantity,
   onRemoveLine,
 }: {
-  cartId: string;
   line: CartLine;
   price: string;
   onUpdateQuantity: (formData: FormData) => void;
@@ -62,7 +60,6 @@ export function CartLineItem({
 
             <div className="flex items-center gap-1">
               <form action={onUpdateQuantity}>
-                <input type="hidden" name="cartId" value={cartId} />
                 <input type="hidden" name="lineId" value={line.id} />
                 <input
                   type="hidden"
@@ -84,7 +81,6 @@ export function CartLineItem({
               </div>
 
               <form action={onUpdateQuantity}>
-                <input type="hidden" name="cartId" value={cartId} />
                 <input type="hidden" name="lineId" value={line.id} />
                 <input
                   type="hidden"
@@ -102,7 +98,6 @@ export function CartLineItem({
               </form>
 
               <form action={onRemoveLine} className="ml-4">
-                <input type="hidden" name="cartId" value={cartId} />
                 <input type="hidden" name="lineId" value={line.id} />
                 <SubmitButton variant="link" pendingText="…">
                   Remove

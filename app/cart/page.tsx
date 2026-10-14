@@ -9,7 +9,13 @@ import { Divider } from "@/components/ui/Divider";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Heading } from "@/components/ui/Heading";
 import { Section } from "@/components/ui/Section";
-import { getCart, removeCartLines, updateCartLines } from "@/lib/cart/actions";
+import {
+  cartLineRemoveSchema,
+  cartLineUpdateSchema,
+  getCart,
+  removeCartLines,
+  updateCartLines,
+} from "@/lib/cart/api";
 import { getCartIdFromCookie } from "@/lib/cart/session";
 import { formatMoney } from "@/lib/utils/money";
 
@@ -33,11 +39,14 @@ export default async function CartPage({
   async function updateCartItemQuantity(formData: FormData) {
     "use server";
 
-    const cartId = String(formData.get("cartId") ?? "");
-    const lineId = String(formData.get("lineId") ?? "");
-    const nextQuantity = Number(formData.get("quantity") ?? 0);
+    const cartId = await getCartIdFromCookie();
+    const input = cartLineUpdateSchema.safeParse({
+      lineId: String(formData.get("lineId") ?? ""),
+      quantity: Number(formData.get("quantity") ?? 0),
+    });
 
-    if (!cartId || !lineId || !Number.isFinite(nextQuantity)) return;
+    if (!cartId || !input.success) return;
+    const { lineId, quantity: nextQuantity } = input.data;
 
     try {
       if (nextQuantity <= 0) {
@@ -69,9 +78,12 @@ export default async function CartPage({
   async function removeCartItem(formData: FormData) {
     "use server";
 
-    const cartId = String(formData.get("cartId") ?? "");
-    const lineId = String(formData.get("lineId") ?? "");
-    if (!cartId || !lineId) return;
+    const cartId = await getCartIdFromCookie();
+    const input = cartLineRemoveSchema.safeParse({
+      lineId: String(formData.get("lineId") ?? ""),
+    });
+    if (!cartId || !input.success) return;
+    const { lineId } = input.data;
 
     try {
       await removeCartLines({ cartId, lineIds: [lineId] });
@@ -131,7 +143,6 @@ export default async function CartPage({
               {cart.lines.nodes.map((line) => (
                 <CartLineItem
                   key={line.id}
-                  cartId={cart.id}
                   line={line}
                   price={formatMoney(
                     line.merchandise.price.amount,

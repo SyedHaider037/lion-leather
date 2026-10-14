@@ -11,7 +11,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { SubmitButton } from "@/components/ui/SubmitButton";
-import { addLinesOrCreateCart } from "@/lib/cart/actions";
+import { addLinesOrCreateCart } from "@/lib/cart/api";
 import { getCartIdFromCookie, setCartIdCookie } from "@/lib/cart/session";
 import { storefrontRequest } from "@/lib/shopify/client";
 import {
