@@ -21,7 +21,7 @@ export function NewsletterForm() {
     <form action={formAction} className="mt-16 max-w-md" aria-label="Newsletter">
       <label
         htmlFor="newsletter-email"
-        className="text-eyebrow uppercase text-ink/60"
+        className="text-eyebrow uppercase text-ink/65"
       >
         Newsletter
       </label>
