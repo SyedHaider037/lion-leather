@@ -52,7 +52,6 @@ components/   UI by area: cart, home, layout, product, search, ui
 lib/          shopify/ (Storefront client, queries, fragments), cart/ (cookie
               session and cart actions), newsletter/, utils/, hooks/, env.ts
 public/       Static assets
-docs/, brain/ Internal design notes (see Known limitations)
 ```
 
 ## How it works
