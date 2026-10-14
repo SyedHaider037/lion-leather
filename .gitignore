@@ -43,3 +43,9 @@ next-env.d.ts
 
 # claude code local settings
 .claude/settings.local.json
+
+# local skill and agent files
+.claude/skills/
+.agents/
+skills-lock.json
+AGENTS.md
