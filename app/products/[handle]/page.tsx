@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { redirect } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 
 import { MobileAddToCartBar } from "@/components/product/MobileAddToCartBar";
 import { ProductGallery } from "@/components/product/ProductGallery";
@@ -123,10 +123,11 @@ export default async function ProductPage({
     typeof rawHandle === "string" ? decodeURIComponent(rawHandle).trim() : "";
 
   if (!handle) {
-    return <ProductNotFound />;
+    notFound();
   }
 
   let product: ProductByHandleQueryData["product"] = null;
+  let fetchFailed = false;
   try {
     const data = await storefrontRequest<ProductByHandleQueryData>(
       PRODUCT_BY_HANDLE_QUERY,
@@ -135,9 +136,13 @@ export default async function ProductPage({
     product = data.product;
   } catch (err) {
     console.error("[PDP] Storefront error", err);
+    fetchFailed = true;
   }
 
   if (!product) {
+    // A real 404 only when Shopify answered "no such product"; an API outage
+    // keeps the soft message so a temporary failure is not cached as a 404.
+    if (!fetchFailed) notFound();
     return <ProductNotFound />;
   }
 
