@@ -42,6 +42,7 @@ Names only; see `.env.example` for placeholders. Never commit `.env.local`.
 - `npm run build`: production build
 - `npm run start`: serve the production build
 - `npm run lint`: run ESLint
+- `npm run typecheck`: type-check with `tsc --noEmit`
 
 ## Project layout
 
