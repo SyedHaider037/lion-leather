@@ -142,11 +142,23 @@ export function ProductGallery({ images, title }: { images: Img[]; title: string
     <div>
       {/* Desktop: large stacked images, one per row, this column scrolls */}
       <div className="hidden gap-4 lg:grid">
-        {normalized.map((img, i) => (
-          <Reveal key={img.url} variant="scale" delay={i * 80}>
-            <ZoomImage img={img} title={title} index={i} onOpen={openAt} />
-          </Reveal>
-        ))}
+        {normalized.map((img, i) =>
+          // The first image is above the fold: show it at once instead of
+          // waiting for hydration to fade it in.
+          i === 0 ? (
+            <ZoomImage
+              key={img.url}
+              img={img}
+              title={title}
+              index={i}
+              onOpen={openAt}
+            />
+          ) : (
+            <Reveal key={img.url} variant="scale" delay={i * 80}>
+              <ZoomImage img={img} title={title} index={i} onOpen={openAt} />
+            </Reveal>
+          ),
+        )}
       </div>
 
       {/* Mobile: full-width swipeable carousel + dot indicators */}
