@@ -74,8 +74,16 @@ export default function RootLayout({
             __html: "document.documentElement.classList.add('js');",
           }}
         />
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:border focus:border-cognac focus:bg-paper focus:px-5 focus:py-3 focus:text-eyebrow focus:uppercase focus:text-ink"
+        >
+          Skip to content
+        </a>
         <Header />
-        <main className="flex-1 pt-18">{children}</main>
+        <main id="main-content" tabIndex={-1} className="flex-1 pt-18 focus:outline-none">
+          {children}
+        </main>
         <Footer />
         <CartDrawer />
       </body>
