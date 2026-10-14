@@ -21,7 +21,7 @@ function Tile({
         {image ? (
           <Image
             src={image.url}
-            alt={image.altText ?? collection.title}
+            alt={image.altText ?? ""}
             fill
             sizes={sizes}
             className="object-cover transition-transform duration-700 ease-luxe group-hover:scale-[1.03]"

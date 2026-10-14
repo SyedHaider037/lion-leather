@@ -90,7 +90,7 @@ function RelatedTile({ collection }: { collection: CollectionListItem }) {
         {image ? (
           <Image
             src={image.url}
-            alt={image.altText ?? collection.title}
+            alt={image.altText ?? ""}
             fill
             sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
             className="object-cover transition-transform duration-700 ease-luxe group-hover:scale-[1.03]"
