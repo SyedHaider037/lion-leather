@@ -10,6 +10,7 @@ const CATEGORIES = [
   { href: "/collections/footwear", label: "Shoes" },
   { href: "/collections/wallets", label: "Wallets" },
   { href: "/collections/bags", label: "Bags" },
+  { href: "/collections/belts", label: "Belts" },
   { href: "/collections", label: "All" },
 ];
 
