@@ -1,14 +1,14 @@
-import Image from "next/image";
-
 import { ButtonLink } from "@/components/ui/Button";
 import { Eyebrow } from "@/components/ui/Eyebrow";
+import { PhotoFrame, type PhotoSource } from "@/components/ui/PhotoFrame";
 
-export type HeroImage = { url: string; altText: string | null } | null;
+export type HeroImage = PhotoSource | null;
 
 /**
- * Full-viewport editorial hero. The headline animates in line-by-line and the
- * image carries a slow Ken Burns settle — both pure CSS, both disabled for
- * prefers-reduced-motion. A real campaign image can replace `image` later.
+ * Full-viewport editorial hero. The headline animates in line-by-line (pure
+ * CSS, disabled for prefers-reduced-motion). The photo is low-resolution, so it
+ * is shown as a plate at its own size on a neutral tile instead of being
+ * stretched to fill the column. A real campaign image can replace `image`.
  */
 export function Hero({ image }: { image: HeroImage }) {
   return (
@@ -52,17 +52,22 @@ export function Hero({ image }: { image: HeroImage }) {
           </div>
         </div>
 
-        {/* Campaign image — fills its column edge to edge, full hero height */}
+        {/* Campaign photo — a plate at native size, mounted on the tile */}
         {image ? (
-          <div className="relative aspect-[4/5] overflow-hidden sm:aspect-[16/10] lg:aspect-auto lg:h-full">
-            <Image
-              src={image.url}
-              alt={image.altText ?? "Lion Leather craftsmanship"}
-              fill
-              priority
-              sizes="(min-width: 1024px) 45vw, 100vw"
-              className="animate-kenburns object-cover motion-reduce:animate-none"
-            />
+          <div className="flex items-center justify-center bg-tile px-6 py-12 sm:px-10 sm:py-16 lg:px-12 lg:py-24">
+            <div
+              className="w-full"
+              style={{ maxWidth: image.width ?? undefined }}
+            >
+              <PhotoFrame
+                image={image}
+                alt={image.altText ?? "Lion Leather craftsmanship"}
+                priority
+                rounded={false}
+                sizes="(min-width: 1024px) 45vw, 100vw"
+                className="shadow-[0_1px_0_0_rgb(42_35_27/0.06),0_18px_40px_-24px_rgb(42_35_27/0.35)]"
+              />
+            </div>
           </div>
         ) : (
           <div className="hidden border-l border-gold/30 lg:block" />
