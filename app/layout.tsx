@@ -38,6 +38,7 @@ export const metadata: Metadata = {
     "Premium leather footwear and accessories — timeless elegance for the modern gentleman.",
   icons: {
     icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
   },
   openGraph: {
     siteName: "Lion Leather",
