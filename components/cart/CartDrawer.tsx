@@ -208,22 +208,6 @@ export function CartDrawer() {
                 Proceed to Checkout
               </a>
 
-              {/* Express pay — presented on Shopify's secure checkout */}
-              <div className="mt-3 grid grid-cols-2 gap-3">
-                <a
-                  href={cart.checkoutUrl}
-                  className="flex h-11 items-center justify-center border border-ink/30 text-eyebrow uppercase tracking-[0.12em] text-ink transition-colors duration-500 ease-luxe hover:border-cognac hover:text-cognac"
-                >
-                  Shop Pay
-                </a>
-                <a
-                  href={cart.checkoutUrl}
-                  className="flex h-11 items-center justify-center border border-ink/30 text-eyebrow uppercase tracking-[0.12em] text-ink transition-colors duration-500 ease-luxe hover:border-cognac hover:text-cognac"
-                >
-                  Apple Pay
-                </a>
-              </div>
-
               <p className="mt-3 text-center text-caption font-light text-taupe">
                 Secure &amp; seamless checkout
               </p>
