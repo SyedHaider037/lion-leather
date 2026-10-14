@@ -136,7 +136,7 @@ export function CartDrawer() {
                     key={line.id}
                     className="flex gap-4 border-b border-gold/30 pb-6"
                   >
-                    <div className="relative h-24 w-20 shrink-0 overflow-hidden bg-surface">
+                    <div className="relative h-24 w-20 shrink-0 overflow-hidden bg-tile">
                       {line.merchandise.image ? (
                         <Image
                           src={line.merchandise.image.url}

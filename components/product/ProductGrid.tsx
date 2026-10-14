@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 
+import { PhotoFrame } from "@/components/ui/PhotoFrame";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { cn } from "@/lib/utils/cn";
 import { formatMoney } from "@/lib/utils/money";
@@ -24,17 +24,12 @@ function ProductCardItem({
 
   return (
     <Link href={`/products/${product.handle}`} className="group block">
-      <div className="relative aspect-[4/5] overflow-hidden rounded-[5px] bg-surface">
-        {product.featuredImage ? (
-          <Image
-            src={product.featuredImage.url}
-            alt={product.featuredImage.altText ?? product.title}
-            fill
-            sizes={sizes}
-            className="object-cover transition-transform duration-700 ease-luxe group-hover:scale-[1.03]"
-          />
-        ) : null}
-      </div>
+      <PhotoFrame
+        image={product.featuredImage}
+        alt={product.featuredImage?.altText ?? product.title}
+        sizes={sizes}
+        imageClassName="transition-transform duration-700 ease-luxe group-hover:scale-[1.03]"
+      />
 
       <div className="mt-5">
         <p className="font-serif text-lg font-medium text-ink">

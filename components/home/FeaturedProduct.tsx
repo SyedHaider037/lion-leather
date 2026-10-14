@@ -1,7 +1,7 @@
-import Image from "next/image";
 
 import { ButtonLink } from "@/components/ui/Button";
 import { Eyebrow } from "@/components/ui/Eyebrow";
+import { PhotoFrame } from "@/components/ui/PhotoFrame";
 import { Reveal } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
 import { formatMoney } from "@/lib/utils/money";
@@ -16,17 +16,11 @@ export function FeaturedProduct({ product }: { product: ProductCard | null }) {
     <Section rhythm="xl">
       <Reveal>
         <div className="grid items-center gap-10 lg:grid-cols-[3fr_2fr] lg:gap-20">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-[5px] bg-surface">
-            {product.featuredImage ? (
-              <Image
-                src={product.featuredImage.url}
-                alt={product.featuredImage.altText ?? product.title}
-                fill
-                sizes="(min-width: 1024px) 60vw, 100vw"
-                className="object-cover"
-              />
-            ) : null}
-          </div>
+          <PhotoFrame
+            image={product.featuredImage}
+            alt={product.featuredImage?.altText ?? product.title}
+            sizes="(min-width: 1024px) 60vw, 100vw"
+          />
 
           <div className="max-w-md">
             <Eyebrow>The Object</Eyebrow>

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { PhotoFrame } from "@/components/ui/PhotoFrame";
 import Link from "next/link";
 
 import { CollectionView } from "@/components/product/CollectionView";
@@ -86,17 +86,11 @@ function RelatedTile({ collection }: { collection: CollectionListItem }) {
     collection.image ?? collection.products.nodes[0]?.featuredImage ?? null;
   return (
     <Link href={`/collections/${collection.handle}`} className="group block">
-      <div className="relative aspect-[4/5] overflow-hidden rounded-[5px] bg-surface">
-        {image ? (
-          <Image
-            src={image.url}
-            alt={image.altText ?? ""}
-            fill
-            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-            className="object-cover transition-transform duration-700 ease-luxe group-hover:scale-[1.03]"
-          />
-        ) : null}
-      </div>
+      <PhotoFrame
+        image={image}
+        sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+        imageClassName="transition-transform duration-700 ease-luxe group-hover:scale-[1.03]"
+      />
       <h3 className="mt-5 font-serif text-h3 font-medium text-ink">
         <span className="relative inline-block">
           {collection.title}
@@ -192,16 +186,13 @@ export default async function CollectionPage({
           ) : null}
         </div>
         {headerImage ? (
-          <div className="relative aspect-[4/3] overflow-hidden rounded-[5px] bg-surface">
-            <Image
-              src={headerImage.url}
-              alt={headerImage.altText ?? collection.title}
-              fill
-              sizes="(min-width: 1024px) 50vw, 100vw"
-              className="object-cover"
-              priority
-            />
-          </div>
+          <PhotoFrame
+            image={headerImage}
+            alt={headerImage.altText ?? collection.title}
+            aspect="aspect-[4/3]"
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            priority
+          />
         ) : null}
       </div>
 

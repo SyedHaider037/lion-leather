@@ -4,6 +4,7 @@ import { ButtonLink } from "@/components/ui/Button";
 import { Divider } from "@/components/ui/Divider";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Heading } from "@/components/ui/Heading";
+import { PhotoFrame, type PhotoSource } from "@/components/ui/PhotoFrame";
 import { Reveal } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
 import { storefrontRequest } from "@/lib/shopify/client";
@@ -22,7 +23,7 @@ export const metadata = {
     "Full-grain leather, cut and stitched by hand in Lahore — the making behind Lion Leather.",
 };
 
-type StoryImage = { url: string; altText: string | null } | null;
+type StoryImage = PhotoSource | null;
 
 const imageOf = (c: CollectionListItem | undefined): StoryImage =>
   c?.image ?? c?.products.nodes[0]?.featuredImage ?? null;
@@ -42,28 +43,16 @@ function Story({
   flip?: boolean;
   children: React.ReactNode;
 }) {
-  const frame = tone === "surface" ? "bg-paper" : "bg-surface";
   return (
     <Section tone={tone} rhythm="xl">
       <Reveal>
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-20">
-          <div
-            className={cn(
-              "relative aspect-[4/5] overflow-hidden rounded-[5px]",
-              frame,
-              flip && "lg:order-2",
-            )}
-          >
-            {image ? (
-              <Image
-                src={image.url}
-                alt={image.altText ?? title}
-                fill
-                sizes="(min-width: 1024px) 50vw, 100vw"
-                className="object-cover"
-              />
-            ) : null}
-          </div>
+          <PhotoFrame
+            image={image}
+            alt={image?.altText ?? title}
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            className={cn(flip && "lg:order-2")}
+          />
           <div className="max-w-md">
             <Eyebrow>{eyebrow}</Eyebrow>
             <h2 className="mt-5 font-serif text-h2 font-medium text-ink">

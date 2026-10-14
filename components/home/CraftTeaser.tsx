@@ -1,7 +1,7 @@
-import Image from "next/image";
 
 import { ButtonLink } from "@/components/ui/Button";
 import { Eyebrow } from "@/components/ui/Eyebrow";
+import { PhotoFrame } from "@/components/ui/PhotoFrame";
 import { Reveal } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
 import type { HeroImage } from "./Hero";
@@ -12,17 +12,11 @@ export function CraftTeaser({ image }: { image: HeroImage }) {
     <Section tone="surface" rhythm="xl">
       <Reveal>
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-20">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-[5px] bg-paper">
-            {image ? (
-              <Image
-                src={image.url}
-                alt={image.altText ?? "Lion Leather craftsmanship"}
-                fill
-                sizes="(min-width: 1024px) 50vw, 100vw"
-                className="object-cover"
-              />
-            ) : null}
-          </div>
+          <PhotoFrame
+            image={image}
+            alt={image?.altText ?? "Lion Leather craftsmanship"}
+            sizes="(min-width: 1024px) 50vw, 100vw"
+          />
 
           <div className="max-w-md">
             <Eyebrow>The Craft</Eyebrow>

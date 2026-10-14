@@ -17,6 +17,7 @@
   /* Warm, light palette — single source of truth */
   --color-paper: #f4f0e8; /* page background */
   --color-surface: #fbf8f2; /* cards, panels, image wrappers, inputs */
+  --color-tile: #ebe5d9; /* neutral tile behind product photos, dark or white */
   --color-ink: #2a231b; /* primary text */
   --color-taupe: #756a5a; /* muted text — darkened from #8C8173 for AA (~4.7 on paper) */
   --color-cognac: #985c31; /* sole accent — deepened from #A0673C for AA (~4.7) */

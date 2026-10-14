@@ -1,4 +1,5 @@
 import { PRODUCT_CARD_FRAGMENT } from "./products";
+import type { PhotoSource } from "@/components/ui/PhotoFrame";
 import type { ProductCard } from "./products";
 
 export const COLLECTION_BY_HANDLE_QUERY = `#graphql
@@ -18,6 +19,8 @@ export const COLLECTION_BY_HANDLE_QUERY = `#graphql
       image {
         url
         altText
+        width
+        height
       }
       products(first: $first, after: $after, sortKey: $sortKey, reverse: $reverse) {
         nodes {
@@ -50,7 +53,7 @@ export type CollectionByHandleQueryData = {
     handle: string;
     title: string;
     description: string;
-    image: { url: string; altText: string | null } | null;
+    image: PhotoSource | null;
     products: {
       nodes: FilterableProduct[];
       pageInfo: { hasNextPage: boolean; endCursor: string | null };
@@ -74,12 +77,16 @@ export const COLLECTIONS_QUERY = `#graphql
         image {
           url
           altText
+          width
+          height
         }
         products(first: 1) {
           nodes {
             featuredImage {
               url
               altText
+              width
+              height
             }
           }
         }
@@ -93,9 +100,9 @@ export type CollectionListItem = {
   handle: string;
   title: string;
   description: string;
-  image: { url: string; altText: string | null } | null;
+  image: PhotoSource | null;
   products: {
-    nodes: { featuredImage: { url: string; altText: string | null } | null }[];
+    nodes: { featuredImage: PhotoSource | null }[];
   };
 };
 

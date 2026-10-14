@@ -49,12 +49,14 @@ function ZoomImage({
 }) {
   const [origin, setOrigin] = useState("50% 50%");
   const [zoom, setZoom] = useState(false);
+  // Magnifying a small photo only makes it soft, so only large sources zoom.
+  const canZoom = (img.width ?? 0) >= 1000;
 
   return (
     <button
       type="button"
       onClick={() => onOpen(index)}
-      onMouseEnter={() => setZoom(true)}
+      onMouseEnter={() => setZoom(canZoom)}
       onMouseLeave={() => setZoom(false)}
       onMouseMove={(e) => {
         const r = e.currentTarget.getBoundingClientRect();
@@ -63,20 +65,28 @@ function ZoomImage({
         setOrigin(`${x}% ${y}%`);
       }}
       aria-label={`Zoom image ${index + 1}, opens full screen`}
-      className="relative block aspect-[4/5] w-full cursor-zoom-in overflow-hidden bg-surface"
+      className={cn(
+        "relative block aspect-[4/5] w-full overflow-hidden bg-tile",
+        canZoom ? "cursor-zoom-in" : "cursor-pointer",
+      )}
     >
-      <Image
-        src={img.url}
-        alt={img.altText ?? title}
-        fill
-        sizes="(min-width: 1024px) 720px, 100vw"
-        priority={index === 0}
-        style={{ transformOrigin: origin }}
-        className={cn(
-          "object-cover transition-transform duration-300 ease-out motion-reduce:!scale-100 motion-reduce:transition-none",
-          zoom ? "scale-[2]" : "scale-100",
-        )}
-      />
+      <div
+        className="absolute inset-0 m-auto h-full w-full overflow-hidden"
+        style={{ maxWidth: img.width ?? undefined, maxHeight: img.height ?? undefined }}
+      >
+        <Image
+          src={img.url}
+          alt={img.altText ?? title}
+          fill
+          sizes={img.width && img.width < 720 ? `${img.width}px` : "(min-width: 1024px) 720px, 100vw"}
+          priority={index === 0}
+          style={{ transformOrigin: origin }}
+          className={cn(
+            "object-cover object-center transition-transform duration-300 ease-out motion-reduce:!scale-100 motion-reduce:transition-none",
+            zoom ? "scale-[2]" : "scale-100",
+          )}
+        />
+      </div>
     </button>
   );
 }
@@ -174,16 +184,21 @@ export function ProductGallery({ images, title }: { images: Img[]; title: string
               type="button"
               onClick={() => openAt(i)}
               aria-label={`View image ${i + 1} full screen`}
-              className="relative aspect-[4/5] w-full shrink-0 snap-center overflow-hidden bg-surface"
+              className="relative aspect-[4/5] w-full shrink-0 snap-center overflow-hidden bg-tile"
             >
-              <Image
-                src={img.url}
-                alt={img.altText ?? title}
-                fill
-                sizes="100vw"
-                priority={i === 0}
-                className="object-cover"
-              />
+              <div
+                className="absolute inset-0 m-auto h-full w-full overflow-hidden"
+                style={{ maxWidth: img.width ?? undefined, maxHeight: img.height ?? undefined }}
+              >
+                <Image
+                  src={img.url}
+                  alt={img.altText ?? title}
+                  fill
+                  sizes={img.width && img.width < 640 ? `min(100vw, ${img.width}px)` : "100vw"}
+                  priority={i === 0}
+                  className="object-cover object-center"
+                />
+              </div>
             </button>
           ))}
         </div>
@@ -251,7 +266,10 @@ export function ProductGallery({ images, title }: { images: Img[]; title: string
         ) : null}
 
         {current ? (
-          <div className="relative h-[78vh] w-[90vw] max-w-4xl">
+          <div
+            className="relative h-[78vh] w-[90vw] max-w-4xl"
+            style={{ maxWidth: current.width ?? undefined, maxHeight: current.height ?? undefined }}
+          >
             <Image
               src={current.url}
               alt={current.altText ?? title}

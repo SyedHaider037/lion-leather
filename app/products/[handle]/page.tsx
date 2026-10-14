@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 
@@ -12,6 +11,7 @@ import { ProductGrid } from "@/components/product/ProductGrid";
 import { SelectedVariant } from "@/components/product/SelectedVariant";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Heading } from "@/components/ui/Heading";
+import { PhotoFrame } from "@/components/ui/PhotoFrame";
 import { Reveal } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
 import { SectionTitle } from "@/components/ui/SectionTitle";
@@ -481,15 +481,12 @@ export default async function ProductPage({
       {/* Materiality moment — a large macro frame with a one-line caption */}
       {macroImage ? (
         <Reveal variant="scale" className="mt-24">
-          <div className="relative aspect-[3/2] overflow-hidden rounded-[5px] bg-surface">
-            <Image
-              src={macroImage.url}
-              alt={macroImage.altText ?? `${product.title} — leather detail`}
-              fill
-              sizes="100vw"
-              className="object-cover"
-            />
-          </div>
+          <PhotoFrame
+            image={macroImage}
+            alt={macroImage.altText ?? `${product.title} — leather detail`}
+            aspect="aspect-[3/2]"
+            sizes="100vw"
+          />
           <p className="mt-6 max-w-md font-serif text-h3 font-light italic text-taupe">
             The grain deepens with wear — a patina that becomes yours alone.
           </p>

@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
+import { PhotoFrame } from "@/components/ui/PhotoFrame";
 
 import { Reveal } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
@@ -17,17 +17,11 @@ function Tile({
     collection.image ?? collection.products.nodes[0]?.featuredImage ?? null;
   return (
     <Link href={`/collections/${collection.handle}`} className="group block">
-      <div className="relative aspect-[4/5] overflow-hidden rounded-[5px] bg-surface">
-        {image ? (
-          <Image
-            src={image.url}
-            alt={image.altText ?? ""}
-            fill
-            sizes={sizes}
-            className="object-cover transition-transform duration-700 ease-luxe group-hover:scale-[1.03]"
-          />
-        ) : null}
-      </div>
+      <PhotoFrame
+        image={image}
+        sizes={sizes}
+        imageClassName="transition-transform duration-700 ease-luxe group-hover:scale-[1.03]"
+      />
       <div className="mt-5">
         <h3 className="font-serif text-h3 font-medium text-ink">
           <span className="relative inline-block">
