@@ -71,6 +71,14 @@ export async function generateMetadata({
             ]
           : undefined,
       },
+      twitter: product.featuredImage
+        ? {
+            card: "summary_large_image",
+            title: product.title,
+            description,
+            images: [product.featuredImage.url],
+          }
+        : undefined,
     };
   } catch {
     return { title: "Product" };
