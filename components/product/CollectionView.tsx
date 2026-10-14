@@ -205,6 +205,7 @@ export function CollectionView({ products }: { products: FilterableProduct[] }) 
           <label className="ml-auto flex items-center gap-3 text-eyebrow uppercase text-taupe">
             <span className="hidden sm:inline">Sort</span>
             <select
+              aria-label="Sort products"
               value={sort}
               onChange={(e) => setSort(e.target.value as SortKey)}
               className="border-b border-ink/30 bg-transparent py-1 text-eyebrow uppercase text-ink transition-colors duration-500 ease-luxe focus-visible:border-cognac focus-visible:outline-none"
