@@ -21,6 +21,7 @@ import {
   type ProductCard,
   type ProductRecommendationsData,
 } from "@/lib/shopify/queries/products";
+import { getSizeGuideHref } from "@/lib/size-guides";
 import { cn } from "@/lib/utils/cn";
 import { formatMoney } from "@/lib/utils/money";
 
@@ -155,6 +156,9 @@ export default async function ProductPage({
   }
 
   const category = product.collections.nodes[0] ?? null;
+  const sizeGuideHref = getSizeGuideHref(
+    product.collections.nodes.map((c) => c.handle),
+  );
   const macroImage = images[1] ?? images[0] ?? null;
 
   let related: ProductCard[] = [];
@@ -326,12 +330,14 @@ export default async function ProductPage({
                   ))}
                 </div>
 
-                <Link
-                  href="/sizing-guide"
-                  className="mt-5 inline-block text-eyebrow uppercase text-taupe transition-colors duration-500 ease-luxe hover:text-cognac"
-                >
-                  Size Guide →
-                </Link>
+                {sizeGuideHref ? (
+                  <Link
+                    href={sizeGuideHref}
+                    className="mt-5 inline-block text-eyebrow uppercase text-taupe transition-colors duration-500 ease-luxe hover:text-cognac"
+                  >
+                    Size Guide →
+                  </Link>
+                ) : null}
               </fieldset>
             ) : null}
 

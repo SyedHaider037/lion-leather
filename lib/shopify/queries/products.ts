@@ -36,7 +36,7 @@ export const PRODUCT_BY_HANDLE_QUERY = `#graphql
       handle
       title
       description
-      collections(first: 1) {
+      collections(first: 5) {
         nodes {
           handle
           title

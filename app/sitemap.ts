@@ -19,6 +19,7 @@ const STATIC_PATHS = [
   "/search",
   "/leather-care",
   "/sizing-guide",
+  "/size-guide/shoes",
   "/shipping-returns",
   "/faq",
   "/track-order",
