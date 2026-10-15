@@ -83,13 +83,13 @@ export function FaqAccordion() {
                 aria-expanded={isOpen}
                 aria-controls={panelId}
                 onClick={() => setOpenIndex(isOpen ? -1 : i)}
-                className="flex w-full items-center justify-between gap-6 py-6 text-left text-eyebrow uppercase text-ink"
+                className="group flex w-full items-center justify-between gap-6 py-6 text-left text-eyebrow uppercase text-ink transition-colors duration-200 ease-luxe hover:text-cognac"
               >
                 {section.heading}
                 <span
                   aria-hidden
                   className={cn(
-                    "font-serif text-lg font-light text-taupe transition-transform duration-500 ease-luxe",
+                    "font-serif text-lg font-light text-taupe transition-[transform,color] duration-200 ease-luxe group-hover:text-cognac",
                     isOpen && "rotate-45",
                   )}
                 >
@@ -100,10 +100,11 @@ export function FaqAccordion() {
 
             <div
               id={panelId}
+              inert={!isOpen}
               role="region"
               aria-labelledby={buttonId}
               className={cn(
-                "grid transition-all duration-500 ease-luxe motion-reduce:transition-none",
+                "grid transition-all duration-[260ms] ease-luxe motion-reduce:transition-none",
                 isOpen
                   ? "grid-rows-[1fr] opacity-100"
                   : "grid-rows-[0fr] opacity-0",
