@@ -27,8 +27,8 @@ export default function Error({
         <Button type="button" onClick={() => reset()}>
           Try again
         </Button>
-        <ButtonLink href="/" variant="outline">
-          Return to Home
+        <ButtonLink href="/collections" variant="outline">
+          Back to shop
         </ButtonLink>
       </div>
     </div>

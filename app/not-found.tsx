@@ -11,8 +11,8 @@ export default function NotFound() {
         This page doesn’t exist or has moved.
       </p>
       <div className="mt-10">
-        <ButtonLink href="/" variant="solid">
-          Return to Home
+        <ButtonLink href="/collections" variant="solid">
+          Back to shop
         </ButtonLink>
       </div>
     </div>

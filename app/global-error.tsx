@@ -47,6 +47,11 @@ export default function GlobalError({
         >
           Try again
         </button>
+        {/* A plain link on purpose: the root layout failed, so reload fully. */}
+        {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
+        <a href="/collections" style={{ color: "#985c31", fontSize: "0.9rem" }}>
+          Back to shop
+        </a>
       </body>
     </html>
   );
