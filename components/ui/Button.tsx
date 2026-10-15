@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils/cn";
 type Variant = "solid" | "outline" | "link";
 
 const base =
-  "inline-flex items-center justify-center rounded-[5px] font-sans text-eyebrow uppercase tracking-[0.15em] transition-all duration-500 ease-luxe disabled:pointer-events-none disabled:opacity-40";
+  "inline-flex items-center justify-center rounded-[5px] font-sans text-eyebrow uppercase transition-all duration-500 ease-luxe disabled:pointer-events-none disabled:opacity-40";
 
 const variants: Record<Variant, string> = {
   solid:

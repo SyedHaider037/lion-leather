@@ -116,13 +116,13 @@ export function CartDrawer() {
             <span className="select-none font-serif text-sm tracking-[0.3em] text-gold">
               LL
             </span>
-            <p className="font-serif text-2xl font-medium text-ink">
+            <p className="font-serif text-h3 font-medium text-ink">
               Your collection awaits.
             </p>
             <Link
               href="/collections/footwear"
               onClick={() => setOpen(false)}
-              className="border border-ink/40 px-8 py-3 text-eyebrow uppercase tracking-[0.15em] text-ink transition-all duration-500 ease-luxe hover:border-cognac hover:bg-cognac hover:text-paper"
+              className="border border-ink/40 px-8 py-3 text-eyebrow uppercase text-ink transition-all duration-500 ease-luxe hover:border-cognac hover:bg-cognac hover:text-paper"
             >
               Explore Collection
             </Link>
@@ -148,7 +148,7 @@ export function CartDrawer() {
                       ) : null}
                     </div>
                     <div className="min-w-0 flex-1">
-                      <p className="truncate font-serif text-base font-medium text-ink">
+                      <p className="truncate font-serif text-card font-medium text-ink">
                         {line.merchandise.product.title}
                       </p>
                       <p className="mt-1 text-eyebrow uppercase text-taupe">
@@ -208,7 +208,7 @@ export function CartDrawer() {
 
               <a
                 href={cart.checkoutUrl}
-                className="mt-5 flex h-14 w-full items-center justify-center border border-cognac bg-cognac text-eyebrow uppercase tracking-[0.15em] text-paper transition-all duration-500 ease-luxe hover:brightness-110"
+                className="mt-5 flex h-14 w-full items-center justify-center border border-cognac bg-cognac text-eyebrow uppercase text-paper transition-all duration-500 ease-luxe hover:brightness-110"
               >
                 Proceed to Checkout
               </a>

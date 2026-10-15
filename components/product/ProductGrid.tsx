@@ -32,7 +32,7 @@ function ProductCardItem({
       />
 
       <div className="mt-5">
-        <p className="font-serif text-lg font-medium text-ink">
+        <p className="font-serif text-card font-medium text-ink">
           <span className="relative inline-block">
             {product.title}
             <span

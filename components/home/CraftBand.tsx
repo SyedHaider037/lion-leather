@@ -27,7 +27,7 @@ export function CraftBand() {
               <p className="mt-6 text-eyebrow uppercase text-ink">
                 {item.label}
               </p>
-              <p className="mx-auto mt-4 max-w-xs text-sm font-light text-taupe">
+              <p className="mx-auto mt-4 max-w-xs text-caption font-light text-taupe">
                 {item.copy}
               </p>
             </div>

@@ -48,7 +48,7 @@ export function CartLineItem({
         </div>
 
         <div className="min-w-0 flex-1">
-          <p className="truncate font-serif text-lg font-light text-ink">
+          <p className="truncate font-serif text-card font-light text-ink">
             {line.merchandise.product.title}
           </p>
           <p className="mt-1 text-eyebrow uppercase text-taupe">

@@ -299,7 +299,7 @@ export function CollectionView({ products }: { products: FilterableProduct[] }) 
             <button
               type="button"
               onClick={() => setDrawerOpen(false)}
-              className="w-full border border-cognac bg-cognac py-3 text-eyebrow uppercase tracking-[0.15em] text-paper transition-all duration-500 ease-luxe hover:brightness-110"
+              className="w-full border border-cognac bg-cognac py-3 text-eyebrow uppercase text-paper transition-all duration-500 ease-luxe hover:brightness-110"
             >
               Show {filtered.length} {filtered.length === 1 ? "piece" : "pieces"}
             </button>

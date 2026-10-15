@@ -17,7 +17,7 @@ export default function Error({
 
   return (
     <div className="flex min-h-[70vh] flex-col items-center justify-center bg-paper px-6 text-center">
-      <p className="font-serif text-display font-light leading-none text-ink">
+      <p className="font-serif text-h1 font-light leading-none text-ink">
         Oops
       </p>
       <p className="mt-6 text-body font-light text-taupe">

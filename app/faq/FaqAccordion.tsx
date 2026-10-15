@@ -113,7 +113,7 @@ export function FaqAccordion() {
                 <dl className="space-y-6 pb-8">
                   {section.items.map((item) => (
                     <div key={item.q}>
-                      <dt className="font-serif text-lg font-light text-ink">
+                      <dt className="font-serif text-card font-light text-ink">
                         {item.q}
                       </dt>
                       <dd className="mt-2 text-body font-light text-taupe">

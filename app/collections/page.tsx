@@ -35,7 +35,7 @@ function CollectionCard({ collection }: { collection: CollectionListItem }) {
         imageClassName="transition-transform duration-700 ease-luxe group-hover:scale-[1.04]"
       />
       <div className="mt-6 text-center">
-        <h2 className="font-serif text-2xl font-light text-ink">
+        <h2 className="font-serif text-h3 font-light text-ink">
           <span className="relative inline-block">
             {collection.title}
             <span

@@ -41,7 +41,7 @@ export function NewsletterForm() {
         <button
           type="submit"
           disabled={pending || done}
-          className="min-h-11 shrink-0 text-eyebrow uppercase tracking-[0.15em] text-ink transition-colors duration-500 ease-luxe hover:text-cognac disabled:opacity-50"
+          className="min-h-11 shrink-0 text-eyebrow uppercase text-ink transition-colors duration-500 ease-luxe hover:text-cognac disabled:opacity-50"
         >
           {pending ? "…" : "Subscribe"}
         </button>

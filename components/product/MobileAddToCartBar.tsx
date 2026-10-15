@@ -50,7 +50,7 @@ export function MobileAddToCartBar({
       )}
     >
       <div className="flex items-center justify-between gap-4 border-t border-gold/30 bg-surface px-5 py-4 text-ink">
-        <p className="min-w-0 flex-1 truncate font-serif text-base font-light">
+        <p className="min-w-0 flex-1 truncate font-serif text-card font-light">
           {productName}
         </p>
         <button
@@ -58,7 +58,7 @@ export function MobileAddToCartBar({
           form={formId}
           disabled={soldOut}
           tabIndex={visible ? 0 : -1}
-          className="shrink-0 border border-cognac bg-cognac px-6 py-3 font-sans text-eyebrow uppercase tracking-[0.15em] text-paper transition-all duration-500 ease-luxe hover:brightness-110 disabled:pointer-events-none disabled:opacity-40"
+          className="shrink-0 border border-cognac bg-cognac px-6 py-3 font-sans text-eyebrow uppercase text-paper transition-all duration-500 ease-luxe hover:brightness-110 disabled:pointer-events-none disabled:opacity-40"
         >
           {soldOut ? "Sold out" : "Add to Selection"}
         </button>
