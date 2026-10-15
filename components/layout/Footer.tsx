@@ -51,7 +51,7 @@ const COLUMNS: { heading: string; links: FooterLink[] }[] = [
 ];
 
 const linkClass =
-  "inline-flex min-h-11 min-w-11 items-center text-caption font-light text-taupe transition-colors duration-200 ease-luxe hover:text-cognac";
+  "inline-flex min-h-11 min-w-11 items-center [overflow-wrap:anywhere] text-caption font-light text-taupe transition-colors duration-200 ease-luxe hover:text-cognac";
 
 function FooterLinkItem({ link }: { link: FooterLink }) {
   if (link.external) {
@@ -89,9 +89,9 @@ export function Footer() {
           <span className="h-px flex-1 bg-gold/30" />
         </div>
 
-        <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid grid-cols-2 gap-x-6 gap-y-8 sm:gap-8 lg:grid-cols-4">
           {COLUMNS.map((col) => (
-            <div key={col.heading}>
+            <div key={col.heading} className="min-w-0">
               <p className="text-eyebrow uppercase text-ink/80">{col.heading}</p>
               <ul className="mt-2">
                 {col.links.map((link) => (
