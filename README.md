@@ -68,12 +68,11 @@ public/       Static assets
 
 - The contact form does not send anything yet; it only shows a confirmation message. Email delivery still needs a provider.
 - "Track order" opens a pre-filled WhatsApp message rather than looking up an order.
-- There are no automated tests.
-- Collection pages expect the Shopify collection handles `wallets`, `footwear` and `bags`; they show an empty state if a collection does not exist in the store.
+- Automated tests are limited to 35 Vitest unit tests (run `npm test`); there are no end-to-end tests.
+- Collection pages expect the Shopify collection handles `wallets`, `belts`, `footwear` and `bags`; they show an empty state if a collection does not exist in the store.
 - Site copy, policies and brand details are placeholders pending real business content.
 
 ## What comes next
 
 - Email delivery for the contact form
-- Automated tests and a CI workflow
 - Production site URL, analytics and final brand name
