@@ -13,6 +13,7 @@ import {
   type CollectionListItem,
 } from "@/lib/shopify/queries/collections";
 import type { ProductCard } from "@/lib/shopify/queries/products";
+import { logger } from "@/lib/logger";
 
 const HIDDEN_HANDLES = new Set(["frontpage"]);
 
@@ -42,7 +43,7 @@ export default async function Home() {
     );
     featured = footwear?.collection?.products.nodes[0] ?? null;
   } catch (err) {
-    console.error("[Home] Storefront error", err);
+    logger.error("Storefront request failed", { page: "home", err });
   }
 
   // Best available imagery stands in until real campaign shots exist.

@@ -6,6 +6,7 @@ import { Heading } from "@/components/ui/Heading";
 import { Reveal } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
 import { storefrontRequest } from "@/lib/shopify/client";
+import { logger } from "@/lib/logger";
 import {
   COLLECTIONS_QUERY,
   type CollectionsQueryData,
@@ -29,7 +30,7 @@ export default async function AboutPage() {
     const c = data.collections.nodes.find((c) => c.handle !== "frontpage");
     image = c?.image ?? c?.products.nodes[0]?.featuredImage ?? null;
   } catch (err) {
-    console.error("[About] Storefront error", err);
+    logger.error("Storefront request failed", { page: "about", err });
   }
 
   return (

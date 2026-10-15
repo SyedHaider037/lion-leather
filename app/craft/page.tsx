@@ -14,6 +14,7 @@ import {
   type CollectionListItem,
 } from "@/lib/shopify/queries/collections";
 import { cn } from "@/lib/utils/cn";
+import { logger } from "@/lib/logger";
 
 export const revalidate = 60;
 
@@ -81,7 +82,7 @@ export default async function CraftPage() {
       (c) => c.handle !== "frontpage",
     );
   } catch (err) {
-    console.error("[Craft] Storefront error", err);
+    logger.error("Storefront request failed", { page: "craft", err });
   }
 
   const lead = imageOf(collections[0]);

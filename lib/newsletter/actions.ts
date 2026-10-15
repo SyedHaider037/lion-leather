@@ -2,6 +2,7 @@
 
 import { checkSpam } from "@/lib/forms/spam";
 import { storefrontRequest } from "@/lib/shopify/client";
+import { logger } from "@/lib/logger";
 
 const CUSTOMER_CREATE_MUTATION = `#graphql
   mutation NewsletterSubscribe($input: CustomerCreateInput!) {
@@ -93,7 +94,7 @@ export async function subscribeToNewsletter(
       message: "We couldn’t add you just now. Please try again.",
     };
   } catch (err) {
-    console.error("[newsletter] subscribe failed", err);
+    logger.error("Newsletter subscribe failed", { action: "newsletter", err });
     return {
       status: "error",
       message: "We couldn’t add you just now. Please try again.",

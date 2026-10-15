@@ -31,6 +31,7 @@ import { getSizeGuideHref } from "@/lib/size-guides";
 import { cn } from "@/lib/utils/cn";
 import { formatMoney } from "@/lib/utils/money";
 import { WHATSAPP_URL } from "@/lib/site-config";
+import { logger } from "@/lib/logger";
 
 export const revalidate = 60;
 
@@ -148,7 +149,7 @@ export default async function ProductPage({
     );
     product = data.product;
   } catch (err) {
-    console.error("[PDP] Storefront error", err);
+    logger.error("Storefront request failed", { page: "product", err });
     fetchFailed = true;
   }
 
@@ -191,7 +192,7 @@ export default async function ProductPage({
       .filter((p) => p.handle !== product?.handle)
       .slice(0, 4);
   } catch (err) {
-    console.error("[PDP] recommendations error", err);
+    logger.error("Recommendations request failed", { page: "product", err });
   }
 
   const price = formatMoney(
@@ -241,7 +242,7 @@ export default async function ProductPage({
 
       if (created) await setCartIdCookie(cart.id);
     } catch (err) {
-      console.error("[PDP] Add to cart failed", err);
+      logger.error("Add to cart failed", { page: "product", err });
       return {
         error:
           "We couldn't add this to your selection. It may be sold out. Please try again.",

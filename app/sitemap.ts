@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 
 import { getSiteUrl } from "@/lib/env";
 import { storefrontRequest } from "@/lib/shopify/client";
+import { logger } from "@/lib/logger";
 import {
   COLLECTIONS_QUERY,
   type CollectionsQueryData,
@@ -69,7 +70,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
   } catch (err) {
     // Degrade gracefully — serve the static routes even if Shopify is down.
-    console.error("[sitemap] Shopify fetch failed; static routes only", err);
+    logger.error("Shopify fetch failed; static routes only", {
+      page: "sitemap",
+      err,
+    });
   }
 
   return entries;

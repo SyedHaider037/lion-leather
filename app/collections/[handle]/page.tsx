@@ -9,6 +9,7 @@ import { Heading } from "@/components/ui/Heading";
 import { Section } from "@/components/ui/Section";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { storefrontRequest } from "@/lib/shopify/client";
+import { logger } from "@/lib/logger";
 import {
   COLLECTION_BY_HANDLE_QUERY,
   COLLECTIONS_QUERY,
@@ -139,7 +140,7 @@ export default async function CollectionPage({
     data = colData;
     allCollections = listData?.collections.nodes ?? [];
   } catch (err) {
-    console.error("[Collection] Storefront error", err);
+    logger.error("Storefront request failed", { page: "collection", err });
   }
 
   const collection = data?.collection ?? null;

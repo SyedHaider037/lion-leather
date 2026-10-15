@@ -6,6 +6,7 @@ import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Heading } from "@/components/ui/Heading";
 import { Section } from "@/components/ui/Section";
 import { storefrontRequest } from "@/lib/shopify/client";
+import { logger } from "@/lib/logger";
 import {
   COLLECTIONS_QUERY,
   type CollectionsQueryData,
@@ -60,7 +61,7 @@ export default async function CollectionsIndexPage() {
       (c) => !HIDDEN_HANDLES.has(c.handle),
     );
   } catch (err) {
-    console.error("[Collections] Storefront error", err);
+    logger.error("Storefront request failed", { page: "collections", err });
   }
 
   return (

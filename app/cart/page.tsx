@@ -18,6 +18,7 @@ import {
 } from "@/lib/cart/api";
 import { getCartIdFromCookie } from "@/lib/cart/session";
 import { formatMoney } from "@/lib/utils/money";
+import { logger } from "@/lib/logger";
 
 export const metadata = {
   title: "Your Selection",
@@ -72,7 +73,7 @@ export default async function CartPage({
     } catch (e) {
       // NEXT_REDIRECT is expected behavior — never treat it as an error.
       if (isRedirectError(e)) throw e;
-      console.error(e);
+      logger.error("Cart update failed", { page: "cart", err: e });
       redirect("/cart?error=1");
     }
   }
@@ -94,7 +95,7 @@ export default async function CartPage({
     } catch (e) {
       // NEXT_REDIRECT is expected behavior — never treat it as an error.
       if (isRedirectError(e)) throw e;
-      console.error(e);
+      logger.error("Cart remove failed", { page: "cart", err: e });
       redirect("/cart?error=1");
     }
   }

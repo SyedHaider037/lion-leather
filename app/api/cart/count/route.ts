@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 import { getCartIdFromCookie } from "@/lib/cart/session";
 import { storefrontRequest } from "@/lib/shopify/client";
 import { CART_QUERY, type CartQueryData } from "@/lib/shopify/queries/cart";
+import { logger } from "@/lib/logger";
 
 export async function GET() {
   try {
@@ -17,7 +18,11 @@ export async function GET() {
       { cache: "no-store" },
     );
     return NextResponse.json({ count: data.cart?.totalQuantity ?? 0 });
-  } catch {
+  } catch (err) {
+    logger.error("Cart count request failed", {
+      route: "/api/cart/count",
+      err,
+    });
     return NextResponse.json({ count: 0 });
   }
 }
