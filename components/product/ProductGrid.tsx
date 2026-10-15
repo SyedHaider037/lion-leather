@@ -28,7 +28,7 @@ function ProductCardItem({
         image={product.featuredImage}
         alt={product.featuredImage?.altText ?? product.title}
         sizes={sizes}
-        imageClassName="transition-transform duration-700 ease-luxe group-hover:scale-[1.03]"
+        imageClassName="transition-transform duration-[280ms] ease-luxe group-hover:scale-[1.03]"
       />
 
       <div className="mt-4">
@@ -37,7 +37,7 @@ function ProductCardItem({
             {product.title}
             <span
               aria-hidden
-              className="absolute -bottom-0.5 left-0 h-px w-full origin-left scale-x-0 bg-cognac transition-transform duration-500 ease-luxe group-hover:scale-x-100"
+              className="absolute -bottom-0.5 left-0 h-px w-full origin-left scale-x-0 bg-cognac transition-transform duration-[280ms] ease-luxe group-hover:scale-x-100"
             />
           </span>
         </p>

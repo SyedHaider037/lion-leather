@@ -8,10 +8,10 @@ import { SpamTrap } from "@/components/ui/SpamTrap";
 const WHATSAPP_URL = "https://wa.me/923000000000";
 
 const inputClass =
-  "w-full border border-ink/15 bg-surface px-4 py-3 text-body font-light text-ink placeholder:text-taupe transition-colors duration-500 ease-luxe focus:border-cognac focus:outline-none";
+  "w-full border border-ink/15 bg-surface px-4 py-3 text-body font-light text-ink placeholder:text-taupe transition-colors duration-200 ease-luxe focus:border-cognac focus:outline-none";
 
 const whatsappLinkClass =
-  "text-ink underline decoration-gold/50 underline-offset-4 transition-colors duration-500 ease-luxe hover:text-cognac";
+  "text-ink underline decoration-gold/50 underline-offset-4 transition-colors duration-200 ease-luxe hover:text-cognac";
 
 function Field({
   label,

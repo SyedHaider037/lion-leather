@@ -28,7 +28,7 @@ export function TrackOrderForm() {
           value={order}
           onChange={(e) => setOrder(e.target.value)}
           placeholder="e.g. #1024"
-          className="w-full border-b border-ink/30 bg-transparent py-3 text-body font-light text-ink placeholder:text-taupe transition-colors duration-500 ease-luxe focus:border-cognac focus:outline-none"
+          className="w-full border-b border-ink/30 bg-transparent py-3 text-body font-light text-ink placeholder:text-taupe transition-colors duration-200 ease-luxe focus:border-cognac focus:outline-none"
         />
         <Button type="submit" className="sm:shrink-0">
           Track

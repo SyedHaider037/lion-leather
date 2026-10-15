@@ -27,7 +27,7 @@ export function NewsletterForm() {
       >
         Newsletter
       </label>
-      <div className="mt-4 flex items-center gap-4 border-b border-ink/30 transition-colors duration-500 ease-luxe focus-within:border-cognac">
+      <div className="mt-4 flex items-center gap-4 border-b border-ink/30 transition-colors duration-200 ease-luxe focus-within:border-cognac">
         <input
           id="newsletter-email"
           type="email"
@@ -41,7 +41,7 @@ export function NewsletterForm() {
         <button
           type="submit"
           disabled={pending || done}
-          className="min-h-11 shrink-0 text-eyebrow uppercase text-ink transition-colors duration-500 ease-luxe hover:text-cognac disabled:opacity-50"
+          className="min-h-11 shrink-0 text-eyebrow uppercase text-ink transition-colors duration-200 ease-luxe hover:text-cognac disabled:opacity-50"
         >
           {pending ? "…" : "Subscribe"}
         </button>

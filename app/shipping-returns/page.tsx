@@ -63,7 +63,7 @@ export default function ShippingReturnsPage() {
           Questions about an order?{" "}
           <Link
             href="/contact"
-            className="text-ink underline decoration-gold/50 underline-offset-4 transition-colors duration-500 ease-luxe hover:text-cognac"
+            className="text-ink underline decoration-gold/50 underline-offset-4 transition-colors duration-200 ease-luxe hover:text-cognac"
           >
             Write to us
           </Link>

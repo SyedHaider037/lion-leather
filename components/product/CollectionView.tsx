@@ -60,7 +60,7 @@ function FacetGroup({
                 type="checkbox"
                 checked={selected.has(o.value)}
                 onChange={() => onToggle(o.value)}
-                className="h-4 w-4 shrink-0 appearance-none border border-ink/40 bg-transparent transition-colors duration-300 ease-luxe checked:border-cognac checked:bg-cognac focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cognac"
+                className="h-4 w-4 shrink-0 appearance-none border border-ink/40 bg-transparent transition-colors duration-200 ease-luxe checked:border-cognac checked:bg-cognac focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cognac"
               />
               {o.label}
             </label>
@@ -194,7 +194,7 @@ export function CollectionView({ products }: { products: FilterableProduct[] }) 
             <button
               type="button"
               onClick={() => setDrawerOpen(true)}
-              className="inline-flex min-h-11 items-center text-eyebrow uppercase text-ink transition-colors duration-500 ease-luxe hover:text-cognac lg:hidden"
+              className="inline-flex min-h-11 items-center text-eyebrow uppercase text-ink transition-colors duration-200 ease-luxe hover:text-cognac lg:hidden"
             >
               Filter{pills.length ? ` (${pills.length})` : ""}
             </button>
@@ -208,7 +208,7 @@ export function CollectionView({ products }: { products: FilterableProduct[] }) 
               aria-label="Sort products"
               value={sort}
               onChange={(e) => setSort(e.target.value as SortKey)}
-              className="border-b border-ink/30 bg-transparent min-h-11 py-1 text-eyebrow uppercase text-ink transition-colors duration-500 ease-luxe focus-visible:border-cognac focus-visible:outline-none"
+              className="border-b border-ink/30 bg-transparent min-h-11 py-1 text-eyebrow uppercase text-ink transition-colors duration-200 ease-luxe focus-visible:border-cognac focus-visible:outline-none"
             >
               {SORTS.map((s) => (
                 <option key={s.key} value={s.key} className="bg-paper text-ink">
@@ -227,7 +227,7 @@ export function CollectionView({ products }: { products: FilterableProduct[] }) 
                 key={p.v}
                 type="button"
                 onClick={p.onClear}
-                className="inline-flex min-h-11 items-center gap-2 border border-cognac bg-cognac/15 px-4 py-1 text-caption text-ink transition-colors duration-300 ease-luxe hover:bg-cognac hover:text-paper"
+                className="inline-flex min-h-11 items-center gap-2 border border-cognac bg-cognac/15 px-4 py-1 text-caption text-ink transition-colors duration-200 ease-luxe hover:bg-cognac hover:text-paper"
               >
                 {p.label}
                 <span aria-hidden>×</span>
@@ -237,7 +237,7 @@ export function CollectionView({ products }: { products: FilterableProduct[] }) 
             <button
               type="button"
               onClick={clearAll}
-              className="ml-1 inline-flex min-h-11 items-center text-caption text-taupe underline-offset-4 transition-colors duration-300 ease-luxe hover:text-cognac"
+              className="ml-1 inline-flex min-h-11 items-center text-caption text-taupe underline-offset-4 transition-colors duration-200 ease-luxe hover:text-cognac"
             >
               Clear all
             </button>
@@ -267,7 +267,7 @@ export function CollectionView({ products }: { products: FilterableProduct[] }) 
         <div
           onClick={() => setDrawerOpen(false)}
           className={cn(
-            "absolute inset-0 bg-ink/40 transition-opacity duration-500 ease-luxe",
+            "absolute inset-0 bg-ink/40 transition-opacity duration-[260ms] ease-luxe",
             drawerOpen ? "opacity-100" : "opacity-0",
           )}
         />
@@ -277,7 +277,7 @@ export function CollectionView({ products }: { products: FilterableProduct[] }) 
           aria-modal="true"
           aria-label="Filter"
           className={cn(
-            "absolute inset-y-0 left-0 flex w-[85%] max-w-xs flex-col bg-surface transition-transform duration-500 ease-luxe",
+            "absolute inset-y-0 left-0 flex w-[85%] max-w-xs flex-col bg-surface transition-transform duration-[260ms] ease-luxe",
             drawerOpen ? "translate-x-0" : "-translate-x-full",
           )}
         >
@@ -287,7 +287,7 @@ export function CollectionView({ products }: { products: FilterableProduct[] }) 
               type="button"
               onClick={() => setDrawerOpen(false)}
               aria-label="Close filters"
-              className="text-ink transition-colors duration-500 hover:text-cognac"
+              className="text-ink transition-colors duration-200 hover:text-cognac"
             >
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" aria-hidden>
                 <path d="M5 5l14 14M19 5L5 19" />
@@ -299,7 +299,7 @@ export function CollectionView({ products }: { products: FilterableProduct[] }) 
             <button
               type="button"
               onClick={() => setDrawerOpen(false)}
-              className="w-full border border-cognac bg-cognac py-3 text-eyebrow uppercase text-paper transition-all duration-500 ease-luxe hover:brightness-110"
+              className="w-full border border-cognac bg-cognac py-3 text-eyebrow uppercase text-paper transition-all duration-200 ease-luxe hover:brightness-110"
             >
               Show {filtered.length} {filtered.length === 1 ? "piece" : "pieces"}
             </button>

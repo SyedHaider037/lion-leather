@@ -279,7 +279,7 @@ export default async function ProductPage({
       <nav aria-label="Breadcrumb" className="mb-8 text-eyebrow uppercase text-taupe">
         <ol className="flex flex-wrap items-center gap-2">
           <li>
-            <Link href="/" className="transition-colors duration-500 ease-luxe hover:text-cognac">
+            <Link href="/" className="transition-colors duration-200 ease-luxe hover:text-cognac">
               Home
             </Link>
           </li>
@@ -289,7 +289,7 @@ export default async function ProductPage({
               <li>
                 <Link
                   href={`/collections/${category.handle}`}
-                  className="transition-colors duration-500 ease-luxe hover:text-cognac"
+                  className="transition-colors duration-200 ease-luxe hover:text-cognac"
                 >
                   {category.title}
                 </Link>
@@ -343,7 +343,7 @@ export default async function ProductPage({
                     <label
                       key={v.id}
                       className={cn(
-                        "border px-6 py-3 text-eyebrow uppercase transition-colors duration-500 ease-luxe",
+                        "border px-6 py-3 text-eyebrow uppercase transition-colors duration-200 ease-luxe",
                         "has-[:focus-visible]:outline has-[:focus-visible]:outline-1 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-gold",
                         v.availableForSale
                           ? "cursor-pointer border-ink/40 text-ink hover:border-ink has-[:checked]:border-cognac has-[:checked]:bg-cognac has-[:checked]:text-paper"
@@ -374,7 +374,7 @@ export default async function ProductPage({
                 {sizeGuideHref ? (
                   <Link
                     href={sizeGuideHref}
-                    className="mt-4 inline-block text-eyebrow uppercase text-taupe transition-colors duration-500 ease-luxe hover:text-cognac"
+                    className="mt-4 inline-block text-eyebrow uppercase text-taupe transition-colors duration-200 ease-luxe hover:text-cognac"
                   >
                     Size Guide →
                   </Link>
@@ -411,7 +411,7 @@ export default async function ProductPage({
               href={WHATSAPP_URL}
               target="_blank"
               rel="noreferrer noopener"
-              className="transition-colors duration-500 ease-luxe hover:text-cognac"
+              className="transition-colors duration-200 ease-luxe hover:text-cognac"
             >
               Questions? WhatsApp us
             </a>
@@ -449,7 +449,7 @@ export default async function ProductPage({
                   Details
                   <span
                     aria-hidden
-                    className="font-serif text-lg font-light text-taupe transition-transform duration-500 ease-luxe group-open:rotate-45"
+                    className="font-serif text-lg font-light text-taupe transition-transform duration-200 ease-luxe group-open:rotate-45"
                   >
                     +
                   </span>
@@ -465,7 +465,7 @@ export default async function ProductPage({
                 Care
                 <span
                   aria-hidden
-                  className="font-serif text-lg font-light text-taupe transition-transform duration-500 ease-luxe group-open:rotate-45"
+                  className="font-serif text-lg font-light text-taupe transition-transform duration-200 ease-luxe group-open:rotate-45"
                 >
                   +
                 </span>

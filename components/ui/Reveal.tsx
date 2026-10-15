@@ -50,13 +50,13 @@ export function Reveal({
       ref={ref}
       style={delay ? { transitionDelay: `${delay}ms` } : undefined}
       className={cn(
-        "transition-[opacity,transform] duration-700 ease-luxe motion-reduce:transition-none",
+        "transition-[opacity,transform] duration-[400ms] ease-luxe motion-reduce:transition-none",
         // Hidden state only applies under html.js (set pre-paint in the root
         // layout), so content stays visible when JavaScript is unavailable.
         !visible &&
           (variant === "scale"
             ? "[.js_&]:scale-[0.98] [.js_&]:opacity-0 [.js_&]:motion-reduce:scale-100 [.js_&]:motion-reduce:opacity-100"
-            : "[.js_&]:translate-y-6 [.js_&]:opacity-0 [.js_&]:motion-reduce:translate-y-0 [.js_&]:motion-reduce:opacity-100"),
+            : "[.js_&]:translate-y-4 [.js_&]:opacity-0 [.js_&]:motion-reduce:translate-y-0 [.js_&]:motion-reduce:opacity-100"),
         className,
       )}
     >

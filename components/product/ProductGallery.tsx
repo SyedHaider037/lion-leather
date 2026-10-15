@@ -82,7 +82,7 @@ function ZoomImage({
           priority={index === 0}
           style={{ transformOrigin: origin }}
           className={cn(
-            "object-cover object-center transition-transform duration-300 ease-out motion-reduce:!scale-100 motion-reduce:transition-none",
+            "object-cover object-center transition-transform duration-[260ms] ease-out motion-reduce:!scale-100 motion-reduce:transition-none",
             zoom ? "scale-[2]" : "scale-100",
           )}
         />
@@ -209,7 +209,7 @@ export function ProductGallery({ images, title }: { images: Img[]; title: string
                 key={img.url}
                 aria-hidden
                 className={cn(
-                  "h-1.5 w-1.5 rounded-full transition-colors duration-300 ease-luxe",
+                  "h-1.5 w-1.5 rounded-full transition-colors duration-200 ease-luxe",
                   i === active ? "bg-cognac" : "bg-ink/30",
                 )}
               />
@@ -227,7 +227,7 @@ export function ProductGallery({ images, title }: { images: Img[]; title: string
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
         className={cn(
-          "fixed inset-0 z-[60] flex items-center justify-center bg-paper transition-opacity duration-500 ease-luxe motion-reduce:transition-none",
+          "fixed inset-0 z-[60] flex items-center justify-center bg-paper transition-opacity duration-[260ms] ease-luxe motion-reduce:transition-none",
           open ? "opacity-100" : "pointer-events-none opacity-0",
         )}
       >
@@ -237,7 +237,7 @@ export function ProductGallery({ images, title }: { images: Img[]; title: string
           onClick={() => setOpen(false)}
           aria-label="Close"
           tabIndex={open ? 0 : -1}
-          className="absolute right-5 top-5 z-10 flex h-10 w-10 items-center justify-center text-ink transition-colors duration-500 ease-luxe hover:text-cognac"
+          className="absolute right-5 top-5 z-10 flex h-10 w-10 items-center justify-center text-ink transition-colors duration-200 ease-luxe hover:text-cognac"
         >
           <CloseIcon />
         </button>
@@ -249,7 +249,7 @@ export function ProductGallery({ images, title }: { images: Img[]; title: string
               onClick={prev}
               aria-label="Previous image"
               tabIndex={open ? 0 : -1}
-              className="absolute left-2 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center text-ink transition-colors duration-500 ease-luxe hover:text-cognac sm:left-5"
+              className="absolute left-2 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center text-ink transition-colors duration-200 ease-luxe hover:text-cognac sm:left-5"
             >
               <ChevronLeft />
             </button>
@@ -258,7 +258,7 @@ export function ProductGallery({ images, title }: { images: Img[]; title: string
               onClick={next}
               aria-label="Next image"
               tabIndex={open ? 0 : -1}
-              className="absolute right-2 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center text-ink transition-colors duration-500 ease-luxe hover:text-cognac sm:right-5"
+              className="absolute right-2 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center text-ink transition-colors duration-200 ease-luxe hover:text-cognac sm:right-5"
             >
               <ChevronRight />
             </button>

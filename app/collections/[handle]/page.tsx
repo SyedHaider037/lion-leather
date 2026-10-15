@@ -89,14 +89,14 @@ function RelatedTile({ collection }: { collection: CollectionListItem }) {
       <PhotoFrame
         image={image}
         sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-        imageClassName="transition-transform duration-700 ease-luxe group-hover:scale-[1.03]"
+        imageClassName="transition-transform duration-[280ms] ease-luxe group-hover:scale-[1.03]"
       />
       <h3 className="mt-4 font-serif text-h3 font-medium text-ink">
         <span className="relative inline-block">
           {collection.title}
           <span
             aria-hidden
-            className="absolute -bottom-0.5 left-0 h-px w-full origin-left scale-x-0 bg-cognac transition-transform duration-500 ease-luxe group-hover:scale-x-100"
+            className="absolute -bottom-0.5 left-0 h-px w-full origin-left scale-x-0 bg-cognac transition-transform duration-[280ms] ease-luxe group-hover:scale-x-100"
           />
         </span>
       </h3>
@@ -157,13 +157,13 @@ export default async function CollectionPage({
       <nav aria-label="Breadcrumb" className="text-eyebrow uppercase text-taupe">
         <ol className="flex flex-wrap items-center gap-2">
           <li>
-            <Link href="/" className="transition-colors duration-500 ease-luxe hover:text-cognac">
+            <Link href="/" className="transition-colors duration-200 ease-luxe hover:text-cognac">
               Home
             </Link>
           </li>
           <li aria-hidden>/</li>
           <li>
-            <Link href="/collections" className="transition-colors duration-500 ease-luxe hover:text-cognac">
+            <Link href="/collections" className="transition-colors duration-200 ease-luxe hover:text-cognac">
               Collections
             </Link>
           </li>

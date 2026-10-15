@@ -39,7 +39,7 @@ export function CategoryNav({
       <div
         onClick={onClose}
         className={cn(
-          "absolute inset-0 bg-ink/40 transition-opacity duration-500 ease-luxe",
+          "absolute inset-0 bg-ink/40 transition-opacity duration-[260ms] ease-luxe",
           open ? "opacity-100" : "opacity-0",
         )}
       />
@@ -49,7 +49,7 @@ export function CategoryNav({
         aria-label="Categories"
         inert={!open}
         className={cn(
-          "absolute inset-y-0 left-0 flex w-full flex-col bg-paper transition-transform duration-500 ease-luxe sm:w-80",
+          "absolute inset-y-0 left-0 flex w-full flex-col bg-paper transition-transform duration-[260ms] ease-luxe sm:w-80",
           open ? "translate-x-0" : "-translate-x-full",
         )}
       >
@@ -59,7 +59,7 @@ export function CategoryNav({
             type="button"
             onClick={onClose}
             aria-label="Close menu"
-            className="text-ink transition-colors duration-500 hover:text-cognac"
+            className="text-ink transition-colors duration-200 hover:text-cognac"
           >
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" aria-hidden>
               <path d="M5 5l14 14M19 5L5 19" />
@@ -74,7 +74,7 @@ export function CategoryNav({
               <li key={c.href}>
                 <Link
                   href={c.href}
-                  className="font-serif text-3xl font-medium text-ink transition-colors duration-500 ease-luxe hover:text-cognac"
+                  className="font-serif text-3xl font-medium text-ink transition-colors duration-200 ease-luxe hover:text-cognac"
                 >
                   {c.label}
                 </Link>
@@ -90,7 +90,7 @@ export function CategoryNav({
               <li key={s.href}>
                 <Link
                   href={s.href}
-                  className="text-body font-light text-taupe transition-colors duration-500 ease-luxe hover:text-cognac"
+                  className="text-body font-light text-taupe transition-colors duration-200 ease-luxe hover:text-cognac"
                 >
                   {s.label}
                 </Link>

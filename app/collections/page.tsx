@@ -32,7 +32,7 @@ function CollectionCard({ collection }: { collection: CollectionListItem }) {
         image={image}
         rounded={false}
         sizes="(min-width: 640px) 50vw, 100vw"
-        imageClassName="transition-transform duration-700 ease-luxe group-hover:scale-[1.04]"
+        imageClassName="transition-transform duration-[280ms] ease-luxe group-hover:scale-[1.04]"
       />
       <div className="mt-6 text-center">
         <h2 className="font-serif text-h3 font-light text-ink">
@@ -40,7 +40,7 @@ function CollectionCard({ collection }: { collection: CollectionListItem }) {
             {collection.title}
             <span
               aria-hidden
-              className="absolute -bottom-0.5 left-0 h-px w-full origin-left scale-x-0 bg-ink/40 transition-transform duration-500 ease-luxe group-hover:scale-x-100"
+              className="absolute -bottom-0.5 left-0 h-px w-full origin-left scale-x-0 bg-ink/40 transition-transform duration-[280ms] ease-luxe group-hover:scale-x-100"
             />
           </span>
         </h2>

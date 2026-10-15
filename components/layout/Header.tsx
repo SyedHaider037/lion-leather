@@ -125,7 +125,7 @@ export function Header() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 border-b transition-colors duration-500 ease-luxe",
+        "fixed inset-x-0 top-0 z-50 border-b transition-colors duration-200 ease-luxe",
         solid ? "border-taupe/30 bg-paper" : "border-transparent bg-transparent",
       )}
     >
@@ -141,7 +141,7 @@ export function Header() {
             }}
             aria-label="Open menu"
             aria-expanded={menuOpen}
-            className="-ml-2 flex min-h-11 min-w-11 items-center justify-center gap-2 px-2 py-1 text-ink transition-colors duration-500 ease-luxe hover:text-cognac"
+            className="-ml-2 flex min-h-11 min-w-11 items-center justify-center gap-2 px-2 py-1 text-ink transition-colors duration-200 ease-luxe hover:text-cognac"
           >
             <MenuIcon />
             <span className="hidden text-eyebrow uppercase md:inline">Menu</span>
@@ -167,7 +167,7 @@ export function Header() {
             }}
             aria-label="Search"
             aria-expanded={searchOpen}
-            className="flex h-11 w-11 items-center justify-center text-ink transition-colors duration-500 hover:text-cognac"
+            className="flex h-11 w-11 items-center justify-center text-ink transition-colors duration-200 hover:text-cognac"
           >
             <SearchIcon />
           </button>
@@ -178,7 +178,7 @@ export function Header() {
               e.preventDefault();
               window.dispatchEvent(new Event("cart:open"));
             }}
-            className="relative flex h-11 w-11 items-center justify-center text-ink transition-colors duration-500 hover:text-cognac"
+            className="relative flex h-11 w-11 items-center justify-center text-ink transition-colors duration-200 hover:text-cognac"
           >
             <BagIcon />
             <CartCount />
@@ -189,7 +189,7 @@ export function Header() {
       {/* Full-screen search overlay */}
       <div
         className={cn(
-          "fixed inset-0 top-18 z-40 flex flex-col bg-paper transition-opacity duration-700 ease-luxe",
+          "fixed inset-0 top-18 z-40 flex flex-col bg-paper transition-opacity duration-[240ms] ease-luxe",
           searchOpen ? "opacity-100" : "pointer-events-none opacity-0",
         )}
         aria-hidden={!searchOpen}
@@ -207,7 +207,7 @@ export function Header() {
             <label htmlFor="header-search" className="text-eyebrow uppercase text-taupe">
               Search
             </label>
-            <div className="mt-6 flex items-center gap-6 border-b border-cognac/40 transition-colors duration-500 ease-luxe focus-within:border-cognac">
+            <div className="mt-6 flex items-center gap-6 border-b border-cognac/40 transition-colors duration-200 ease-luxe focus-within:border-cognac">
               <input
                 id="header-search"
                 ref={searchInputRef}
@@ -219,7 +219,7 @@ export function Header() {
               <button
                 type="submit"
                 tabIndex={searchOpen ? 0 : -1}
-                className="shrink-0 text-eyebrow uppercase text-ink transition-colors duration-500 hover:text-cognac"
+                className="shrink-0 text-eyebrow uppercase text-ink transition-colors duration-200 hover:text-cognac"
               >
                 Search
               </button>
