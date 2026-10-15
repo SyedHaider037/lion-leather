@@ -55,7 +55,7 @@ function FacetGroup({
       <ul className="mt-4 space-y-3">
         {options.map((o) => (
           <li key={o.value}>
-            <label className="flex cursor-pointer items-center gap-3 text-caption font-light text-ink">
+            <label className="flex min-h-11 cursor-pointer items-center gap-3 text-caption font-light text-ink">
               <input
                 type="checkbox"
                 checked={selected.has(o.value)}
@@ -194,7 +194,7 @@ export function CollectionView({ products }: { products: FilterableProduct[] }) 
             <button
               type="button"
               onClick={() => setDrawerOpen(true)}
-              className="text-eyebrow uppercase text-ink transition-colors duration-500 ease-luxe hover:text-cognac lg:hidden"
+              className="inline-flex min-h-11 items-center text-eyebrow uppercase text-ink transition-colors duration-500 ease-luxe hover:text-cognac lg:hidden"
             >
               Filter{pills.length ? ` (${pills.length})` : ""}
             </button>
@@ -208,7 +208,7 @@ export function CollectionView({ products }: { products: FilterableProduct[] }) 
               aria-label="Sort products"
               value={sort}
               onChange={(e) => setSort(e.target.value as SortKey)}
-              className="border-b border-ink/30 bg-transparent py-1 text-eyebrow uppercase text-ink transition-colors duration-500 ease-luxe focus-visible:border-cognac focus-visible:outline-none"
+              className="border-b border-ink/30 bg-transparent min-h-11 py-1 text-eyebrow uppercase text-ink transition-colors duration-500 ease-luxe focus-visible:border-cognac focus-visible:outline-none"
             >
               {SORTS.map((s) => (
                 <option key={s.key} value={s.key} className="bg-paper text-ink">
@@ -227,7 +227,7 @@ export function CollectionView({ products }: { products: FilterableProduct[] }) 
                 key={p.v}
                 type="button"
                 onClick={p.onClear}
-                className="inline-flex items-center gap-2 border border-cognac bg-cognac/15 px-3 py-1 text-caption text-ink transition-colors duration-300 ease-luxe hover:bg-cognac hover:text-paper"
+                className="inline-flex min-h-11 items-center gap-2 border border-cognac bg-cognac/15 px-4 py-1 text-caption text-ink transition-colors duration-300 ease-luxe hover:bg-cognac hover:text-paper"
               >
                 {p.label}
                 <span aria-hidden>×</span>
@@ -237,7 +237,7 @@ export function CollectionView({ products }: { products: FilterableProduct[] }) 
             <button
               type="button"
               onClick={clearAll}
-              className="ml-1 text-caption text-taupe underline-offset-4 transition-colors duration-300 ease-luxe hover:text-cognac"
+              className="ml-1 inline-flex min-h-11 items-center text-caption text-taupe underline-offset-4 transition-colors duration-300 ease-luxe hover:text-cognac"
             >
               Clear all
             </button>
@@ -281,7 +281,7 @@ export function CollectionView({ products }: { products: FilterableProduct[] }) 
             drawerOpen ? "translate-x-0" : "-translate-x-full",
           )}
         >
-          <div className="flex items-center justify-between border-b border-gold/30 px-6 py-5">
+          <div className="flex items-center justify-between border-b border-gold/30 px-6 py-4">
             <p className="text-eyebrow uppercase text-ink">Filter</p>
             <button
               type="button"
@@ -295,7 +295,7 @@ export function CollectionView({ products }: { products: FilterableProduct[] }) 
             </button>
           </div>
           <div className="flex-1 overflow-y-auto px-6">{facets}</div>
-          <div className="border-t border-gold/30 px-6 py-5">
+          <div className="border-t border-gold/30 px-6 py-4">
             <button
               type="button"
               onClick={() => setDrawerOpen(false)}
