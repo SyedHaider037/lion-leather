@@ -16,7 +16,7 @@ A headless e-commerce storefront for premium leather footwear and accessories, b
 
 ## Getting started
 
-Requires Node.js 20.9 or newer (a requirement of Next.js 16).
+Requires Node.js 20.9 or newer (a requirement of Next.js 16). Running the tests needs Node.js 22.12 or newer (a requirement of Vitest 5).
 
 ```bash
 npm install
