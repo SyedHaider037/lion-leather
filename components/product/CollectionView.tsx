@@ -71,7 +71,11 @@ function FacetGroup({
   );
 }
 
-export function CollectionView({ products }: { products: FilterableProduct[] }) {
+export function CollectionView({
+  products,
+}: {
+  products: FilterableProduct[];
+}) {
   const [category, setCategory] = useState<Set<string>>(new Set());
   const [colour, setColour] = useState<Set<string>>(new Set());
   const [leather, setLeather] = useState<Set<string>>(new Set());
@@ -100,13 +104,20 @@ export function CollectionView({ products }: { products: FilterableProduct[] }) 
   );
 
   const hasFacets =
-    categories.length || colours.length || leathers.length || priceBuckets.length;
+    categories.length ||
+    colours.length ||
+    leathers.length ||
+    priceBuckets.length;
 
   const filtered = useMemo(() => {
     let list = products.filter((p) => {
       if (category.size && !category.has(p.productType)) return false;
-      if (colour.size && !(p.tags ?? []).some((t) => colour.has(t))) return false;
-      if (leather.size && !(p.leatherType?.value && leather.has(p.leatherType.value)))
+      if (colour.size && !(p.tags ?? []).some((t) => colour.has(t)))
+        return false;
+      if (
+        leather.size &&
+        !(p.leatherType?.value && leather.has(p.leatherType.value))
+      )
         return false;
       if (
         price.size &&
@@ -115,16 +126,29 @@ export function CollectionView({ products }: { products: FilterableProduct[] }) 
         return false;
       return true;
     });
-    if (sort === "price-asc") list = [...list].sort((a, b) => priceOf(a) - priceOf(b));
+    if (sort === "price-asc")
+      list = [...list].sort((a, b) => priceOf(a) - priceOf(b));
     else if (sort === "price-desc")
       list = [...list].sort((a, b) => priceOf(b) - priceOf(a));
     return list;
   }, [products, category, colour, leather, price, sort]);
 
   const pills = [
-    ...[...category].map((v) => ({ v, label: v, onClear: () => setCategory((s) => toggle(s, v)) })),
-    ...[...colour].map((v) => ({ v: `c-${v}`, label: v, onClear: () => setColour((s) => toggle(s, v)) })),
-    ...[...leather].map((v) => ({ v: `l-${v}`, label: v, onClear: () => setLeather((s) => toggle(s, v)) })),
+    ...[...category].map((v) => ({
+      v,
+      label: v,
+      onClear: () => setCategory((s) => toggle(s, v)),
+    })),
+    ...[...colour].map((v) => ({
+      v: `c-${v}`,
+      label: v,
+      onClear: () => setColour((s) => toggle(s, v)),
+    })),
+    ...[...leather].map((v) => ({
+      v: `l-${v}`,
+      label: v,
+      onClear: () => setLeather((s) => toggle(s, v)),
+    })),
     ...[...price].map((id) => ({
       v: `p-${id}`,
       label: PRICE_BUCKETS.find((b) => b.id === id)?.label ?? id,
@@ -246,7 +270,11 @@ export function CollectionView({ products }: { products: FilterableProduct[] }) 
 
         <div className="mt-10">
           {filtered.length ? (
-            <ProductGrid products={filtered} columns={4} centerWhenSparse={false} />
+            <ProductGrid
+              products={filtered}
+              columns={4}
+              centerWhenSparse={false}
+            />
           ) : (
             <p className="py-16 text-center text-body font-light text-taupe">
               No pieces match these filters.
@@ -289,7 +317,15 @@ export function CollectionView({ products }: { products: FilterableProduct[] }) 
               aria-label="Close filters"
               className="text-ink transition-colors duration-200 hover:text-cognac"
             >
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" aria-hidden>
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.2"
+                aria-hidden
+              >
                 <path d="M5 5l14 14M19 5L5 19" />
               </svg>
             </button>
@@ -301,7 +337,8 @@ export function CollectionView({ products }: { products: FilterableProduct[] }) 
               onClick={() => setDrawerOpen(false)}
               className="w-full border border-cognac bg-cognac py-3 text-eyebrow uppercase text-paper transition-all duration-200 ease-luxe hover:brightness-110"
             >
-              Show {filtered.length} {filtered.length === 1 ? "piece" : "pieces"}
+              Show {filtered.length}{" "}
+              {filtered.length === 1 ? "piece" : "pieces"}
             </button>
           </div>
         </div>

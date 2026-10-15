@@ -44,7 +44,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         first: 250,
         query: null,
       }),
-      storefrontRequest<CollectionsQueryData>(COLLECTIONS_QUERY, { first: 250 }),
+      storefrontRequest<CollectionsQueryData>(COLLECTIONS_QUERY, {
+        first: 250,
+      }),
     ]);
 
     for (const product of products.products.nodes) {

@@ -1,4 +1,3 @@
-
 import { ButtonLink } from "@/components/ui/Button";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { PhotoFrame } from "@/components/ui/PhotoFrame";
@@ -34,7 +33,11 @@ export function FeaturedProduct({ product }: { product: ProductCard | null }) {
               {formatMoney(money.amount, money.currencyCode)}
             </p>
             <div className="mt-8">
-              <ButtonLink variant="link" className="py-3.5! after:bottom-3.5!" href={`/products/${product.handle}`}>
+              <ButtonLink
+                variant="link"
+                className="py-3.5! after:bottom-3.5!"
+                href={`/products/${product.handle}`}
+              >
                 View the piece
               </ButtonLink>
             </div>

@@ -14,10 +14,7 @@ export function AddToCartForm({
   id,
   children,
 }: {
-  action: (
-    prev: AddToCartState,
-    formData: FormData,
-  ) => Promise<AddToCartState>;
+  action: (prev: AddToCartState, formData: FormData) => Promise<AddToCartState>;
   id: string;
   children: React.ReactNode;
 }) {

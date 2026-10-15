@@ -16,11 +16,7 @@ export function Heading({
 }) {
   const base = "font-serif font-medium";
   const toneClass =
-    tone === "page"
-      ? "text-h1"
-      : tone === "title"
-        ? "text-title"
-        : "text-h3";
+    tone === "page" ? "text-h1" : tone === "title" ? "text-title" : "text-h3";
 
   return <Tag className={cn(base, toneClass, className)}>{children}</Tag>;
 }

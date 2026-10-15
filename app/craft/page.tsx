@@ -71,10 +71,15 @@ function Story({
 export default async function CraftPage() {
   let collections: CollectionListItem[] = [];
   try {
-    const data = await storefrontRequest<CollectionsQueryData>(COLLECTIONS_QUERY, {
-      first: 20,
-    });
-    collections = data.collections.nodes.filter((c) => c.handle !== "frontpage");
+    const data = await storefrontRequest<CollectionsQueryData>(
+      COLLECTIONS_QUERY,
+      {
+        first: 20,
+      },
+    );
+    collections = data.collections.nodes.filter(
+      (c) => c.handle !== "frontpage",
+    );
   } catch (err) {
     console.error("[Craft] Storefront error", err);
   }
@@ -116,7 +121,12 @@ export default async function CraftPage() {
         </Reveal>
       ) : null}
 
-      <Story eyebrow="The Leather" title="Full-grain, nothing less." image={leather} tone="surface">
+      <Story
+        eyebrow="The Leather"
+        title="Full-grain, nothing less."
+        image={leather}
+        tone="surface"
+      >
         <p>
           We work only in full-grain leather — the top layer of the hide, with
           its character intact. It is chosen by hand, a few skins at a time, for
@@ -128,7 +138,13 @@ export default async function CraftPage() {
         </p>
       </Story>
 
-      <Story eyebrow="The Making" title="Cut, stitched, finished." image={making} tone="paper" flip>
+      <Story
+        eyebrow="The Making"
+        title="Cut, stitched, finished."
+        image={making}
+        tone="paper"
+        flip
+      >
         <p>
           Each piece is cut to pattern, skived, and stitched — not glued — so it
           can be resoled and repaired rather than replaced. Edges are burnished
@@ -140,7 +156,12 @@ export default async function CraftPage() {
         </p>
       </Story>
 
-      <Story eyebrow="The Workshop" title="A workshop in Lahore." image={workshop} tone="surface">
+      <Story
+        eyebrow="The Workshop"
+        title="A workshop in Lahore."
+        image={workshop}
+        tone="surface"
+      >
         <p>
           Our pieces are made in a small workshop in Lahore, where the craft has
           been kept alive across generations. The makers are named, known, and

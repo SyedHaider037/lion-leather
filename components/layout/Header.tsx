@@ -10,7 +10,15 @@ import { cn } from "@/lib/utils/cn";
 
 function MenuIcon() {
   return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" aria-hidden>
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.2"
+      aria-hidden
+    >
       <path d="M3.5 8h17M3.5 16h17" />
     </svg>
   );
@@ -18,7 +26,15 @@ function MenuIcon() {
 
 function SearchIcon() {
   return (
-    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" aria-hidden>
+    <svg
+      width="19"
+      height="19"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.2"
+      aria-hidden
+    >
       <circle cx="11" cy="11" r="7" />
       <path d="m20 20-3.8-3.8" />
     </svg>
@@ -27,7 +43,15 @@ function SearchIcon() {
 
 function BagIcon() {
   return (
-    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" aria-hidden>
+    <svg
+      width="19"
+      height="19"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.2"
+      aria-hidden
+    >
       <path d="M5 8h14l-1.2 12.2a1.5 1.5 0 0 1-1.5 1.3H7.7a1.5 1.5 0 0 1-1.5-1.3L5 8Z" />
       <path d="M8.5 10V6.5a3.5 3.5 0 0 1 7 0V10" />
     </svg>
@@ -126,7 +150,9 @@ export function Header() {
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 border-b transition-colors duration-200 ease-luxe",
-        solid ? "border-taupe/30 bg-paper" : "border-transparent bg-transparent",
+        solid
+          ? "border-taupe/30 bg-paper"
+          : "border-transparent bg-transparent",
       )}
     >
       <Container className="grid h-18 grid-cols-[1fr_auto_1fr] items-center gap-2 min-[440px]:gap-6">
@@ -144,7 +170,9 @@ export function Header() {
             className="-ml-2 flex min-h-11 min-w-11 items-center justify-center gap-2 px-2 py-1 text-ink transition-colors duration-200 ease-luxe hover:text-cognac"
           >
             <MenuIcon />
-            <span className="hidden text-eyebrow uppercase md:inline">Menu</span>
+            <span className="hidden text-eyebrow uppercase md:inline">
+              Menu
+            </span>
           </button>
         </div>
 
@@ -204,7 +232,10 @@ export function Header() {
               router.push(q ? `/search?q=${encodeURIComponent(q)}` : "/search");
             }}
           >
-            <label htmlFor="header-search" className="text-eyebrow uppercase text-taupe">
+            <label
+              htmlFor="header-search"
+              className="text-eyebrow uppercase text-taupe"
+            >
               Search
             </label>
             <div className="mt-6 flex items-center gap-6 border-b border-cognac/40 transition-colors duration-200 ease-luxe focus-within:border-cognac">

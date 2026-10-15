@@ -29,8 +29,8 @@ export default function ShoeSizeGuidePage() {
 
         <p className="mt-12 max-w-[68ch] text-body font-light text-taupe">
           To measure, stand on a sheet of paper and mark heel to longest toe.
-          Match the length in centimetres to the chart below. If you are
-          between sizes, take the larger of the two.
+          Match the length in centimetres to the chart below. If you are between
+          sizes, take the larger of the two.
         </p>
 
         <table className="mt-14 w-full border-collapse text-left">

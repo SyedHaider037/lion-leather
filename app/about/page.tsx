@@ -60,7 +60,11 @@ export default async function AboutPage() {
             </p>
           </div>
           <div className="mt-10">
-            <ButtonLink variant="link" className="py-3.5! after:bottom-3.5!" href="/craft">
+            <ButtonLink
+              variant="link"
+              className="py-3.5! after:bottom-3.5!"
+              href="/craft"
+            >
               Discover the craft
             </ButtonLink>
           </div>
@@ -84,7 +88,8 @@ export default async function AboutPage() {
       <Section tone="surface" rhythm="lg">
         <div className="max-w-3xl">
           <p className="font-serif text-h2 font-light italic text-taupe">
-            Leather that ages with you — kept, repaired, and worn for a lifetime.
+            Leather that ages with you — kept, repaired, and worn for a
+            lifetime.
           </p>
         </div>
       </Section>

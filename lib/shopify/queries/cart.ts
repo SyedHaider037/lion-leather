@@ -159,4 +159,3 @@ export type CartCreateData = { cartCreate: CartMutationResult };
 export type CartLinesAddData = { cartLinesAdd: CartMutationResult };
 export type CartLinesUpdateData = { cartLinesUpdate: CartMutationResult };
 export type CartLinesRemoveData = { cartLinesRemove: CartMutationResult };
-

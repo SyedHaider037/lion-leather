@@ -10,7 +10,8 @@ export function TrackOrderForm() {
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    const message = `Hi Lion Leather, I'd like to track my order ${order}.`.trim();
+    const message =
+      `Hi Lion Leather, I'd like to track my order ${order}.`.trim();
     const url = buildWhatsappUrl(undefined, message);
     window.open(url, "_blank", "noopener,noreferrer");
   }

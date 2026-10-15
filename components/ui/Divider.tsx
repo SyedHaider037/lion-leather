@@ -21,10 +21,7 @@ export function Divider({
   }
 
   return (
-    <div
-      role="separator"
-      className={cn("flex items-center gap-6", className)}
-    >
+    <div role="separator" className={cn("flex items-center gap-6", className)}>
       <span className="h-px flex-1 bg-gold/30" />
       <span
         aria-hidden

@@ -15,21 +15,45 @@ type Img = {
 
 function CloseIcon() {
   return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" aria-hidden>
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.2"
+      aria-hidden
+    >
       <path d="M5 5l14 14M19 5L5 19" />
     </svg>
   );
 }
 function ChevronLeft() {
   return (
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.1" aria-hidden>
+    <svg
+      width="28"
+      height="28"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.1"
+      aria-hidden
+    >
       <path d="M15 5l-7 7 7 7" />
     </svg>
   );
 }
 function ChevronRight() {
   return (
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.1" aria-hidden>
+    <svg
+      width="28"
+      height="28"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.1"
+      aria-hidden
+    >
       <path d="M9 5l7 7-7 7" />
     </svg>
   );
@@ -72,13 +96,20 @@ function ZoomImage({
     >
       <div
         className="absolute inset-0 m-auto h-full w-full overflow-hidden"
-        style={{ maxWidth: img.width ?? undefined, maxHeight: img.height ?? undefined }}
+        style={{
+          maxWidth: img.width ?? undefined,
+          maxHeight: img.height ?? undefined,
+        }}
       >
         <Image
           src={img.url}
           alt={img.altText ?? title}
           fill
-          sizes={img.width && img.width < 720 ? `${img.width}px` : "(min-width: 1024px) 720px, 100vw"}
+          sizes={
+            img.width && img.width < 720
+              ? `${img.width}px`
+              : "(min-width: 1024px) 720px, 100vw"
+          }
           priority={index === 0}
           style={{ transformOrigin: origin }}
           className={cn(
@@ -91,8 +122,17 @@ function ZoomImage({
   );
 }
 
-export function ProductGallery({ images, title }: { images: Img[]; title: string }) {
-  const normalized = useMemo(() => images.filter(Boolean).slice(0, 7), [images]);
+export function ProductGallery({
+  images,
+  title,
+}: {
+  images: Img[];
+  title: string;
+}) {
+  const normalized = useMemo(
+    () => images.filter(Boolean).slice(0, 7),
+    [images],
+  );
   const count = normalized.length;
   const [active, setActive] = useState(0);
   const [open, setOpen] = useState(false);
@@ -188,13 +228,20 @@ export function ProductGallery({ images, title }: { images: Img[]; title: string
             >
               <div
                 className="absolute inset-0 m-auto h-full w-full overflow-hidden"
-                style={{ maxWidth: img.width ?? undefined, maxHeight: img.height ?? undefined }}
+                style={{
+                  maxWidth: img.width ?? undefined,
+                  maxHeight: img.height ?? undefined,
+                }}
               >
                 <Image
                   src={img.url}
                   alt={img.altText ?? title}
                   fill
-                  sizes={img.width && img.width < 640 ? `min(100vw, ${img.width}px)` : "100vw"}
+                  sizes={
+                    img.width && img.width < 640
+                      ? `min(100vw, ${img.width}px)`
+                      : "100vw"
+                  }
                   priority={i === 0}
                   className="object-cover object-center"
                 />
@@ -268,7 +315,10 @@ export function ProductGallery({ images, title }: { images: Img[]; title: string
         {current ? (
           <div
             className="relative h-[78vh] w-[90vw] max-w-4xl"
-            style={{ maxWidth: current.width ?? undefined, maxHeight: current.height ?? undefined }}
+            style={{
+              maxWidth: current.width ?? undefined,
+              maxHeight: current.height ?? undefined,
+            }}
           >
             <Image
               src={current.url}

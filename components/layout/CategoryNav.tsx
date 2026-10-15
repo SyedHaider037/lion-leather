@@ -61,7 +61,15 @@ export function CategoryNav({
             aria-label="Close menu"
             className="text-ink transition-colors duration-200 hover:text-cognac"
           >
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" aria-hidden>
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.2"
+              aria-hidden
+            >
               <path d="M5 5l14 14M19 5L5 19" />
             </svg>
           </button>

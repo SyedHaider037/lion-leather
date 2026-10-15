@@ -78,7 +78,8 @@ export function SearchClient({ initialQuery }: { initialQuery: string }) {
         const json = (await res.json()) as ApiResponse;
         if (!cancelled) setResults(json.products ?? []);
       } catch (e) {
-        if (!cancelled) setError(e instanceof Error ? e.message : "Search failed");
+        if (!cancelled)
+          setError(e instanceof Error ? e.message : "Search failed");
       } finally {
         if (!cancelled) setLoading(false);
       }

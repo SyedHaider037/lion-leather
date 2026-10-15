@@ -45,7 +45,9 @@ describe("buildWhatsappUrl", () => {
     expect(buildWhatsappUrl("+92 300-000 0000")).toBe(
       "https://wa.me/923000000000",
     );
-    expect(buildWhatsappUrl("(0300) 000.0000")).toBe("https://wa.me/03000000000");
+    expect(buildWhatsappUrl("(0300) 000.0000")).toBe(
+      "https://wa.me/03000000000",
+    );
   });
 
   it("adds a URL-encoded message when given one", async () => {

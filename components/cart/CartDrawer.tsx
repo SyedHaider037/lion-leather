@@ -4,10 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 
-import {
-  cartRemoveLineAction,
-  cartUpdateLineAction,
-} from "@/lib/cart/actions";
+import { cartRemoveLineAction, cartUpdateLineAction } from "@/lib/cart/actions";
 import { useFocusTrap } from "@/lib/hooks/useFocusTrap";
 import type { Cart } from "@/lib/shopify/queries/cart";
 import { cn } from "@/lib/utils/cn";
@@ -105,7 +102,15 @@ export function CartDrawer() {
             aria-label="Close"
             className="-mr-3 flex h-11 w-11 items-center justify-center text-ink transition-colors duration-200 hover:text-cognac"
           >
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" aria-hidden>
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.2"
+              aria-hidden
+            >
               <path d="M5 5l14 14M19 5L5 19" />
             </svg>
           </button>
@@ -140,7 +145,10 @@ export function CartDrawer() {
                       {line.merchandise.image ? (
                         <Image
                           src={line.merchandise.image.url}
-                          alt={line.merchandise.image.altText ?? line.merchandise.product.title}
+                          alt={
+                            line.merchandise.image.altText ??
+                            line.merchandise.product.title
+                          }
                           fill
                           sizes="80px"
                           className="object-cover"
@@ -160,19 +168,35 @@ export function CartDrawer() {
                             type="button"
                             disabled={busy}
                             aria-label="Decrease quantity"
-                            onClick={() => mutate(() => cartUpdateLineAction(line.id, line.quantity - 1))}
+                            onClick={() =>
+                              mutate(() =>
+                                cartUpdateLineAction(
+                                  line.id,
+                                  line.quantity - 1,
+                                ),
+                              )
+                            }
                             className="group flex h-11 w-11 items-center justify-center transition-[color,transform] duration-200 hover:text-cognac active:scale-90 motion-reduce:active:scale-100 disabled:opacity-40"
                           >
                             <span className="flex h-7 w-7 items-center justify-center border border-ink/30 transition-colors duration-200 group-hover:border-cognac">
                               −
                             </span>
                           </button>
-                          <span className="min-w-6 text-center text-caption">{line.quantity}</span>
+                          <span className="min-w-6 text-center text-caption">
+                            {line.quantity}
+                          </span>
                           <button
                             type="button"
                             disabled={busy}
                             aria-label="Increase quantity"
-                            onClick={() => mutate(() => cartUpdateLineAction(line.id, line.quantity + 1))}
+                            onClick={() =>
+                              mutate(() =>
+                                cartUpdateLineAction(
+                                  line.id,
+                                  line.quantity + 1,
+                                ),
+                              )
+                            }
                             className="group flex h-11 w-11 items-center justify-center transition-[color,transform] duration-200 hover:text-cognac active:scale-90 motion-reduce:active:scale-100 disabled:opacity-40"
                           >
                             <span className="flex h-7 w-7 items-center justify-center border border-ink/30 transition-colors duration-200 group-hover:border-cognac">
@@ -181,13 +205,18 @@ export function CartDrawer() {
                           </button>
                         </div>
                         <p className="text-caption text-taupe">
-                          {formatMoney(line.merchandise.price.amount, line.merchandise.price.currencyCode)}
+                          {formatMoney(
+                            line.merchandise.price.amount,
+                            line.merchandise.price.currencyCode,
+                          )}
                         </p>
                       </div>
                       <button
                         type="button"
                         disabled={busy}
-                        onClick={() => mutate(() => cartRemoveLineAction(line.id))}
+                        onClick={() =>
+                          mutate(() => cartRemoveLineAction(line.id))
+                        }
                         className="inline-flex min-h-11 items-center text-caption text-taupe underline-offset-4 transition-colors duration-200 hover:text-cognac disabled:opacity-40"
                       >
                         Remove
@@ -202,7 +231,10 @@ export function CartDrawer() {
               <div className="flex items-center justify-between">
                 <p className="text-eyebrow uppercase text-taupe">Subtotal</p>
                 <p className="text-caption text-ink">
-                  {formatMoney(cart.cost.subtotalAmount.amount, cart.cost.subtotalAmount.currencyCode)}
+                  {formatMoney(
+                    cart.cost.subtotalAmount.amount,
+                    cart.cost.subtotalAmount.currencyCode,
+                  )}
                 </p>
               </div>
 

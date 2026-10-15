@@ -81,7 +81,11 @@ export default function RootLayout({
           Skip to content
         </a>
         <Header />
-        <main id="main-content" tabIndex={-1} className="flex-1 pt-18 focus:outline-none">
+        <main
+          id="main-content"
+          tabIndex={-1}
+          className="flex-1 pt-18 focus:outline-none"
+        >
           {children}
         </main>
         <Footer />

@@ -194,7 +194,10 @@ export default async function ProductPage({
     console.error("[PDP] recommendations error", err);
   }
 
-  const price = formatMoney(firstVariant.price.amount, firstVariant.price.currencyCode);
+  const price = formatMoney(
+    firstVariant.price.amount,
+    firstVariant.price.currencyCode,
+  );
   const formattedDescription = formatDescription(product.description);
   const shortDescription =
     product.shortDescription?.value?.trim() ||
@@ -275,10 +278,16 @@ export default async function ProductPage({
         }}
       />
       {/* Breadcrumbs */}
-      <nav aria-label="Breadcrumb" className="mb-8 text-eyebrow uppercase text-taupe">
+      <nav
+        aria-label="Breadcrumb"
+        className="mb-8 text-eyebrow uppercase text-taupe"
+      >
         <ol className="flex flex-wrap items-center gap-2">
           <li>
-            <Link href="/" className="transition-colors duration-200 ease-luxe hover:text-cognac">
+            <Link
+              href="/"
+              className="transition-colors duration-200 ease-luxe hover:text-cognac"
+            >
               Home
             </Link>
           </li>
@@ -403,9 +412,13 @@ export default async function ProductPage({
 
           <div className="mt-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-caption font-light text-taupe">
             <span>Ships from Lahore, Pakistan</span>
-            <span aria-hidden className="text-gold/50">·</span>
+            <span aria-hidden className="text-gold/50">
+              ·
+            </span>
             <span>Secure checkout via Shopify</span>
-            <span aria-hidden className="text-gold/50">·</span>
+            <span aria-hidden className="text-gold/50">
+              ·
+            </span>
             <a
               href={WHATSAPP_URL}
               target="_blank"
@@ -494,12 +507,13 @@ export default async function ProductPage({
 
       {related.length ? (
         <div className="mt-24 border-t border-gold/30 pt-16">
-          <SectionTitle
-            eyebrow="More to explore"
-            title="You may also like"
-          />
+          <SectionTitle eyebrow="More to explore" title="You may also like" />
           <div className="mt-12">
-            <ProductGrid products={related} columns={4} centerWhenSparse={false} />
+            <ProductGrid
+              products={related}
+              columns={4}
+              centerWhenSparse={false}
+            />
           </div>
         </div>
       ) : null}

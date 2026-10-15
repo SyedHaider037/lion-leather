@@ -2,7 +2,11 @@ import Link from "next/link";
 
 import { NewsletterForm } from "@/components/layout/NewsletterForm";
 import { Container } from "@/components/ui/Container";
-import { CONTACT_EMAIL, WHATSAPP_NUMBER, WHATSAPP_URL } from "@/lib/site-config";
+import {
+  CONTACT_EMAIL,
+  WHATSAPP_NUMBER,
+  WHATSAPP_URL,
+} from "@/lib/site-config";
 
 type FooterLink = { href: string; label: string; external?: boolean };
 
@@ -39,7 +43,11 @@ const COLUMNS: { heading: string; links: FooterLink[] }[] = [
     heading: "Contact",
     links: [
       { href: "/contact", label: "Write to Us" },
-      { href: WHATSAPP_URL, label: `WhatsApp ${WHATSAPP_NUMBER} →`, external: true },
+      {
+        href: WHATSAPP_URL,
+        label: `WhatsApp ${WHATSAPP_NUMBER} →`,
+        external: true,
+      },
       {
         href: `mailto:${CONTACT_EMAIL}`,
         label: CONTACT_EMAIL,
@@ -91,7 +99,9 @@ export function Footer() {
         <div className="mt-12 grid grid-cols-2 gap-x-6 gap-y-8 sm:gap-8 lg:grid-cols-4">
           {COLUMNS.map((col) => (
             <div key={col.heading} className="min-w-0">
-              <p className="text-eyebrow uppercase text-ink/80">{col.heading}</p>
+              <p className="text-eyebrow uppercase text-ink/80">
+                {col.heading}
+              </p>
               <ul className="mt-2">
                 {col.links.map((link) => (
                   <li key={link.label}>

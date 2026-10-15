@@ -78,9 +78,13 @@ export async function createCart(input?: {
   const lines = input?.lines
     ? cartLinesInputSchema.parse(input.lines)
     : undefined;
-  const data = await storefrontRequest<CartCreateData>(CART_CREATE_MUTATION, {
-    input: lines ? { lines } : {},
-  }, NO_STORE);
+  const data = await storefrontRequest<CartCreateData>(
+    CART_CREATE_MUTATION,
+    {
+      input: lines ? { lines } : {},
+    },
+    NO_STORE,
+  );
   assertNoUserErrors(data.cartCreate.userErrors, "Cart create failed");
   if (!data.cartCreate.cart) throw new Error("Cart create returned no cart");
   return data.cartCreate.cart;

@@ -8,53 +8,51 @@ export const contentType = "image/png";
 
 export default function OpenGraphImage() {
   return new ImageResponse(
-    (
+    <div
+      style={{
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        background: "#f4f0e8",
+        color: "#2a231b",
+        fontFamily: "Georgia, serif",
+      }}
+    >
       <div
         style={{
-          width: "100%",
-          height: "100%",
           display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          background: "#f4f0e8",
-          color: "#2a231b",
-          fontFamily: "Georgia, serif",
+          fontSize: 96,
+          letterSpacing: "0.3em",
+          textTransform: "uppercase",
+          paddingLeft: "0.3em",
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            fontSize: 96,
-            letterSpacing: "0.3em",
-            textTransform: "uppercase",
-            paddingLeft: "0.3em",
-          }}
-        >
-          Lion Leather
-        </div>
-        <div
-          style={{
-            display: "flex",
-            width: 160,
-            height: 2,
-            background: "#c9a24b",
-            marginTop: 40,
-            marginBottom: 40,
-          }}
-        />
-        <div
-          style={{
-            display: "flex",
-            fontSize: 30,
-            letterSpacing: "0.12em",
-            color: "#756a5a",
-          }}
-        >
-          Premium leather footwear and accessories
-        </div>
+        Lion Leather
       </div>
-    ),
+      <div
+        style={{
+          display: "flex",
+          width: 160,
+          height: 2,
+          background: "#c9a24b",
+          marginTop: 40,
+          marginBottom: 40,
+        }}
+      />
+      <div
+        style={{
+          display: "flex",
+          fontSize: 30,
+          letterSpacing: "0.12em",
+          color: "#756a5a",
+        }}
+      >
+        Premium leather footwear and accessories
+      </div>
+    </div>,
     size,
   );
 }

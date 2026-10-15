@@ -26,13 +26,16 @@ export default async function Home() {
   try {
     const [colData, footwear] = await Promise.all([
       storefrontRequest<CollectionsQueryData>(COLLECTIONS_QUERY, { first: 20 }),
-      storefrontRequest<CollectionByHandleQueryData>(COLLECTION_BY_HANDLE_QUERY, {
-        handle: "footwear",
-        first: 1,
-        after: null,
-        sortKey: null,
-        reverse: null,
-      }).catch(() => null),
+      storefrontRequest<CollectionByHandleQueryData>(
+        COLLECTION_BY_HANDLE_QUERY,
+        {
+          handle: "footwear",
+          first: 1,
+          after: null,
+          sortKey: null,
+          reverse: null,
+        },
+      ).catch(() => null),
     ]);
     collections = colData.collections.nodes.filter(
       (c) => !HIDDEN_HANDLES.has(c.handle),

@@ -63,7 +63,10 @@ export function CategoryShowcase({
           ) : null}
           {wallets ? (
             <div className="sm:pt-16">
-              <Tile collection={wallets} sizes="(min-width: 640px) 38vw, 100vw" />
+              <Tile
+                collection={wallets}
+                sizes="(min-width: 640px) 38vw, 100vw"
+              />
             </div>
           ) : null}
         </div>

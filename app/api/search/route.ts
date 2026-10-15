@@ -13,7 +13,9 @@ export async function GET(req: Request) {
   const first = Math.max(1, Math.min(48, Number(firstRaw) || 24));
 
   if (!q) {
-    return NextResponse.json({ products: [] as ProductsQueryData["products"]["nodes"] });
+    return NextResponse.json({
+      products: [] as ProductsQueryData["products"]["nodes"],
+    });
   }
 
   const data = await storefrontRequest<ProductsQueryData>(PRODUCTS_QUERY, {
@@ -23,4 +25,3 @@ export async function GET(req: Request) {
 
   return NextResponse.json({ products: data.products.nodes });
 }
-

@@ -1,4 +1,3 @@
-
 import { ButtonLink } from "@/components/ui/Button";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { PhotoFrame } from "@/components/ui/PhotoFrame";
@@ -30,12 +29,16 @@ export function CraftTeaser({ image }: { image: HeroImage }) {
                 decades.
               </p>
               <p>
-                Nothing is rushed. What remains is leather that softens, deepens,
-                and outlives the season it was made for.
+                Nothing is rushed. What remains is leather that softens,
+                deepens, and outlives the season it was made for.
               </p>
             </div>
             <div className="mt-8">
-              <ButtonLink variant="link" className="py-3.5! after:bottom-3.5!" href="/craft">
+              <ButtonLink
+                variant="link"
+                className="py-3.5! after:bottom-3.5!"
+                href="/craft"
+              >
                 Read the story
               </ButtonLink>
             </div>

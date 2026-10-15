@@ -122,13 +122,16 @@ export default async function CollectionPage({
   let allCollections: CollectionListItem[] = [];
   try {
     const [colData, listData] = await Promise.all([
-      storefrontRequest<CollectionByHandleQueryData>(COLLECTION_BY_HANDLE_QUERY, {
-        handle,
-        first: 100,
-        after: null,
-        sortKey: null,
-        reverse: null,
-      }),
+      storefrontRequest<CollectionByHandleQueryData>(
+        COLLECTION_BY_HANDLE_QUERY,
+        {
+          handle,
+          first: 100,
+          after: null,
+          sortKey: null,
+          reverse: null,
+        },
+      ),
       storefrontRequest<CollectionsQueryData>(COLLECTIONS_QUERY, {
         first: 20,
       }).catch(() => null),
@@ -146,24 +149,32 @@ export default async function CollectionPage({
 
   const products = collection.products.nodes;
   const description = collection.description.trim().split(/\n+/)[0] ?? "";
-  const headerImage =
-    collection.image ?? products[0]?.featuredImage ?? null;
+  const headerImage = collection.image ?? products[0]?.featuredImage ?? null;
   const related = allCollections.filter(
     (c) => c.handle !== "frontpage" && c.handle !== collection.handle,
   );
 
   return (
     <Section className="pt-14 sm:pt-20">
-      <nav aria-label="Breadcrumb" className="text-eyebrow uppercase text-taupe">
+      <nav
+        aria-label="Breadcrumb"
+        className="text-eyebrow uppercase text-taupe"
+      >
         <ol className="flex flex-wrap items-center gap-2">
           <li>
-            <Link href="/" className="transition-colors duration-200 ease-luxe hover:text-cognac">
+            <Link
+              href="/"
+              className="transition-colors duration-200 ease-luxe hover:text-cognac"
+            >
               Home
             </Link>
           </li>
           <li aria-hidden>/</li>
           <li>
-            <Link href="/collections" className="transition-colors duration-200 ease-luxe hover:text-cognac">
+            <Link
+              href="/collections"
+              className="transition-colors duration-200 ease-luxe hover:text-cognac"
+            >
               Collections
             </Link>
           </li>

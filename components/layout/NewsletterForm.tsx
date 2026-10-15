@@ -19,7 +19,11 @@ export function NewsletterForm() {
   const done = state.status === "success";
 
   return (
-    <form action={formAction} className="mt-12 max-w-md" aria-label="Newsletter">
+    <form
+      action={formAction}
+      className="mt-12 max-w-md"
+      aria-label="Newsletter"
+    >
       <SpamTrap />
       <label
         htmlFor="newsletter-email"

@@ -30,15 +30,15 @@ The dev server runs on http://localhost:3000. You need a Shopify store with the 
 
 Names only; see `.env.example` for placeholders. Never commit `.env.local`.
 
-| Variable | Required | Purpose |
-| --- | --- | --- |
-| `SHOPIFY_STORE_DOMAIN` | yes | Store hostname (`your-store.myshopify.com`), used for Storefront API calls. Server-only. |
-| `SHOPIFY_STOREFRONT_ACCESS_TOKEN` | yes | Storefront API public access token, sent from the server. |
-| `SHOPIFY_STOREFRONT_API_VERSION` | no | Storefront API version. Defaults to `2025-01`. |
-| `NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN` | no | Public store hostname for checkout links, if different from the server domain. |
-| `NEXT_PUBLIC_SITE_URL` | no | Public origin of the site, used for metadata, `robots.txt` and the sitemap. |
-| `NEXT_PUBLIC_WHATSAPP_NUMBER` | no | WhatsApp number shown on the site; the wa.me links use its digits. Defaults to a placeholder. |
-| `NEXT_PUBLIC_CONTACT_EMAIL` | no | Support email shown on the site and in the privacy policy. Defaults to a placeholder. |
+| Variable                           | Required | Purpose                                                                                       |
+| ---------------------------------- | -------- | --------------------------------------------------------------------------------------------- |
+| `SHOPIFY_STORE_DOMAIN`             | yes      | Store hostname (`your-store.myshopify.com`), used for Storefront API calls. Server-only.      |
+| `SHOPIFY_STOREFRONT_ACCESS_TOKEN`  | yes      | Storefront API public access token, sent from the server.                                     |
+| `SHOPIFY_STOREFRONT_API_VERSION`   | no       | Storefront API version. Defaults to `2025-01`.                                                |
+| `NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN` | no       | Public store hostname for checkout links, if different from the server domain.                |
+| `NEXT_PUBLIC_SITE_URL`             | no       | Public origin of the site, used for metadata, `robots.txt` and the sitemap.                   |
+| `NEXT_PUBLIC_WHATSAPP_NUMBER`      | no       | WhatsApp number shown on the site; the wa.me links use its digits. Defaults to a placeholder. |
+| `NEXT_PUBLIC_CONTACT_EMAIL`        | no       | Support email shown on the site and in the privacy policy. Defaults to a placeholder.         |
 
 ## Scripts
 

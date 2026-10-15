@@ -16,9 +16,11 @@ export type Env = z.infer<typeof envSchema>;
 function readEnv(): Env {
   const parsed = envSchema.safeParse({
     SHOPIFY_STORE_DOMAIN: process.env.SHOPIFY_STORE_DOMAIN,
-    SHOPIFY_STOREFRONT_ACCESS_TOKEN: process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN,
+    SHOPIFY_STOREFRONT_ACCESS_TOKEN:
+      process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN,
     SHOPIFY_STOREFRONT_API_VERSION: process.env.SHOPIFY_STOREFRONT_API_VERSION,
-    NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN: process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN,
+    NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN:
+      process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN,
   });
 
   if (!parsed.success) {
@@ -41,10 +43,9 @@ export function getEnv(): Env {
 
 /** Store hostname for Storefront API (no protocol). */
 export function getShopifyStoreDomain(): string {
-  return getEnv().SHOPIFY_STORE_DOMAIN.replace(/^https?:\/\//, "").replace(
-    /\/$/,
-    "",
-  );
+  return getEnv()
+    .SHOPIFY_STORE_DOMAIN.replace(/^https?:\/\//, "")
+    .replace(/\/$/, "");
 }
 
 /** Public store domain for checkout URLs / client (falls back to server domain). */
@@ -60,7 +61,9 @@ export function getPublicStoreDomain(): string {
 
 const DEFAULT_SITE_URL = "https://lionleather.pk";
 
-const siteUrlSchema = z.string().url("NEXT_PUBLIC_SITE_URL must be a valid URL");
+const siteUrlSchema = z
+  .string()
+  .url("NEXT_PUBLIC_SITE_URL must be a valid URL");
 
 let cachedSiteUrl: string | null = null;
 
