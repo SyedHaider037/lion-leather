@@ -68,7 +68,7 @@ export function CartLineItem({
                 />
                 <SubmitButton
                   variant="link"
-                  className="h-10 w-10 after:hidden"
+                  className="h-11 w-11 after:hidden"
                   pendingText="−"
                   aria-label="Decrease quantity"
                 >
@@ -89,7 +89,7 @@ export function CartLineItem({
                 />
                 <SubmitButton
                   variant="link"
-                  className="h-10 w-10 after:hidden"
+                  className="h-11 w-11 after:hidden"
                   pendingText="+"
                   aria-label="Increase quantity"
                 >
@@ -99,7 +99,11 @@ export function CartLineItem({
 
               <form action={onRemoveLine} className="ml-4">
                 <input type="hidden" name="lineId" value={line.id} />
-                <SubmitButton variant="link" pendingText="…">
+                <SubmitButton
+                  variant="link"
+                  className="py-3.5! after:bottom-3.5!"
+                  pendingText="…"
+                >
                   Remove
                 </SubmitButton>
               </form>
