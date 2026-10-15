@@ -30,6 +30,7 @@ import {
 import { getSizeGuideHref } from "@/lib/size-guides";
 import { cn } from "@/lib/utils/cn";
 import { formatMoney } from "@/lib/utils/money";
+import { WHATSAPP_URL } from "@/lib/site-config";
 
 export const revalidate = 60;
 
@@ -123,8 +124,6 @@ function ProductNotFound() {
 
 const CARE_COPY =
   "Wipe gently with a soft, dry cloth after wearing. Condition the leather every few months, keep away from direct heat, and store with cedar trees or in the dust bag provided. Leather deepens in character with time — let it.";
-
-const WHATSAPP_URL = "https://wa.me/923000000000";
 
 export default async function ProductPage({
   params,

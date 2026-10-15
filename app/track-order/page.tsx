@@ -3,13 +3,12 @@ import { Heading } from "@/components/ui/Heading";
 import { Section } from "@/components/ui/Section";
 
 import { TrackOrderForm } from "./TrackOrderForm";
+import { WHATSAPP_NUMBER, WHATSAPP_URL } from "@/lib/site-config";
 
 export const metadata = {
   title: "Track Order",
   description: "Check the status of your Lion Leather order.",
 };
-
-const WHATSAPP_URL = "https://wa.me/923000000000";
 
 export default function TrackOrderPage() {
   return (
@@ -33,7 +32,7 @@ export default function TrackOrderPage() {
             rel="noreferrer noopener"
             className="text-ink underline decoration-gold/50 underline-offset-4 transition-colors duration-200 ease-luxe hover:text-cognac"
           >
-            +92 300 0000000 →
+            {WHATSAPP_NUMBER} →
           </a>
         </p>
       </div>

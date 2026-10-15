@@ -2,6 +2,7 @@ import { Divider } from "@/components/ui/Divider";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Heading } from "@/components/ui/Heading";
 import { Section } from "@/components/ui/Section";
+import { CONTACT_EMAIL } from "@/lib/site-config";
 
 export const metadata = {
   title: "Privacy Policy",
@@ -32,7 +33,7 @@ const SECTIONS: { label: string; body: string }[] = [
   },
   {
     label: "Your Rights",
-    body: "You may request access to, correction of, or deletion of your personal data at any time by writing to hello@example.com.",
+    body: `You may request access to, correction of, or deletion of your personal data at any time by writing to ${CONTACT_EMAIL}.`,
   },
   {
     label: "Retention & Security",

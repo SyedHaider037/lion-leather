@@ -37,6 +37,8 @@ Names only; see `.env.example` for placeholders. Never commit `.env.local`.
 | `SHOPIFY_STOREFRONT_API_VERSION` | no | Storefront API version. Defaults to `2025-01`. |
 | `NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN` | no | Public store hostname for checkout links, if different from the server domain. |
 | `NEXT_PUBLIC_SITE_URL` | no | Public origin of the site, used for metadata, `robots.txt` and the sitemap. |
+| `NEXT_PUBLIC_WHATSAPP_NUMBER` | no | WhatsApp number shown on the site; the wa.me links use its digits. Defaults to a placeholder. |
+| `NEXT_PUBLIC_CONTACT_EMAIL` | no | Support email shown on the site and in the privacy policy. Defaults to a placeholder. |
 
 ## Scripts
 
@@ -68,7 +70,7 @@ public/       Static assets
 
 - The contact form does not send anything yet; it only shows a confirmation message. Email delivery still needs a provider.
 - "Track order" opens a pre-filled WhatsApp message rather than looking up an order.
-- Automated tests are limited to 35 Vitest unit tests (run `npm test`); there are no end-to-end tests.
+- Automated tests are limited to a small set of Vitest unit tests (run `npm test`); there are no end-to-end tests.
 - Collection pages expect the Shopify collection handles `wallets`, `belts`, `footwear` and `bags`; they show an empty state if a collection does not exist in the store.
 - Site copy, policies and brand details are placeholders pending real business content.
 

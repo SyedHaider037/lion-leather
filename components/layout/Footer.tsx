@@ -2,8 +2,7 @@ import Link from "next/link";
 
 import { NewsletterForm } from "@/components/layout/NewsletterForm";
 import { Container } from "@/components/ui/Container";
-
-const WHATSAPP_URL = "https://wa.me/923000000000";
+import { CONTACT_EMAIL, WHATSAPP_NUMBER, WHATSAPP_URL } from "@/lib/site-config";
 
 type FooterLink = { href: string; label: string; external?: boolean };
 
@@ -40,10 +39,10 @@ const COLUMNS: { heading: string; links: FooterLink[] }[] = [
     heading: "Contact",
     links: [
       { href: "/contact", label: "Write to Us" },
-      { href: WHATSAPP_URL, label: "WhatsApp +92 300 0000000 →", external: true },
+      { href: WHATSAPP_URL, label: `WhatsApp ${WHATSAPP_NUMBER} →`, external: true },
       {
-        href: "mailto:hello@example.com",
-        label: "hello@example.com",
+        href: `mailto:${CONTACT_EMAIL}`,
+        label: CONTACT_EMAIL,
         external: true,
       },
     ],

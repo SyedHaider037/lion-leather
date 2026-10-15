@@ -4,8 +4,7 @@ import { useState } from "react";
 
 import { Button } from "@/components/ui/Button";
 import { SpamTrap } from "@/components/ui/SpamTrap";
-
-const WHATSAPP_URL = "https://wa.me/923000000000";
+import { WHATSAPP_NUMBER, WHATSAPP_URL } from "@/lib/site-config";
 
 const inputClass =
   "w-full border border-ink/15 bg-surface px-4 py-3 text-body font-light text-ink placeholder:text-taupe transition-colors duration-200 ease-luxe focus:border-cognac focus:outline-none";
@@ -47,7 +46,7 @@ export function ContactForm() {
             rel="noreferrer noopener"
             className={whatsappLinkClass}
           >
-            WhatsApp +92 300 0000000 →
+            WhatsApp {WHATSAPP_NUMBER} →
           </a>
         </p>
       </div>
@@ -107,7 +106,7 @@ export function ContactForm() {
           rel="noreferrer noopener"
           className={whatsappLinkClass}
         >
-          +92 300 0000000 →
+          {WHATSAPP_NUMBER} →
         </a>
       </p>
     </>

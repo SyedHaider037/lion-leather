@@ -3,8 +3,7 @@
 import { useState } from "react";
 
 import { Button } from "@/components/ui/Button";
-
-const WHATSAPP_URL = "https://wa.me/923000000000";
+import { buildWhatsappUrl } from "@/lib/site-config";
 
 export function TrackOrderForm() {
   const [order, setOrder] = useState("");
@@ -12,7 +11,7 @@ export function TrackOrderForm() {
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     const message = `Hi Lion Leather, I'd like to track my order ${order}.`.trim();
-    const url = `${WHATSAPP_URL}?text=${encodeURIComponent(message)}`;
+    const url = buildWhatsappUrl(undefined, message);
     window.open(url, "_blank", "noopener,noreferrer");
   }
 
