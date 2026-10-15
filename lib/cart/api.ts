@@ -21,6 +21,12 @@ import {
 // exported from a "use server" file becomes a publicly callable endpoint, and
 // these take a cart id as an argument. Only lib/cart/actions.ts is exposed.
 
+// A cart is per-visitor and changes on every add. storefrontRequest caches by
+// default (revalidate 60), and that cache is keyed on the request body — so an
+// identical "add" within a minute would be answered from the cache and never
+// reach Shopify. Every cart call opts out.
+const NO_STORE = { cache: "no-store" } as const;
+
 const merchandiseIdSchema = z
   .string()
   .startsWith("gid://shopify/ProductVariant/");
@@ -58,7 +64,11 @@ function assertNoUserErrors(
 }
 
 export async function getCart(cartId: string): Promise<Cart | null> {
-  const data = await storefrontRequest<CartQueryData>(CART_QUERY, { cartId });
+  const data = await storefrontRequest<CartQueryData>(
+    CART_QUERY,
+    { cartId },
+    NO_STORE,
+  );
   return data.cart;
 }
 
@@ -70,7 +80,7 @@ export async function createCart(input?: {
     : undefined;
   const data = await storefrontRequest<CartCreateData>(CART_CREATE_MUTATION, {
     input: lines ? { lines } : {},
-  });
+  }, NO_STORE);
   assertNoUserErrors(data.cartCreate.userErrors, "Cart create failed");
   if (!data.cartCreate.cart) throw new Error("Cart create returned no cart");
   return data.cartCreate.cart;
@@ -84,6 +94,7 @@ export async function addCartLines(params: {
   const data = await storefrontRequest<CartLinesAddData>(
     CART_LINES_ADD_MUTATION,
     { cartId: params.cartId, lines },
+    NO_STORE,
   );
   assertNoUserErrors(data.cartLinesAdd.userErrors, "Add to cart failed");
   if (!data.cartLinesAdd.cart) throw new Error("Add to cart returned no cart");
@@ -133,6 +144,7 @@ export async function updateCartLines(params: {
   const data = await storefrontRequest<CartLinesUpdateData>(
     CART_LINES_UPDATE_MUTATION,
     { cartId: params.cartId, lines },
+    NO_STORE,
   );
   assertNoUserErrors(data.cartLinesUpdate.userErrors, "Update cart failed");
   if (!data.cartLinesUpdate.cart) {
@@ -149,6 +161,7 @@ export async function removeCartLines(params: {
   const data = await storefrontRequest<CartLinesRemoveData>(
     CART_LINES_REMOVE_MUTATION,
     { cartId: params.cartId, lineIds },
+    NO_STORE,
   );
   assertNoUserErrors(
     data.cartLinesRemove.userErrors,
