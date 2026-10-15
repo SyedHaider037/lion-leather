@@ -1,5 +1,7 @@
 # Lion Leather
 
+[![CI](https://github.com/SyedHaider037/lion-leather/actions/workflows/ci.yml/badge.svg)](https://github.com/SyedHaider037/lion-leather/actions/workflows/ci.yml)
+
 A headless e-commerce storefront for premium leather footwear and accessories, built on Next.js and the Shopify Storefront API.
 
 > **Work in progress.** "Lion Leather" is a working title and may change. The project is under active development, not production-ready, and not a finished product.
@@ -43,6 +45,7 @@ Names only; see `.env.example` for placeholders. Never commit `.env.local`.
 - `npm run start`: serve the production build
 - `npm run lint`: run ESLint
 - `npm run typecheck`: type-check with `tsc --noEmit`
+- `npm test`: run the unit tests (Vitest)
 
 ## Project layout
 
