@@ -36,6 +36,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run typecheck
+      - run: npm run format:check
       - run: npm run lint
       - run: npm test
       # Only runtime dependencies: the known findings are in the dev lint chain.
