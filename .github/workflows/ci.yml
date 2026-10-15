@@ -38,4 +38,6 @@ jobs:
       - run: npm run typecheck
       - run: npm run lint
       - run: npm test
+      # Only runtime dependencies: the known findings are in the dev lint chain.
+      - run: npm audit --omit=dev --audit-level=high
       - run: npm run build
