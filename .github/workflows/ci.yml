@@ -6,18 +6,32 @@ on:
   pull_request:
     branches: [main]
 
+# Read-only token: this workflow only checks code, it never writes to the repo.
+permissions:
+  contents: read
+
+# A newer run on the same branch or PR cancels the one still in progress.
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   check:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     env:
-      # Placeholder values so the build can run; these are not real credentials.
+      # Placeholders only. They are not credentials and CI has no secrets. The
+      # store does not exist, so any Storefront request made during the build
+      # fails and the pages fall back to their empty states.
       SHOPIFY_STORE_DOMAIN: example.myshopify.com
       NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN: example.myshopify.com
       SHOPIFY_STOREFRONT_ACCESS_TOKEN: placeholder-token
+      NEXT_TELEMETRY_DISABLED: "1"
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
+          # Next.js 16 needs Node 20.9 or newer (package.json "engines").
           node-version: 22
           cache: npm
       - run: npm ci
