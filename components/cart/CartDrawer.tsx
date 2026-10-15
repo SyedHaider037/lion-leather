@@ -97,7 +97,7 @@ export function CartDrawer() {
           open ? "translate-x-0" : "translate-x-full",
         )}
       >
-        <header className="flex items-center justify-between border-b border-gold/30 px-6 py-5">
+        <header className="flex items-center justify-between border-b border-gold/30 px-6 py-4">
           <p className="text-eyebrow uppercase text-ink">Your Selection</p>
           <button
             type="button"
@@ -208,7 +208,7 @@ export function CartDrawer() {
 
               <a
                 href={cart.checkoutUrl}
-                className="mt-5 flex h-14 w-full items-center justify-center border border-cognac bg-cognac text-eyebrow uppercase text-paper transition-all duration-500 ease-luxe hover:brightness-110"
+                className="mt-6 flex h-14 w-full items-center justify-center border border-cognac bg-cognac text-eyebrow uppercase text-paper transition-all duration-500 ease-luxe hover:brightness-110"
               >
                 Proceed to Checkout
               </a>

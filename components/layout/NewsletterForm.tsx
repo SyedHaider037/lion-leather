@@ -19,7 +19,7 @@ export function NewsletterForm() {
   const done = state.status === "success";
 
   return (
-    <form action={formAction} className="mt-16 max-w-md" aria-label="Newsletter">
+    <form action={formAction} className="mt-12 max-w-md" aria-label="Newsletter">
       <SpamTrap />
       <label
         htmlFor="newsletter-email"
@@ -36,7 +36,7 @@ export function NewsletterForm() {
           placeholder="Your email address"
           autoComplete="email"
           disabled={pending || done}
-          className="w-full bg-transparent py-3 text-body font-light text-ink placeholder:text-ink/50 focus:outline-none disabled:opacity-60"
+          className="w-full bg-transparent py-3 text-body font-light text-ink placeholder:text-taupe focus:outline-none disabled:opacity-60"
         />
         <button
           type="submit"

@@ -49,7 +49,7 @@ export function MobileAddToCartBar({
         visible ? "translate-y-0" : "translate-y-full",
       )}
     >
-      <div className="flex items-center justify-between gap-4 border-t border-gold/30 bg-surface px-5 py-4 text-ink">
+      <div className="flex items-center justify-between gap-4 border-t border-gold/30 bg-surface px-6 py-4 text-ink">
         <p className="min-w-0 flex-1 truncate font-serif text-card font-light">
           {productName}
         </p>

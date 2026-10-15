@@ -53,7 +53,7 @@ export function CategoryNav({
           open ? "translate-x-0" : "-translate-x-full",
         )}
       >
-        <div className="flex items-center justify-between border-b border-taupe/30 px-6 py-5">
+        <div className="flex items-center justify-between border-b border-taupe/30 px-6 py-4">
           <span className="text-eyebrow uppercase text-taupe">Menu</span>
           <button
             type="button"
@@ -82,10 +82,10 @@ export function CategoryNav({
             ))}
           </ul>
 
-          <div className="my-9 h-px bg-taupe/30" />
+          <div className="my-8 h-px bg-taupe/30" />
 
           <p className="text-eyebrow uppercase text-taupe">House</p>
-          <ul className="mt-5 space-y-3">
+          <ul className="mt-4 space-y-3">
             {SECONDARY.map((s) => (
               <li key={s.href}>
                 <Link

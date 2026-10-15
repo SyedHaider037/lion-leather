@@ -157,7 +157,7 @@ export function Header() {
         </Link>
 
         {/* Right: search + cart */}
-        <div className="flex items-center justify-end gap-1 min-[440px]:gap-5">
+        <div className="flex items-center justify-end gap-1 min-[440px]:gap-4">
           <button
             ref={searchButtonRef}
             type="button"
@@ -214,7 +214,7 @@ export function Header() {
                 type="search"
                 placeholder="What are you looking for?"
                 tabIndex={searchOpen ? 0 : -1}
-                className="w-full bg-transparent py-4 font-serif text-3xl font-light text-ink placeholder:text-taupe/60 focus:outline-none sm:text-4xl [&::-webkit-search-cancel-button]:hidden"
+                className="w-full bg-transparent py-4 font-serif text-3xl font-light text-ink placeholder:text-taupe focus:outline-none sm:text-4xl [&::-webkit-search-cancel-button]:hidden"
               />
               <button
                 type="submit"

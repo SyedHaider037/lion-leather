@@ -23,7 +23,7 @@ export function CraftTeaser({ image }: { image: HeroImage }) {
             <h2 className="mt-6 font-serif text-h2 font-medium text-ink">
               Made by hand in Lahore.
             </h2>
-            <div className="mt-6 space-y-5 text-body-lg font-light text-taupe">
+            <div className="mt-6 space-y-6 text-body-lg font-light text-taupe">
               <p>
                 Every piece begins with full-grain hides, chosen by hand and
                 finished without haste by craftsmen who have shaped leather for

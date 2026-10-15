@@ -22,7 +22,7 @@ function Tile({
         sizes={sizes}
         imageClassName="transition-transform duration-700 ease-luxe group-hover:scale-[1.03]"
       />
-      <div className="mt-5">
+      <div className="mt-4">
         <h3 className="font-serif text-h3 font-medium text-ink">
           <span className="relative inline-block">
             {collection.title}

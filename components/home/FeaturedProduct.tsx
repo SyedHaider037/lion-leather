@@ -27,7 +27,7 @@ export function FeaturedProduct({ product }: { product: ProductCard | null }) {
             <h2 className="mt-6 font-serif text-h2 font-medium text-ink">
               {product.title}
             </h2>
-            <p className="mt-5 font-serif text-h3 font-light italic text-taupe">
+            <p className="mt-6 font-serif text-h3 font-light italic text-taupe">
               Considered down to the last stitch — made to be lived in.
             </p>
             <p className="mt-6 text-body-lg font-light text-taupe">

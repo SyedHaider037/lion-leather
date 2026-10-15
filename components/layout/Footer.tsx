@@ -76,7 +76,7 @@ function FooterLinkItem({ link }: { link: FooterLink }) {
 export function Footer() {
   return (
     <footer className="border-t border-gold/30 bg-surface text-ink">
-      <Container className="py-16 lg:py-24">
+      <Container className="py-12 lg:py-20">
         {/* Signature motif: gold hairline with centered LL monogram */}
         <div className="flex items-center gap-6" role="separator">
           <span className="h-px flex-1 bg-gold/30" />
@@ -89,11 +89,11 @@ export function Footer() {
           <span className="h-px flex-1 bg-gold/30" />
         </div>
 
-        <div className="mt-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {COLUMNS.map((col) => (
             <div key={col.heading}>
               <p className="text-eyebrow uppercase text-ink/80">{col.heading}</p>
-              <ul className="mt-4">
+              <ul className="mt-2">
                 {col.links.map((link) => (
                   <li key={link.label}>
                     <FooterLinkItem link={link} />
@@ -111,11 +111,11 @@ export function Footer() {
 
         <NewsletterForm />
 
-        <div className="mt-16">
+        <div className="mt-12">
           <p className="text-caption font-light text-taupe">
             © {new Date().getFullYear()} Lion Leather. All rights reserved.
           </p>
-          <p className="mt-3 text-caption font-light text-taupe">
+          <p className="mt-1 text-caption font-light text-taupe">
             <Link
               href="/privacy-policy"
               className="inline-flex min-h-11 items-center transition-colors duration-500 ease-luxe hover:text-cognac"

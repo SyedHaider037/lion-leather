@@ -343,7 +343,7 @@ export default async function ProductPage({
                     <label
                       key={v.id}
                       className={cn(
-                        "border px-5 py-3 text-eyebrow uppercase transition-colors duration-500 ease-luxe",
+                        "border px-6 py-3 text-eyebrow uppercase transition-colors duration-500 ease-luxe",
                         "has-[:focus-visible]:outline has-[:focus-visible]:outline-1 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-gold",
                         v.availableForSale
                           ? "cursor-pointer border-ink/40 text-ink hover:border-ink has-[:checked]:border-cognac has-[:checked]:bg-cognac has-[:checked]:text-paper"
@@ -374,7 +374,7 @@ export default async function ProductPage({
                 {sizeGuideHref ? (
                   <Link
                     href={sizeGuideHref}
-                    className="mt-5 inline-block text-eyebrow uppercase text-taupe transition-colors duration-500 ease-luxe hover:text-cognac"
+                    className="mt-4 inline-block text-eyebrow uppercase text-taupe transition-colors duration-500 ease-luxe hover:text-cognac"
                   >
                     Size Guide →
                   </Link>
@@ -445,7 +445,7 @@ export default async function ProductPage({
           <div className="mt-14 border-t border-gold/30">
             {detailsText ? (
               <details className="group border-b border-gold/30">
-                <summary className="flex cursor-pointer list-none items-center justify-between py-5 text-eyebrow uppercase text-ink [&::-webkit-details-marker]:hidden">
+                <summary className="flex cursor-pointer list-none items-center justify-between py-4 text-eyebrow uppercase text-ink [&::-webkit-details-marker]:hidden">
                   Details
                   <span
                     aria-hidden
@@ -461,7 +461,7 @@ export default async function ProductPage({
             ) : null}
 
             <details className="group border-b border-gold/30">
-              <summary className="flex cursor-pointer list-none items-center justify-between py-5 text-eyebrow uppercase text-ink [&::-webkit-details-marker]:hidden">
+              <summary className="flex cursor-pointer list-none items-center justify-between py-4 text-eyebrow uppercase text-ink [&::-webkit-details-marker]:hidden">
                 Care
                 <span
                   aria-hidden

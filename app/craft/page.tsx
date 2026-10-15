@@ -55,10 +55,10 @@ function Story({
           />
           <div className="max-w-md">
             <Eyebrow>{eyebrow}</Eyebrow>
-            <h2 className="mt-5 font-serif text-h2 font-medium text-ink">
+            <h2 className="mt-6 font-serif text-h2 font-medium text-ink">
               {title}
             </h2>
-            <div className="mt-6 space-y-5 text-body-lg font-light text-taupe">
+            <div className="mt-6 space-y-6 text-body-lg font-light text-taupe">
               {children}
             </div>
           </div>

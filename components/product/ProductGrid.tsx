@@ -31,7 +31,7 @@ function ProductCardItem({
         imageClassName="transition-transform duration-700 ease-luxe group-hover:scale-[1.03]"
       />
 
-      <div className="mt-5">
+      <div className="mt-4">
         <p className="font-serif text-card font-medium text-ink">
           <span className="relative inline-block">
             {product.title}
@@ -41,7 +41,7 @@ function ProductCardItem({
             />
           </span>
         </p>
-        <p className="mt-1.5 text-caption text-taupe">{price}</p>
+        <p className="mt-2 text-caption text-taupe">{price}</p>
       </div>
     </Link>
   );

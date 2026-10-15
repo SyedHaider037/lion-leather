@@ -91,7 +91,7 @@ function RelatedTile({ collection }: { collection: CollectionListItem }) {
         sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
         imageClassName="transition-transform duration-700 ease-luxe group-hover:scale-[1.03]"
       />
-      <h3 className="mt-5 font-serif text-h3 font-medium text-ink">
+      <h3 className="mt-4 font-serif text-h3 font-medium text-ink">
         <span className="relative inline-block">
           {collection.title}
           <span
@@ -176,7 +176,7 @@ export default async function CollectionPage({
       <div className="mt-10 grid items-end gap-10 lg:grid-cols-2 lg:gap-16">
         <div>
           <Eyebrow>Collection</Eyebrow>
-          <Heading as="h1" className="mt-5">
+          <Heading as="h1" className="mt-6">
             {collection.title}
           </Heading>
           {description ? (
