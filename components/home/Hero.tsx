@@ -12,10 +12,11 @@ export type HeroImage = PhotoSource | null;
  */
 export function Hero({ image }: { image: HeroImage }) {
   return (
-    <section className="relative -mt-18 w-full overflow-hidden bg-paper">
+    <section className="@container relative -mt-18 w-full overflow-hidden bg-paper">
       <div className="grid min-h-svh lg:grid-cols-[11fr_9fr]">
         {/* Editorial text panel */}
-        <div className="flex items-center px-6 pb-16 pt-32 md:px-[clamp(2.5rem,6vw,6rem)] lg:py-24">
+        {/* Left padding adds the space the page container leaves on wide screens (max 87.5rem), so the text lines up with the header and footer. */}
+        <div className="flex items-center pb-16 pl-[calc(max(0px,(100cqw-87.5rem)/2)+1.5rem)] pr-6 pt-32 md:pl-[calc(max(0px,(100cqw-87.5rem)/2)+clamp(2.5rem,6vw,6rem))] md:pr-[clamp(2.5rem,6vw,6rem)] lg:py-24">
           <div className="max-w-3xl">
             <Eyebrow className="animate-hero-fade [animation-delay:0ms] motion-reduce:animate-none">
               Lion Leather
