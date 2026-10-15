@@ -30,7 +30,7 @@ const COLUMNS: { heading: string; links: FooterLink[] }[] = [
     heading: "Care",
     links: [
       { href: "/leather-care", label: "Leather Care" },
-      { href: "/size-guide/shoes", label: "Sizing Guide" },
+      { href: "/size-guide/shoes", label: "Shoe Size Guide" },
       { href: "/shipping-returns", label: "Shipping & Returns" },
       { href: "/faq", label: "FAQ" },
       { href: "/track-order", label: "Track Order" },
