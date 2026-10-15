@@ -2,11 +2,13 @@
 // honeypot field that humans never fill, and a minimum time between the form
 // appearing and being submitted. Use checkSpam() inside the server action.
 
+import { MIN_FILL_MS } from "@/lib/constants";
+
 export const HONEYPOT_FIELD = "website";
 export const STARTED_AT_FIELD = "startedAt";
 
-/** Faster than this after the form appeared is not a person typing. */
-export const MIN_FILL_MS = 3000;
+// The minimum fill time lives in lib/constants.ts; re-exported here for callers.
+export { MIN_FILL_MS };
 
 export type SpamVerdict = "ok" | "honeypot" | "too-fast" | "missing-time";
 

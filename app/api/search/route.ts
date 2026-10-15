@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 
 import { storefrontRequest } from "@/lib/shopify/client";
+import { SEARCH_DEFAULT_RESULTS, SEARCH_MAX_RESULTS } from "@/lib/constants";
 import {
   PRODUCTS_QUERY,
   type ProductsQueryData,
@@ -9,8 +10,11 @@ import {
 export async function GET(req: Request) {
   const url = new URL(req.url);
   const q = (url.searchParams.get("q") ?? "").trim();
-  const firstRaw = url.searchParams.get("first") ?? "24";
-  const first = Math.max(1, Math.min(48, Number(firstRaw) || 24));
+  const firstRaw = url.searchParams.get("first");
+  const first = Math.max(
+    1,
+    Math.min(SEARCH_MAX_RESULTS, Number(firstRaw) || SEARCH_DEFAULT_RESULTS),
+  );
 
   if (!q) {
     return NextResponse.json({

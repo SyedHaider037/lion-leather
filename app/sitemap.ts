@@ -3,6 +3,7 @@ import type { MetadataRoute } from "next";
 import { getSiteUrl } from "@/lib/env";
 import { storefrontRequest } from "@/lib/shopify/client";
 import { logger } from "@/lib/logger";
+import { SITEMAP_PAGE_SIZE } from "@/lib/constants";
 import {
   COLLECTIONS_QUERY,
   type CollectionsQueryData,
@@ -42,11 +43,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   try {
     const [products, collections] = await Promise.all([
       storefrontRequest<ProductsQueryData>(PRODUCTS_QUERY, {
-        first: 250,
+        first: SITEMAP_PAGE_SIZE,
         query: null,
       }),
       storefrontRequest<CollectionsQueryData>(COLLECTIONS_QUERY, {
-        first: 250,
+        first: SITEMAP_PAGE_SIZE,
       }),
     ]);
 

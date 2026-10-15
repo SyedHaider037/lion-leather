@@ -10,6 +10,7 @@ import { Section } from "@/components/ui/Section";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { storefrontRequest } from "@/lib/shopify/client";
 import { logger } from "@/lib/logger";
+import { COLLECTION_PRODUCT_LIMIT } from "@/lib/constants";
 import {
   COLLECTION_BY_HANDLE_QUERY,
   COLLECTIONS_QUERY,
@@ -127,7 +128,7 @@ export default async function CollectionPage({
         COLLECTION_BY_HANDLE_QUERY,
         {
           handle,
-          first: 100,
+          first: COLLECTION_PRODUCT_LIMIT,
           after: null,
           sortKey: null,
           reverse: null,

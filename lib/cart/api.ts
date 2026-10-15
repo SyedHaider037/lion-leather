@@ -3,6 +3,7 @@ import "server-only";
 import { z } from "zod";
 
 import { storefrontRequest } from "@/lib/shopify/client";
+import { MAX_QUANTITY_PER_LINE } from "@/lib/constants";
 import {
   CART_CREATE_MUTATION,
   CART_LINES_ADD_MUTATION,
@@ -32,7 +33,7 @@ const merchandiseIdSchema = z
   .startsWith("gid://shopify/ProductVariant/");
 const lineIdSchema = z.string().startsWith("gid://shopify/CartLine/");
 // Whole numbers only; Shopify clamps to available stock on its side.
-const quantitySchema = z.number().int().min(0).max(99);
+const quantitySchema = z.number().int().min(0).max(MAX_QUANTITY_PER_LINE);
 
 const cartLinesInputSchema = z
   .array(

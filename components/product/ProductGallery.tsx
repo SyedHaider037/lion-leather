@@ -5,6 +5,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { Reveal } from "@/components/ui/Reveal";
 import { cn } from "@/lib/utils/cn";
+import { GALLERY_MAX_IMAGES, ZOOM_MIN_IMAGE_WIDTH } from "@/lib/constants";
 
 type Img = {
   url: string;
@@ -74,7 +75,7 @@ function ZoomImage({
   const [origin, setOrigin] = useState("50% 50%");
   const [zoom, setZoom] = useState(false);
   // Magnifying a small photo only makes it soft, so only large sources zoom.
-  const canZoom = (img.width ?? 0) >= 1000;
+  const canZoom = (img.width ?? 0) >= ZOOM_MIN_IMAGE_WIDTH;
 
   return (
     <button
@@ -130,7 +131,7 @@ export function ProductGallery({
   title: string;
 }) {
   const normalized = useMemo(
-    () => images.filter(Boolean).slice(0, 7),
+    () => images.filter(Boolean).slice(0, GALLERY_MAX_IMAGES),
     [images],
   );
   const count = normalized.length;

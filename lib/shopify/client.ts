@@ -1,6 +1,7 @@
 import "server-only";
 
 import { getEnv, getShopifyStoreDomain } from "@/lib/env";
+import { SHOPIFY_REVALIDATE_SECONDS } from "@/lib/constants";
 
 export type StorefrontErrorDetail = {
   message: string;
@@ -45,7 +46,9 @@ export async function storefrontRequest<T>(
       "X-Shopify-Storefront-Access-Token": SHOPIFY_STOREFRONT_ACCESS_TOKEN,
     },
     body: JSON.stringify({ query, variables }),
-    ...(init?.cache ? { cache: init.cache } : { next: { revalidate: 60 } }),
+    ...(init?.cache
+      ? { cache: init.cache }
+      : { next: { revalidate: SHOPIFY_REVALIDATE_SECONDS } }),
   });
 
   if (!res.ok) {

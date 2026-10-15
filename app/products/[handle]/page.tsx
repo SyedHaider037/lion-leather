@@ -32,6 +32,7 @@ import { cn } from "@/lib/utils/cn";
 import { formatMoney } from "@/lib/utils/money";
 import { WHATSAPP_URL } from "@/lib/site-config";
 import { logger } from "@/lib/logger";
+import { MAX_PRODUCT_FEATURES, RELATED_PRODUCTS_COUNT } from "@/lib/constants";
 
 export const revalidate = 60;
 
@@ -106,7 +107,7 @@ function parseFeatures(raw: string | null | undefined): string[] {
     .split(/\r?\n/)
     .map((s) => s.trim())
     .filter(Boolean)
-    .slice(0, 8);
+    .slice(0, MAX_PRODUCT_FEATURES);
 }
 
 function ProductNotFound() {
@@ -190,7 +191,7 @@ export default async function ProductPage({
     );
     related = (rec.productRecommendations ?? [])
       .filter((p) => p.handle !== product?.handle)
-      .slice(0, 4);
+      .slice(0, RELATED_PRODUCTS_COUNT);
   } catch (err) {
     logger.error("Recommendations request failed", { page: "product", err });
   }

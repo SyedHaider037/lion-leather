@@ -5,6 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 
 import { ProductGrid } from "@/components/product/ProductGrid";
 import type { ProductCard } from "@/lib/shopify/queries/products";
+import { SEARCH_DEBOUNCE_MS } from "@/lib/constants";
 
 type ApiResponse = { products: ProductCard[] };
 
@@ -33,7 +34,7 @@ export function SearchClient({ initialQuery }: { initialQuery: string }) {
 
   const urlQuery = (searchParams.get("q") ?? initialQuery ?? "").trim();
   const [value, setValue] = useState(urlQuery);
-  const debounced = useDebouncedValue(value, 300);
+  const debounced = useDebouncedValue(value, SEARCH_DEBOUNCE_MS);
 
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState<ProductCard[]>([]);
