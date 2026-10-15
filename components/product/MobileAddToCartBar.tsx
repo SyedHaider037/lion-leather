@@ -45,7 +45,7 @@ export function MobileAddToCartBar({
     <div
       aria-hidden={!visible}
       className={cn(
-        "fixed inset-x-0 bottom-0 z-40 transition-transform duration-500 ease-luxe md:hidden motion-reduce:transition-none",
+        "fixed inset-x-0 bottom-0 z-40 transition-transform duration-[260ms] ease-luxe md:hidden motion-reduce:transition-none",
         visible ? "translate-y-0" : "translate-y-full",
       )}
     >
@@ -58,7 +58,7 @@ export function MobileAddToCartBar({
           form={formId}
           disabled={soldOut}
           tabIndex={visible ? 0 : -1}
-          className="shrink-0 border border-cognac bg-cognac px-6 py-3 font-sans text-eyebrow uppercase text-paper transition-all duration-500 ease-luxe hover:brightness-110 disabled:pointer-events-none disabled:opacity-40"
+          className="shrink-0 border border-cognac bg-cognac px-6 py-3 font-sans text-eyebrow uppercase text-paper transition-all duration-200 ease-luxe hover:brightness-110 active:scale-[0.97] motion-reduce:active:scale-100 disabled:pointer-events-none disabled:opacity-40"
         >
           {soldOut ? "Sold out" : "Add to Selection"}
         </button>

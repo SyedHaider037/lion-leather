@@ -81,7 +81,7 @@ export function CartDrawer() {
       <div
         onClick={() => setOpen(false)}
         className={cn(
-          "absolute inset-0 bg-ink/40 transition-opacity duration-500 ease-luxe",
+          "absolute inset-0 bg-ink/40 transition-opacity duration-[260ms] ease-luxe",
           open ? "opacity-100" : "opacity-0",
         )}
       />
@@ -93,7 +93,7 @@ export function CartDrawer() {
         aria-modal="true"
         aria-label="Your selection"
         className={cn(
-          "absolute inset-y-0 right-0 flex w-full flex-col bg-paper transition-transform duration-500 ease-luxe sm:w-[420px]",
+          "absolute inset-y-0 right-0 flex w-full flex-col bg-paper transition-transform duration-[260ms] ease-luxe sm:w-[420px]",
           open ? "translate-x-0" : "translate-x-full",
         )}
       >
@@ -103,7 +103,7 @@ export function CartDrawer() {
             type="button"
             onClick={() => setOpen(false)}
             aria-label="Close"
-            className="-mr-3 flex h-11 w-11 items-center justify-center text-ink transition-colors duration-500 hover:text-cognac"
+            className="-mr-3 flex h-11 w-11 items-center justify-center text-ink transition-colors duration-200 hover:text-cognac"
           >
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" aria-hidden>
               <path d="M5 5l14 14M19 5L5 19" />
@@ -122,7 +122,7 @@ export function CartDrawer() {
             <Link
               href="/collections/footwear"
               onClick={() => setOpen(false)}
-              className="border border-ink/40 px-8 py-3 text-eyebrow uppercase text-ink transition-all duration-500 ease-luxe hover:border-cognac hover:bg-cognac hover:text-paper"
+              className="border border-ink/40 px-8 py-3 text-eyebrow uppercase text-ink transition-all duration-200 ease-luxe hover:border-cognac hover:bg-cognac hover:text-paper"
             >
               Explore Collection
             </Link>
@@ -161,9 +161,9 @@ export function CartDrawer() {
                             disabled={busy}
                             aria-label="Decrease quantity"
                             onClick={() => mutate(() => cartUpdateLineAction(line.id, line.quantity - 1))}
-                            className="group flex h-11 w-11 items-center justify-center transition-colors duration-300 hover:text-cognac disabled:opacity-40"
+                            className="group flex h-11 w-11 items-center justify-center transition-[color,transform] duration-200 hover:text-cognac active:scale-90 motion-reduce:active:scale-100 disabled:opacity-40"
                           >
-                            <span className="flex h-7 w-7 items-center justify-center border border-ink/30 transition-colors duration-300 group-hover:border-cognac">
+                            <span className="flex h-7 w-7 items-center justify-center border border-ink/30 transition-colors duration-200 group-hover:border-cognac">
                               −
                             </span>
                           </button>
@@ -173,9 +173,9 @@ export function CartDrawer() {
                             disabled={busy}
                             aria-label="Increase quantity"
                             onClick={() => mutate(() => cartUpdateLineAction(line.id, line.quantity + 1))}
-                            className="group flex h-11 w-11 items-center justify-center transition-colors duration-300 hover:text-cognac disabled:opacity-40"
+                            className="group flex h-11 w-11 items-center justify-center transition-[color,transform] duration-200 hover:text-cognac active:scale-90 motion-reduce:active:scale-100 disabled:opacity-40"
                           >
-                            <span className="flex h-7 w-7 items-center justify-center border border-ink/30 transition-colors duration-300 group-hover:border-cognac">
+                            <span className="flex h-7 w-7 items-center justify-center border border-ink/30 transition-colors duration-200 group-hover:border-cognac">
                               +
                             </span>
                           </button>
@@ -188,7 +188,7 @@ export function CartDrawer() {
                         type="button"
                         disabled={busy}
                         onClick={() => mutate(() => cartRemoveLineAction(line.id))}
-                        className="inline-flex min-h-11 items-center text-caption text-taupe underline-offset-4 transition-colors duration-300 hover:text-cognac disabled:opacity-40"
+                        className="inline-flex min-h-11 items-center text-caption text-taupe underline-offset-4 transition-colors duration-200 hover:text-cognac disabled:opacity-40"
                       >
                         Remove
                       </button>
@@ -208,7 +208,7 @@ export function CartDrawer() {
 
               <a
                 href={cart.checkoutUrl}
-                className="mt-6 flex h-14 w-full items-center justify-center border border-cognac bg-cognac text-eyebrow uppercase text-paper transition-all duration-500 ease-luxe hover:brightness-110"
+                className="mt-6 flex h-14 w-full items-center justify-center border border-cognac bg-cognac text-eyebrow uppercase text-paper transition-all duration-200 ease-luxe hover:brightness-110 active:scale-[0.97] motion-reduce:active:scale-100"
               >
                 Proceed to Checkout
               </a>
