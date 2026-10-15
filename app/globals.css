@@ -67,8 +67,8 @@
   --ease-luxe: cubic-bezier(0.22, 1, 0.36, 1);
 
   /* Hero entrance + Ken Burns (pure CSS so they play without JS) */
-  --animate-hero-line: hero-line 1.1s var(--ease-luxe) both;
-  --animate-hero-fade: hero-fade 1.4s var(--ease-luxe) both;
+  --animate-hero-line: hero-line 650ms var(--ease-luxe) both;
+  --animate-hero-fade: hero-fade 500ms var(--ease-luxe) both;
   --animate-kenburns: kenburns 18s linear both;
   --animate-shimmer: shimmer 2.2s ease-in-out infinite;
 
@@ -84,7 +84,7 @@
   @keyframes hero-fade {
     from {
       opacity: 0;
-      transform: translateY(0.75rem);
+      transform: translateY(0.5rem);
     }
     to {
       opacity: 1;

@@ -17,34 +17,34 @@ export function Hero({ image }: { image: HeroImage }) {
         {/* Editorial text panel */}
         <div className="flex items-center px-6 pb-16 pt-32 md:px-[clamp(2.5rem,6vw,6rem)] lg:py-24">
           <div className="max-w-3xl">
-            <Eyebrow className="animate-hero-fade [animation-delay:900ms] motion-reduce:animate-none">
+            <Eyebrow className="animate-hero-fade [animation-delay:0ms] motion-reduce:animate-none">
               Lion Leather
             </Eyebrow>
 
             <h1 className="mt-10 font-serif text-hero font-medium text-ink lg:mt-12">
               <span className="block overflow-hidden">
-                <span className="block animate-hero-line [animation-delay:150ms] motion-reduce:animate-none">
+                <span className="block animate-hero-line [animation-delay:40ms] motion-reduce:animate-none">
                   Crafted for
                 </span>
               </span>
               <span className="block overflow-hidden">
-                <span className="block animate-hero-line [animation-delay:300ms] motion-reduce:animate-none">
+                <span className="block animate-hero-line [animation-delay:120ms] motion-reduce:animate-none">
                   Effortless
                 </span>
               </span>
               <span className="block overflow-hidden">
-                <span className="block animate-hero-line [animation-delay:450ms] motion-reduce:animate-none">
+                <span className="block animate-hero-line [animation-delay:200ms] motion-reduce:animate-none">
                   Elegance
                 </span>
               </span>
             </h1>
 
-            <p className="mt-10 max-w-md animate-hero-fade text-body font-light text-taupe [animation-delay:1100ms] motion-reduce:animate-none">
+            <p className="mt-10 max-w-md animate-hero-fade text-body font-light text-taupe [animation-delay:280ms] motion-reduce:animate-none">
               Footwear and leather goods designed to elevate your everyday
               presence.
             </p>
 
-            <div className="mt-14 animate-hero-fade [animation-delay:1300ms] motion-reduce:animate-none">
+            <div className="mt-14 animate-hero-fade [animation-delay:360ms] motion-reduce:animate-none">
               <ButtonLink href="/collections/footwear" variant="solid">
                 Explore Collection
               </ButtonLink>
