@@ -32,7 +32,7 @@ const SECTIONS: { label: string; body: React.ReactNode }[] = [
 export default function ShippingReturnsPage() {
   return (
     <Section>
-      <div className="mx-auto max-w-2xl">
+      <div className="mx-auto max-w-2xl [&_p]:max-w-[68ch]">
         <Eyebrow>Policy</Eyebrow>
         <Heading as="h1" className="mt-6">
           Shipping &amp; returns.

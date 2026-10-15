@@ -21,7 +21,7 @@ const SIZES: { eu: string; uk: string; us: string; cm: string }[] = [
 export default function ShoeSizeGuidePage() {
   return (
     <Section>
-      <div className="mx-auto max-w-2xl">
+      <div className="mx-auto max-w-2xl [&_p]:max-w-[68ch]">
         <Eyebrow>Size guide</Eyebrow>
         <Heading as="h1" className="mt-6">
           Shoe sizes.
@@ -59,7 +59,7 @@ export default function ShoeSizeGuidePage() {
           </tbody>
         </table>
 
-        <p className="mt-10 text-sm font-light text-taupe">
+        <p className="mt-10 text-caption font-light text-taupe">
           Conversions are approximate and offered as guidance.
         </p>
 

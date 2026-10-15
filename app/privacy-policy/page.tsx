@@ -43,7 +43,7 @@ const SECTIONS: { label: string; body: string }[] = [
 export default function PrivacyPolicyPage() {
   return (
     <Section>
-      <div className="mx-auto max-w-2xl">
+      <div className="mx-auto max-w-2xl [&_p]:max-w-[68ch]">
         <Eyebrow>Policy</Eyebrow>
         <Heading as="h1" className="mt-6">
           Privacy policy.

@@ -35,7 +35,7 @@ const NOTES: { label: string; copy: string }[] = [
 export default function LeatherCarePage() {
   return (
     <Section>
-      <div className="mx-auto max-w-2xl">
+      <div className="mx-auto max-w-2xl [&_p]:max-w-[68ch]">
         <Eyebrow>Care</Eyebrow>
         <Heading as="h1" className="mt-6">
           Caring for your leather.

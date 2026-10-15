@@ -14,7 +14,7 @@ export const metadata = {
 export default function FaqPage() {
   return (
     <Section>
-      <div className="mx-auto max-w-2xl">
+      <div className="mx-auto max-w-2xl [&_p]:max-w-[68ch]">
         <Eyebrow>Help</Eyebrow>
         <Heading as="h1" className="mt-6">
           Frequently asked.
