@@ -1,11 +1,12 @@
 import { cn } from "@/lib/utils/cn";
 
-type Tone = "display" | "title" | "subtle";
+// page: h1 page title · title: h2 section/product title · subtle: h3 sub-title
+type Tone = "page" | "title" | "subtle";
 
 export function Heading({
   children,
   as: Tag = "h1",
-  tone = "display",
+  tone = "page",
   className,
 }: {
   children: React.ReactNode;
@@ -15,11 +16,11 @@ export function Heading({
 }) {
   const base = "font-serif font-medium";
   const toneClass =
-    tone === "display"
-      ? "text-display"
+    tone === "page"
+      ? "text-h1"
       : tone === "title"
         ? "text-title"
-        : "text-2xl leading-snug";
+        : "text-h3";
 
   return <Tag className={cn(base, toneClass, className)}>{children}</Tag>;
 }

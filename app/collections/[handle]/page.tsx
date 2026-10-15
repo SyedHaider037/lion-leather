@@ -176,7 +176,7 @@ export default async function CollectionPage({
       <div className="mt-10 grid items-end gap-10 lg:grid-cols-2 lg:gap-16">
         <div>
           <Eyebrow>Collection</Eyebrow>
-          <Heading as="h1" className="mt-5 lg:text-[clamp(2.5rem,5vw,4.5rem)]">
+          <Heading as="h1" className="mt-5">
             {collection.title}
           </Heading>
           {description ? (
