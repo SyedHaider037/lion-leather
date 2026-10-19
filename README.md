@@ -10,7 +10,7 @@ A headless e-commerce storefront for premium leather footwear and accessories, b
 
 ## Live demo
 
-Coming soon.
+[https://lion-leather.vercel.app](https://lion-leather.vercel.app)
 
 ## Screenshots
 
@@ -156,7 +156,7 @@ GitHub Actions runs on every push and pull request to `main`, in this order: ins
 - Automated tests are unit tests only; there are no end-to-end tests yet.
 - Collection pages expect the Shopify collection handles `wallets`, `belts`, `footwear` and `bags`.
 
-Next steps: email delivery for the contact form, end-to-end tests, a production site URL, analytics and the final brand name.
+Next steps: email delivery for the contact form, end-to-end tests, a custom domain, analytics and the final brand name.
 
 ## License
 
