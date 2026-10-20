@@ -9,7 +9,7 @@ export const metadata = {
 };
 
 // NOTE: these numbers are generic men's conversions, not measurements of our
-// own lasts. Check them against real stock before launch.
+// own lasts. Generic conversions for the demo.
 const SIZES: { eu: string; uk: string; us: string; cm: string }[] = [
   { eu: "40", uk: "6", us: "7", cm: "24.5" },
   { eu: "41", uk: "7", us: "8", cm: "25.5" },

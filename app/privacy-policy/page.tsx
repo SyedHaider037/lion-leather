@@ -2,6 +2,7 @@ import { Divider } from "@/components/ui/Divider";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Heading } from "@/components/ui/Heading";
 import { Section } from "@/components/ui/Section";
+import { SamplePolicyNotice } from "@/components/ui/SamplePolicyNotice";
 import { CONTACT_EMAIL } from "@/lib/site-config";
 
 export const metadata = {
@@ -49,6 +50,8 @@ export default function PrivacyPolicyPage() {
         <Heading as="h1" className="mt-6">
           Privacy policy.
         </Heading>
+
+        <SamplePolicyNotice />
         <p className="mt-4 text-caption font-light text-taupe">
           Last updated June 2026.
         </p>

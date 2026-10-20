@@ -2,6 +2,7 @@ import { Divider } from "@/components/ui/Divider";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Heading } from "@/components/ui/Heading";
 import { Section } from "@/components/ui/Section";
+import { SamplePolicyNotice } from "@/components/ui/SamplePolicyNotice";
 
 import { FaqAccordion } from "./FaqAccordion";
 
@@ -19,6 +20,8 @@ export default function FaqPage() {
         <Heading as="h1" className="mt-6">
           Frequently asked.
         </Heading>
+
+        <SamplePolicyNotice />
         <p className="mt-12 text-body font-light text-taupe">
           Everything you might want to know before, during, and after your
           order.

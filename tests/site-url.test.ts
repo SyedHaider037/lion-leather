@@ -20,13 +20,13 @@ describe("getSiteUrl", () => {
 
   it("falls back to the default origin", async () => {
     const getSiteUrl = await loadGetSiteUrl();
-    expect(getSiteUrl()).toBe("https://lionleather.pk");
+    expect(getSiteUrl()).toBe("https://example.com");
   });
 
   it("uses NEXT_PUBLIC_SITE_URL and strips a trailing slash", async () => {
-    process.env.NEXT_PUBLIC_SITE_URL = "https://example.com/";
+    process.env.NEXT_PUBLIC_SITE_URL = "https://demo.example.org/";
     const getSiteUrl = await loadGetSiteUrl();
-    expect(getSiteUrl()).toBe("https://example.com");
+    expect(getSiteUrl()).toBe("https://demo.example.org");
   });
 
   it("throws for a value that is not a URL", async () => {

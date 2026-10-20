@@ -20,7 +20,7 @@ export function CraftTeaser({ image }: { image: HeroImage }) {
           <div className="max-w-md">
             <Eyebrow>The Craft</Eyebrow>
             <h2 className="mt-6 font-serif text-h2 font-medium text-ink">
-              Made by hand in Lahore.
+              Made by hand.
             </h2>
             <div className="mt-6 space-y-6 text-body-lg font-light text-taupe">
               <p>

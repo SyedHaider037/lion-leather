@@ -4,6 +4,7 @@ import { Divider } from "@/components/ui/Divider";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Heading } from "@/components/ui/Heading";
 import { Section } from "@/components/ui/Section";
+import { SamplePolicyNotice } from "@/components/ui/SamplePolicyNotice";
 
 export const metadata = {
   title: "Shipping & Returns",
@@ -13,7 +14,7 @@ export const metadata = {
 const SECTIONS: { label: string; body: React.ReactNode }[] = [
   {
     label: "Delivery",
-    body: "Orders are prepared and dispatched from Lahore within two working days. Within Pakistan, delivery typically arrives in three to five working days. International orders are sent by tracked courier and usually arrive within seven to fourteen working days.",
+    body: "Orders are prepared and dispatched within two working days. Within Pakistan, delivery typically arrives in three to five working days. International orders are sent by tracked courier and usually arrive within seven to fourteen working days.",
   },
   {
     label: "Tracking",
@@ -37,6 +38,8 @@ export default function ShippingReturnsPage() {
         <Heading as="h1" className="mt-6">
           Shipping &amp; returns.
         </Heading>
+
+        <SamplePolicyNotice />
 
         <p className="mt-12 text-body font-light text-taupe">
           Every order is wrapped by hand and sent with care. Should anything

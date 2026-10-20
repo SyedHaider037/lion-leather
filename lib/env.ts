@@ -59,7 +59,7 @@ export function getPublicStoreDomain(): string {
   );
 }
 
-const DEFAULT_SITE_URL = "https://lionleather.pk";
+const DEFAULT_SITE_URL = "https://example.com";
 
 const siteUrlSchema = z
   .string()

@@ -17,7 +17,7 @@ export const revalidate = 60;
 export const metadata = {
   title: "About",
   description:
-    "Lion Leather — leather goods made by hand in Lahore, for a lifetime of wear.",
+    "Lion Leather — leather goods made by hand, for a lifetime of wear.",
 };
 
 export default async function AboutPage() {
@@ -46,13 +46,12 @@ export default async function AboutPage() {
               Lion Leather is a small house with a single conviction: that a
               well-made thing, looked after, should last a very long time. We
               make footwear and leather goods the slow way — by hand, from
-              full-grain hides, in a workshop in Lahore.
+              full-grain hides.
             </p>
             <p>
-              The craft here is inherited, passed between hands across
-              generations. We have kept it deliberately small so that every
-              piece is given the time and attention it deserves, and so the
-              people who make it are known and valued.
+              The range is kept deliberately small so that every piece is given
+              the time and attention it deserves. This is sample copy for a demo
+              storefront and states no real facts about a business.
             </p>
             <p className="text-ink">
               We design with restraint — honest materials, quiet lines, details

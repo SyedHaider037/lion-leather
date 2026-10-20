@@ -15,7 +15,7 @@ const SECTIONS: FaqSection[] = [
     items: [
       {
         q: "How long does delivery take?",
-        a: "Orders are dispatched from Lahore within two working days. Within Pakistan, delivery arrives in three to five working days; international orders, seven to fourteen.",
+        a: "Orders are dispatched within two working days. Within Pakistan, delivery arrives in three to five working days; international orders, seven to fourteen.",
       },
       {
         q: "Do you ship internationally?",

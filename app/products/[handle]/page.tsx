@@ -413,7 +413,7 @@ export default async function ProductPage({
           </AddToCartForm>
 
           <div className="mt-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-caption font-light text-taupe">
-            <span>Ships from Lahore, Pakistan</span>
+            <span>Demo store: no orders are shipped.</span>
             <span aria-hidden className="text-gold/50">
               ·
             </span>

@@ -2,6 +2,7 @@ import { Divider } from "@/components/ui/Divider";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Heading } from "@/components/ui/Heading";
 import { Section } from "@/components/ui/Section";
+import { SamplePolicyNotice } from "@/components/ui/SamplePolicyNotice";
 
 export const metadata = {
   title: "Terms of Service",
@@ -35,7 +36,7 @@ const SECTIONS: { label: string; body: string }[] = [
   },
   {
     label: "Governing Law",
-    body: "These terms are governed by the laws of Pakistan.",
+    body: "These terms are governed by applicable law.",
   },
 ];
 
@@ -47,6 +48,8 @@ export default function TermsOfServicePage() {
         <Heading as="h1" className="mt-6">
           Terms of service.
         </Heading>
+
+        <SamplePolicyNotice />
         <p className="mt-4 text-caption font-light text-taupe">
           Last updated June 2026.
         </p>

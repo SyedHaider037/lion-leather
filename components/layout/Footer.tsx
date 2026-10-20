@@ -110,7 +110,7 @@ export function Footer() {
                 ))}
                 {col.heading === "Contact" ? (
                   <li className="pt-2 text-caption font-light text-taupe">
-                    Lahore, Pakistan
+                    Demo store
                   </li>
                 ) : null}
               </ul>
@@ -122,7 +122,8 @@ export function Footer() {
 
         <div className="mt-12">
           <p className="text-caption font-light text-taupe">
-            © {new Date().getFullYear()} Lion Leather. All rights reserved.
+            © {new Date().getFullYear()} Lion Leather (demo). Built by Syed
+            Haider.
           </p>
           <p className="mt-1 text-caption font-light text-taupe">
             <Link

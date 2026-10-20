@@ -21,7 +21,7 @@ export const revalidate = 60;
 export const metadata = {
   title: "The Craft",
   description:
-    "Full-grain leather, cut and stitched by hand in Lahore — the making behind Lion Leather.",
+    "Full-grain leather, cut and stitched by hand — the making behind Lion Leather.",
 };
 
 type StoryImage = PhotoSource | null;
@@ -159,14 +159,14 @@ export default async function CraftPage() {
 
       <Story
         eyebrow="The Workshop"
-        title="A workshop in Lahore."
+        title="Made with care."
         image={workshop}
         tone="surface"
       >
         <p>
-          Our pieces are made in a small workshop in Lahore, where the craft has
-          been kept alive across generations. The makers are named, known, and
-          paid for their skill.
+          The pieces in this demo are shown as if made in a small workshop. This
+          is sample copy and states no real facts about a workshop or its
+          makers.
         </p>
         <p>
           It is a quiet kind of luxury — one you can feel in the weight of the
