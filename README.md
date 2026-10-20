@@ -14,7 +14,9 @@ A headless e-commerce storefront for premium leather footwear and accessories, b
 
 ## Screenshots
 
-_Screenshots will be added here._
+![Lion Leather homepage on desktop](docs/screenshots/homepage-desktop.png)
+
+_The Lion Leather homepage on desktop._
 
 ## Features
 
