@@ -150,7 +150,7 @@ GitHub Actions runs on every push and pull request to `main`, in this order: ins
 
 ## Known limitations and roadmap
 
-- The contact form does not send anything yet; it only shows a confirmation message. Email delivery still needs a provider.
+- The contact form opens a prefilled WhatsApp message for the visitor to send; it does not send email. Real email delivery still needs a provider.
 - "Track order" opens a pre-filled WhatsApp message rather than looking up an order.
 - Site copy, policies and brand details are placeholders pending real business content.
 - Automated tests are unit tests only; there are no end-to-end tests yet.
