@@ -4,9 +4,9 @@
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Next.js](https://img.shields.io/badge/Next.js-16-black.svg)](https://nextjs.org)
 
-A headless e-commerce storefront for premium leather footwear and accessories, built on Next.js and the Shopify Storefront API.
+A portfolio demo of a headless e-commerce storefront for a sample leather goods shop, built on Next.js and the Shopify Storefront API.
 
-> **Work in progress.** "Lion Leather" is a working title and may change. The project is under active development, not production-ready, and not a finished product.
+> **Portfolio demo.** This is not a live shop. Checkout is intentionally closed, and all brand names, copy and policies are sample content.
 
 ## Live demo
 
@@ -139,7 +139,7 @@ GitHub Actions runs on every push and pull request to `main`, in this order: ins
 1. Import the repository into Vercel.
 2. In **Settings → Environment Variables**, add the variables from the table above for both **Production** and **Preview**. At minimum set `SHOPIFY_STORE_DOMAIN` and `SHOPIFY_STOREFRONT_ACCESS_TOKEN`, and set your own `NEXT_PUBLIC_SITE_URL`, `NEXT_PUBLIC_WHATSAPP_NUMBER` and `NEXT_PUBLIC_CONTACT_EMAIL`.
 3. Turn on deployment protection for previews so that preview URLs are not public.
-4. In Shopify, turn the store password off before launch. Customers cannot reach checkout while the storefront password is on.
+4. While the Shopify store password is on, checkout is not reachable. Turn it off only if you deploy your own copy and want to take orders.
 
 ## Security notes
 
@@ -152,19 +152,19 @@ GitHub Actions runs on every push and pull request to `main`, in this order: ins
 
 ## Known limitations and roadmap
 
-- The contact form opens a prefilled WhatsApp message for the visitor to send; it does not send email. Real email delivery still needs a provider.
+- The contact form opens a prefilled WhatsApp message for the visitor to send; it does not send email. Email delivery would need a provider.
 - "Track order" opens a pre-filled WhatsApp message rather than looking up an order.
-- Site copy, policies and brand details are placeholders pending real business content.
+- All brand names, copy and policies are sample content for the demo.
 - Automated tests are unit tests only; there are no end-to-end tests yet.
 - Collection pages expect the Shopify collection handles `wallets`, `belts`, `footwear` and `bags`.
 
-Next steps: email delivery for the contact form, end-to-end tests, a custom domain, analytics and the final brand name.
+Next steps: email delivery for the contact form, end-to-end tests and analytics.
 
 ## License
 
 The code is released under the [MIT License](LICENSE).
 
-The brand name, logo, product photos and shop copy are **not** covered by that licence. All rights to them are reserved, and they may not be reused.
+The sample brand name, logo, photos and copy are demo content and are **not** covered by that licence. They may not be reused.
 
 ## Author
 
